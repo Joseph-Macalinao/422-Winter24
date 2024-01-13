@@ -1,0 +1,7 @@
+WEBSCRAPER - files used for webscraping/storing scraped data
+    -use beautiful soup, maybe use JSON/JS/CSV files for formatting
+BACKEND - files used for storing data/accessing information for frontend
+
+FRONTEND - files used for UI. This may include selection of class/subject
+
+ADMIN - may be placed in FRONTEND. Files used for admin addtion of classes and grades.
