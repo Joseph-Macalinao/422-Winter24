@@ -1,7 +1,18 @@
-WEBSCRAPER - files used for webscraping/storing scraped data
-    -use beautiful soup, maybe use JSON/JS/CSV files for formatting
-BACKEND - files used for storing data/accessing information for frontend
+main.py will be the main python file for the system. It will…
 
-FRONTEND - files used for UI. This may include selection of class/subject
+    -Import all other files
+    -Process requests sent by front end
+    -Send requests to their corresponding files
 
-ADMIN - may be placed in FRONTEND. Files used for admin addtion of classes and grades.
+graph.py to graph (takes as a parameter the different ways that someone might want to view data) 
+
+    -This file should graph the data (figure out how to parse from a local file.. Assuming it’s JS for now. CSV is fine.)
+    -Using matplotlib
+    -This should graph the data directly onto the website… if possible… if not possible, come up with other solution. 
+
+admin.py A file that takes care of admin requests and special privileges. 
+    -This will include tampering with data in the js file, writing to / writing over the js file in general.
+    -scraper.py to get the data
+    -From the wayback
+    -This will most likely be called by admin.py
+    -Not understanding this part. 
