@@ -1,12 +1,26 @@
-from tkinter import *
+import tkinter as tk
 
-master = Tk()
+root = tk.Tk()
+root.title("Grade Analysis")
 
-variable = StringVar(master)
-variable.set("one") # default value
+root.geometry("1000x1000")
+year = tk.Text(root, height=2, width=30)
+year.pack()
+year.insert(tk.END, "Please Enter Yearn")
+year_enter = tk.Entry(root)
+year_enter.pack()
+y = year_enter.get()
+depart = tk.Text(root, height=2, width=30)
+depart.pack()
+depart.insert(tk.END, "Please enter department")
+depart_enter = tk.Entry(root)
+depart_enter.pack()
+d = depart_enter.get()
 
-w = OptionMenu(master, variable, "one", "two", "three")
-w.pack()
-
-
-mainloop()
+crn = tk.Text(root, height=2, width=30)
+crn.pack()
+crn.insert(tk.END, "Please enter CRN")
+crn_enter = tk.Entry(root)
+crn_enter.pack()
+crn_enter.get()
+tk.mainloop()
