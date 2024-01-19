@@ -1,0 +1,476 @@
+Faculty Member,Department,Role
+Alice Barkan,Biology, professor (molecular genetics) 
+Brendan J. M. Bohannan,Biology, professor (microbial ecology and evolution) 
+Bruce A. Bowerman,Biology," professor (developmental genetics, regulation of the cytoskeleton in C "
+William E. Bradshaw,Biology," professor (evolutionary genetics, population biology, evolutionary physiology) "
+Scott D. Bridgham,Biology," professor (ecosystem ecology, plant community dynamics) "
+Mark C. Carrier,Biology, senior instructor (developmental biology and physiology) 
+John S. Conery,Biology, professor (computational biology) 
+William A. Cresko,Biology, associate professor (evolutionary developmental genetics) 
+Alan Dickman,Biology," senior instructor with title of research associate professor (forest ecology, science education) "
+Chris Q. Doe,Biology," professor (development of the nervous system, neural stem cells, asymmetric cell division) "
+Judith S. Eisen,Biology, professor (development and function of the nervous system) 
+Richard B. Emlet,Biology, professor (evolution and development of marine invertebrates) 
+Jessica L. Green,Biology, associate professor (applied theoretical ecology) 
+Karen J. Guillemin,Biology," professor (bacterial pathogenesis, bacterial-host interactions in development) "
+Victoria Herman,Biology, associate professor (development and function of nervous system in Drosophila) 
+Janet Hodder,Biology," senior lecturer (ecology of marine birds and mammals, science education) "
+Cristin L. Hulslander,Biology, senior instructor (behavioral ecology) 
+Eric A. Johnson,Biology," associate professor (Drosophila genetics, genomics and cellular physiology) "
+Alan J. Kelly,Biology," senior instructor (molecular and transmission genetics, microbiology) "
+Shawn R. Lockery,Biology, professor (invertebrate neurobiology and neural networks) 
+V. Patteson Lombardi,Biology," senior instructor with title of research assistant professor (human biology, medical physiology); director, undergraduate advising "
+Svetlana Maslakova,Biology," associate professor (evolution, development and systematics of marine invertabrates) "
+Cristopher M. Neill,Biology, assistant professor (development and function of neural circuits for visual processing) 
+Peter M. O’Day,Biology, senior lecturer (cellular signaling) 
+Patrick C. Phillips,Biology," professor (evolution, genetics, complex traits) "
+John H. Postlethwait,Biology, professor (molecular genetic regulation and evolution of development and vertebrate genome evolution) 
+William Roberts,Biology, professor (calcium signaling) 
+Bitty A. Roy,Biology," professor (evolution, pathogen-host interactions, plant population ecology) "
+Debbie Schlenoff,Biology," senior instructor (animal behavior and evolution, conservation biology) "
+Eric Selker,Biology, professor (epigenetic mechanisms) 
+Jeanne M. Selker,Biology, research associate (mitochondrial ultrastructure) 
+Alan Shanks,Biology," professor (marine and intertidal ecology, larval biology, zooplankton) "
+George F. Sprague Jr.,Biology, professor (genetic regulatory mechanisms in yeast) 
+Karen U. Sprague,Biology, professor (control of gene expression in eukaryotes) 
+Kryn Stankunas,Biology, assistant professor (chromatin and regulators as dynamic sources of epigenetic information during heart development) 
+Carl A. Stiefbold,Biology, senior instructor (science laboratory education) 
+Matthew A. Streisfeld,Biology," assistant professor (adaptation in natural plant populations) BS, 1998, Emory; PhD, 2005, California, San Diego "
+Terry Takahashi,Biology, professor (analysis of neural circuitry) 
+Joseph W. Thornton,Biology, professor (evolutionary genomics) 
+Nathan J. Tublitz,Biology, professor (peptidergic regulation of behavior in insects and cephalopod mollusks) 
+Philip E. Washbourne,Biology," associate professor (molecular neurobiology, synapse formation) "
+Janis C. Weeks,Biology," professor (neurophysiology, endocrinology, and development) "
+Monte Westerfield,Biology, professor (molecular genetics of nervous system development) 
+Peter B. Wetherwax,Biology," senior instructor with title of research assistant professor (pollination ecology, tropical ecology, science education) "
+A. Michelle Wood,Biology," professor (microbial ecology and evolution, biological oceanography) "
+Craig M. Young,Biology," professor (marine ecology, deep-sea biology, invertebrate embryology); director, Oregon Institute of Marine Biology "
+Hui Zong,Biology, assistant professor (mouse molecular and cellular genetics) 
+Steven S. Rumrill,Biology," courtesy research associate (estuarine ecology and management, larval biology of marine invertebrates) "
+David H. Wagner,Biology," courtesy associate professor (plant taxonomy, ecology, evolution of bryophytes and pteridophytes) "
+Andrew S. Bajer,Biology, professor emeritus 
+Howard T. Bonnett Jr.,Biology, professor emeritus 
+Roderick A. Capaldi,Biology, professor emeritus 
+George C. Carroll,Biology, professor emeritus 
+Richard W. Castenholz,Biology, professor emeritus 
+Charles B. Kimmel,Biology, professor emeritus 
+Frederick W. Munz,Biology, professor emeritus 
+Paul P. Rudy,Biology, professor emeritus 
+Eric Schabtach,Biology, senior instructor emeritus 
+Lynda P. Shapiro,Biology, professor emerita 
+Franklin W. Stahl,Biology, professor emeritus 
+Nora B. Terwilliger,Biology, professor emerita 
+Daniel Udovic,Biology, professor emeritus 
+Norman K. Wessells,Biology," professor emeritus; provost emeritus, academic affairs "
+James A. Weston,Biology, professor emeritus 
+Herbert P. Wisner,Biology, senior instructor emeritus 
+Andy Berglund,Chemistry and Biochemistry, professor (biochemistry) 
+Shannon W. Boettcher,Chemistry and Biochemistry," assistant professor (inorganic, materials science) "
+Jeffrey A. Cina,Chemistry and Biochemistry, professor (physical) 
+Victoria J. De Rose,Chemistry and Biochemistry, professor (bioinorganic) 
+Kenneth M. Doxsee,Chemistry and Biochemistry," professor (organic, materials science) "
+Paul C. Engelking,Chemistry and Biochemistry, professor (physical) 
+Deborah B. Exton,Chemistry and Biochemistry, senior instructor 
+Marina G. Guenza,Chemistry and Biochemistry, professor (physical) 
+Julie A. Haack,Chemistry and Biochemistry, senior instructor 
+Michael M. Haley,Chemistry and Biochemistry, Richard M 
+Diane K. Hawley,Chemistry and Biochemistry, professor (biochemistry) 
+Darren W. Johnson,Chemistry and Biochemistry, professor (organic) 
+David C. Johnson,Chemistry and Biochemistry, Rosaria P 
+Michael E. Kellman,Chemistry and Biochemistry, professor (physical) 
+Michael Koscho,Chemistry and Biochemistry, instructor (organic) 
+Andrew H. Marcus,Chemistry and Biochemistry," professor (physical, materials science) "
+George V. Nazin,Chemistry and Biochemistry, assistant professor (physical) 
+Brad J. Nolen,Chemistry and Biochemistry, associate professor (biochemistry) 
+Catherine J. Page,Chemistry and Biochemistry," associate professor (inorganic, materials science) "
+Michael D. Pluth,Chemistry and Biochemistry, assistant professor (organic) 
+Kenneth E. Prehoda,Chemistry and Biochemistry, professor (biochemistry) 
+Geraldine L. Richmond,Chemistry and Biochemistry," University of Oregon Presidential Chair in Science; professor (physical, materials science) "
+Tom H. Stevens,Chemistry and Biochemistry, Philip H 
+"David R. ""Randy"" Sullivan",Chemistry and Biochemistry, senior instructor 
+David R. Tyler,Chemistry and Biochemistry, Charles J 
+Gregory M. Williams,Chemistry and Biochemistry, senior professor 
+John Hardwick,Chemistry and Biochemistry, courtesy senior instructor and senior research associate (molecular physics) 
+Ralph J. Barnhard,Chemistry and Biochemistry, senior instructor emeritus 
+Bruce P. Branchaud,Chemistry and Biochemistry, professor emeritus 
+Frederick W. Dahlquist,Chemistry and Biochemistry, professor emeritus 
+Thomas R. Dyke,Chemistry and Biochemistry, professor emeritus 
+O. Hayes Griffith,Chemistry and Biochemistry, professor emeritus 
+David R. Herrick,Chemistry and Biochemistry, professor emeritus 
+John F. W. Keana,Chemistry and Biochemistry, professor emeritus 
+James W. Long,Chemistry and Biochemistry, senior instructor emeritus 
+Robert M. Mazo,Chemistry and Biochemistry, professor emeritus 
+John A. Schellman,Chemistry and Biochemistry, professor emeritus 
+Peter H. von Hippel,Chemistry and Biochemistry, professor emeritus 
+Raymond G. Wolfe Jr.,Chemistry and Biochemistry, professor emeritus 
+Zena M. Ariola,Computer and Information Science," professor (programming languages, lambda calculus, logic) "
+Hank Childs,Computer and Information Science," assistant professor (scientific visualization, high-performance computing, computer graphics) "
+Dejing Dou,Computer and Information Science," associate professor (artificial intelligence, information integration, data mining) "
+Stuart Faulk,Computer and Information Science," research associate (software engineering, software product lines, requirements engineering) "
+Stephen F. Fickas,Computer and Information Science," professor (requirements engineering, software engineering, wearable ubiquitous computing) "
+Kathleen Freeman Hennessy,Computer and Information Science, instructor; director of undergraduate studies 
+Michael Hennessy,Computer and Information Science, senior instructor 
+Anthony J. Hornof,Computer and Information Science," associate professor (human-computer interaction, cognitive modeling, eye tracking) "
+Jun Li,Computer and Information Science," associate professor (computer and network security, network architectures and protocols, distributed systems) "
+Daniel Lowd,Computer and Information Science," assistant professor (machine learning, data mining, artificial intelligence) "
+Allen D. Malony,Computer and Information Science," professor (parallel processing, performance evaluation, neuroinformatics) "
+Andrzej Proskurowski,Computer and Information Science, professor (algorithmic graph theory) 
+Reza Rejaie,Computer and Information Science," associate professor (computer networks, multimedia networking, network measurement) "
+Eric D. Wills,Computer and Information Science, instructor 
+Christopher B. Wilson,Computer and Information Science," associate professor (computational complexity, models of computation) "
+Michal Young,Computer and Information Science," associate professor (software engineering, software test and analysis) "
+Sarah A. Douglas,Computer and Information Science, professor emerita 
+Arthur M. Farley,Computer and Information Science, professor emeritus 
+Virginia M. Lo,Computer and Information Science, associate professor emerita 
+Eugene M. Luks,Computer and Information Science, professor emeritus 
+Kent A. Stevens,Computer and Information Science, professor emeritus 
+Jeffrey Stolet,Computer and Information Science, music 
+Don M. Tucker,Computer and Information Science, psychology 
+Peg Boulay,Environmental Studies," instructor (environmental monitoring, wildlife conservation, outreach and education); codirector, environmental leadership and advising "
+Trudy Ann Cameron,Environmental Studies, Raymond F 
+Matthew Dennis,Environmental Studies," professor (colonial and early national America, American cultural and environmental history, American Indian history) "
+Kathryn A. Lynch,Environmental Studies," instructor (environmental leadership, tropical conservation, environmental education); codirector, environmental leadership and advising "
+Richard D. Margerum,Environmental Studies," associate professor (collaborative environmental management, conflict management in multistakeholder processes) "
+Patricia F. McDowell,Environmental Studies, professor (river management and restoration) 
+Ronald B. Mitchell,Environmental Studies," professor (environmental politics, international relations) "
+Brook Muller,Environmental Studies, associate professor (environmentally responsive architecture) 
+Kari Norgaard,Environmental Studies," associate professor (environment, climate-change denial) "
+Joshua J. Roering,Environmental Studies," associate professor (geomorphology, landscape evolution modeling) "
+David Sutherland,Environmental Studies," assistant professor (ice-ocean interaction, coastal and estuarine oceanography) "
+Ted Toadvine,Environmental Studies," associate professor (environmental ethics, ecophenomenology) "
+Peter A. Walker,Environmental Studies," professor (environmental politics, political ecology) "
+Marsha Weisiger,Environmental Studies, Rocky and Julie Dixon Chair of U 
+Louise Westling,Environmental Studies," professor (ecocriticism, environmental humanities) "
+Richard York,Environmental Studies, associate professor (assessing anthropogenic driving forces of global environmental change) 
+Susan C. Anderson,Environmental Studies, German and Scandinavian 
+William S. Ayres,Environmental Studies, anthropology 
+Patrick J. Bartlein,Environmental Studies, geography 
+Carol Ann Bassett,Environmental Studies, journalism and communication 
+Carla Bengtson,Environmental Studies, art 
+Ann Bettman,Environmental Studies, landscape architecture 
+Aletta Biersack,Environmental Studies, anthropology 
+Thomas H. Bivins,Environmental Studies, journalism and communication 
+Christopher Bone,Environmental Studies, geography 
+John E. Bonine,Environmental Studies, law 
+Gregory D. Bothun,Environmental Studies, physics 
+Yvonne A. Braun,Environmental Studies, women’s and gender studies 
+G. Z. Brown,Environmental Studies, architecture 
+Mark Carey,Environmental Studies, honors college 
+Katharine V. Cashman,Environmental Studies, geological sciences 
+Suzanne Clark,Environmental Studies, English 
+Shaul E. Cohen,Environmental Studies, geography 
+James R. Crosswhite,Environmental Studies, English 
+Edward B. Davis,Environmental Studies, Museum of Natural and Cultural History 
+Jerome Diethelm,Environmental Studies, landscape architecture 
+Rebecca J. Dorsey,Environmental Studies, geological science 
+Michael C. Dreiling,Environmental Studies, sociology 
+Jeffrey Edmundson,Environmental Studies, education studies 
+James R. Elliott,Environmental Studies, sociology 
+Mark Fonstad,Environmental Studies, geography 
+John B. Foster,Environmental Studies, sociology 
+John T. Gage,Environmental Studies, English 
+Daniel Goldrich,Environmental Studies, political science 
+Patricia A. Gwartney,Environmental Studies, sociology 
+William T. Harbaugh,Environmental Studies, economics 
+Susan W. Hardwick,Environmental Studies, geography 
+Jill A. Harrison,Environmental Studies, sociology 
+Kenneth I. Helphand,Environmental Studies, landscape architecture 
+Michael Hibbard,Environmental Studies," planning, public policy and management "
+Derrick Hindery,Environmental Studies, international studies 
+Garrett K. Hongo,Environmental Studies, creative writing 
+Samantha Hopkins,Environmental Studies, honors college 
+Carl J. Hosticka,Environmental Studies," planning, public policy and management "
+David Hulse,Environmental Studies, landscape architecture 
+James E. Hutchison,Environmental Studies, chemistry and biochemistry 
+Renee A. Irvin,Environmental Studies," planning, public policy and management "
+Colin Ives,Environmental Studies, art 
+Grant Jacobsen,Environmental Studies," planning, public policy and management "
+Bart Johnson,Environmental Studies, landscape architecture 
+Mark Johnson,Environmental Studies, philosophy 
+Lamia Karim,Environmental Studies, anthropology 
+Craig Kauffman,Environmental Studies, political science 
+Lauren J. Kessler,Environmental Studies, journalism and communication 
+Gyoung-Ah Lee,Environmental Studies, anthropology 
+Glen A. Love,Environmental Studies, English 
+Bonnie Mann,Environmental Studies, philosophy 
+W. Andrew Marcus,Environmental Studies, geography 
+Ralph Mastromonaco,Environmental Studies, economics 
+Theresa May,Environmental Studies, theater arts 
+Gregory McLauchlan,Environmental Studies, sociology 
+Jerry F. Medler,Environmental Studies, political science 
+Kate Meehan,Environmental Studies, geography 
+Robert Z. Melnick,Environmental Studies, landscape architecture 
+Debra L. Merskin,Environmental Studies, journalism and communication 
+Erin Moore,Environmental Studies, architecture 
+Geraldine Moreno Black,Environmental Studies, anthropology 
+Cassandra Moseley,Environmental Studies, Institute for a Sustainable Environment 
+Madonna L. Moss,Environmental Studies, anthropology 
+Alexander B. Murphy,Environmental Studies, geography 
+Lise Nelson,Environmental Studies, geography 
+Jeffrey Ostler,Environmental Studies, history 
+Robert G. Parker,Environmental Studies," planning, public policy and management "
+Max Nielsen-Pincus,Environmental Studies, Institute for a Sustainable Environment 
+Stephen E. Ponder,Environmental Studies, journalism and communication 
+Daniel A. Pope,Environmental Studies, history 
+Scott L. Pratt,Environmental Studies, philosophy 
+Mark H. Reed,Environmental Studies, geological sciences 
+Gregory J. Retallack,Environmental Studies, geological sciences 
+John S. Reynolds,Environmental Studies, architecture 
+Robert G. Ribe,Environmental Studies, landscape architecture 
+William Rossi,Environmental Studies, English 
+Michael V. Russo,Environmental Studies, management 
+Gordon M. Sayre,Environmental Studies, English 
+Marc Schlossberg,Environmental Studies," planning, public policy and management "
+Paul Slovic,Environmental Studies, psychology 
+J. Josh Snodgrass,Environmental Studies, anthropology 
+Lawrence S. Sugiyama,Environmental Studies, anthropology 
+Kelly Sutherland,Environmental Studies, geological sciences 
+Richard P. Suttmeier,Environmental Studies, political science 
+Roxi Thoren,Environmental Studies, landscape architecture 
+Nelson Ting,Environmental Studies, anthropology 
+Douglas R. Toomey,Environmental Studies, geological sciences 
+Peter Warnek,Environmental Studies, philosophy 
+Ray J. Weldon,Environmental Studies, geological sciences 
+W. Ed Whitelaw,Environmental Studies, economics 
+Mary C. Wood,Environmental Studies, law 
+Stephen R. Wooten,Environmental Studies, international studies 
+Yizhao Yang,Environmental Studies," planning, public policy and management "
+Li-Shan Chou,Human Physiology, professor 
+Anita Christie,Human Physiology, assistant professor 
+Sierra Dawson,Human Physiology, senior instructor 
+Hans Dreyer,Human Physiology, assistant professor 
+Jeffrey Gilbert,Human Physiology, assistant professor 
+Grace Golden,Human Physiology, instructor 
+Michael Hahn,Human Physiology, assistant professor 
+John Halliwill,Human Physiology, professor 
+Andrew Karduna,Human Physiology, professor 
+Andrew Lovering,Human Physiology, associate professor 
+Christopher T. Minson,Human Physiology, professor 
+Jon Runyeon,Human Physiology, instructor 
+John Brandon,Human Physiology, courtesy research assistant 
+Richard L. Brown,Human Physiology, courtesy assistant professor 
+Chien-Chi Chang,Human Physiology, courtesy reserach associate 
+Mark S. Chesnutt,Human Physiology, courtesy research associate 
+Michael Colasurdo,Human Physiology, courtesy professor 
+Dennis Collis,Human Physiology, courtesy professor 
+Mathews Fish,Human Physiology, courtesy professor 
+Daniel Fitzpatrick,Human Physiology, courtesy associate professor 
+Igor Gladstone,Human Physiology, courtesy professor 
+Randall Goodman,Human Physiology, courtesy research assistant 
+Sarah Grall,Human Physiology, courtesy instructor 
+Aaron Harding,Human Physiology, courtesy instructor 
+Jerold Hawn,Human Physiology, courtesy professor 
+Stanley L. James,Human Physiology, courtesy professor 
+Brian Jewett,Human Physiology, courtesy associate professor 
+Donald C. Jones,Human Physiology, courtesy professor 
+Paul Kaplan,Human Physiology, courtesy research associate; university physician 
+Vern Katz,Human Physiology, courtesy professor 
+Peter Kosek,Human Physiology, courtesy professor 
+Brett (Brick) Lantz,Human Physiology, courtesy professor 
+Samuel Lau,Human Physiology, courtesy professor 
+Victor Lin,Human Physiology, courtesy associate professor 
+John Melton,Human Physiology, courtesy senior research associate 
+Brian Nichols,Human Physiology, courtesy instructor 
+Richard Padgett,Human Physiology, courtesy professor 
+Rick Robertson,Human Physiology, courtesy research associate 
+Anne Shumway-Cook,Human Physiology, courtesy senior research associate 
+Kenneth M. Singer,Human Physiology, courtesy professor; team physician 
+Kimberly Terrell,Human Physiology, courtesy instructor 
+Louis R. Osternig,Human Physiology, professor emeritus 
+Richard K. Troxel,Human Physiology, senior instructor emeritus 
+Marjorie Woollacott,Human Physiology, professor emerita 
+Daniel P. Buck,Geography," associate professor (political economy, food geographies, East Asia) "
+Daniel Gavin,Geography," associate professor (biogeography, paleoecology, climate change) "
+Amy K. Lobben,Geography," associate professor (geographic information system science, behavioral geography, data visualization) "
+James E. Meacham,Geography," senior research associate (geographic information systems, cartography, atlas design and production); administrative and research director, InfoGraphics Laboratory "
+Katharine Meehan,Geography," assistant professor (urban political ecology, water policy, Mexico) "
+Xiaobo Su,Geography," associate professor (cultural politics, tourism and urban conservation, China) "
+Blake Andrew,Geography," cartographic program specialist (geographic information systems, cartography); GIS program specialist, InfoGraphics Lab "
+Jacob Bartruff,Geography," spatial analyst programmer (geographic information systems, web application development); employee, InfoGraphics Lab "
+Clark,Geography, Jessie H 
+Donald G. Holtgrieve,Geography," adjunct assistant professor (environmental planning, resource management, watershed issues) "
+Kenneth Kato,Geography," senior research assistant (geographic information systems, planning, cartography); assistant director, InfoGraphics Lab "
+Nicholas P. Kohler,Geography," instructor (geographic information systems, cartography, human-environmental relations) "
+Alethea Steingisser,Geography," research assistant (cartography and graphic design, geographic information systems); designer and production manager, InfoGraphics Lab "
+Stanton A. Cook,Geography, professor emeritus 
+Carl L. Johannessen,Geography, professor emeritus 
+Clyde P. Patton,Geography, professor emeritus 
+Everett G. Smith Jr.,Geography, professor emeritus 
+Alvin W. Urquhart,Geography, professor emeritus 
+Ronald Wixman,Geography, professor emeritus 
+Ilya N. Bindeman,Geological Sciences," associate professor (stable isotope geochemistry, volcanology) "
+Emilie Hooft Toomey,Geological Sciences, associate professor (marine geophysics) 
+Eugene D. Humphreys,Geological Sciences," professor (seismology, regional tectonics) "
+Qusheng Jin,Geological Sciences, associate professor (biogeoscience) 
+A. Dana Johnston,Geological Sciences," professor (experimental petrology, geochemistry) "
+Marli B. Miller,Geological Sciences, senior instructor (structural geology) 
+Alan W. Rempel,Geological Sciences, associate professor (geomechanics and applied mathematics) 
+David A. Sutherland,Geological Sciences, assistant professor (physical oceanography) 
+Paul J. Wallace,Geological Sciences," professor (igneous petrology, volcanology, geochemistry) "
+James M. Watkins,Geological Sciences," assistant professor (experimental petrology, geochemistry, volcanology) "
+David Krinsley,Geological Sciences, courtesy professor (electron microscopy) 
+John M. Logan,Geological Sciences, courtesy professor (rock mechanics) 
+John Donovan,Geological Sciences, research assistant (electron beam microanalysis) 
+Dennis K. Fletcher,Geological Sciences, research assistant 
+James Palandri,Geological Sciences, research associate 
+Sam Boggs,Geological Sciences, professor emeritus 
+M. Allan Kays,Geological Sciences, professor emeritus 
+Alexander R. McBirney,Geological Sciences, professor emeritus 
+William N. Orr,Geological Sciences, professor emeritus 
+Jack M. Rice,Geological Sciences, professor emeritus 
+Norman M. Savage,Geological Sciences, professor emeritus 
+Harve S. Waff,Geological Sciences, professor emeritus 
+Daniel Weill,Geological Sciences, professor emeritus 
+Shabnam Akhtari,Mathematics, assistant professor (number theory) 
+Arkadiy D. Berenstein,Mathematics," professor (quantum groups, representation theory) "
+Boris Botvinnik,Mathematics, professor (algebraic topology) 
+Marcin Bownik,Mathematics," professor (harmonic analysis, wavelets) "
+Jonathan Brundan,Mathematics," professor (Lie theory, representation theory) "
+Daniel K. Dugger,Mathematics," associate professor (algebraic topology and geometry, K-theory, commutative algebra) "
+Peter B. Gilkey,Mathematics," professor (global analysis, differential geometry) "
+Hayden Harker,Mathematics, instructor 
+Weiyong He,Mathematics," assistant professor (differential geometry, geometric analysis and partial differential equations) "
+Fred Hervert,Mathematics, senior instructor 
+James A. Isenberg,Mathematics," professor (mathematical physics, differential geometry, nonlinear partial differential equations) "
+Alexander S. Kleshchev,Mathematics," professor (algebra, representation theory) "
+David A. Levin,Mathematics, associate professor (probability theory and stochastic processes) 
+Huaxin Lin,Mathematics, professor (functional analysis) 
+Peng Lu,Mathematics," professor (differential geometry, geometric analysis) "
+Jean B. Nganou,Mathematics, instructor (finite dimensional division algebras) 
+Victor V. Ostrik,Mathematics, professor (representation theory) 
+N. Christopher Phillips,Mathematics, professor (functional analysis) 
+Alexander Polishchuk,Mathematics, professor (algebraic geometry) 
+Michael R. Price,Mathematics, senior instructor; assistant department head 
+Nicholas J. Proudfoot,Mathematics," associate professor (algebraic geometry, combinatorics, topological groups) "
+Hal Sadofsky,Mathematics," associate professor (algebraic topology, homotopy theory) "
+Brad S. Shelton,Mathematics," professor (Lie groups, harmonic analysis, representations) "
+Christopher D. Sinclair,Mathematics," associate professor (random matrix theory, number theory) "
+Dev P. Sinha,Mathematics, associate professor (algebraic and differential topology) 
+Bartlomiej A. Siudeja,Mathematics," assistant professor (probability, differential equations) "
+Craig Tingey,Mathematics, senior instructor 
+Arkady Vaintrob,Mathematics," associate professor (algebraic geometry, Lie theory and representation theory, mathematical physics) "
+Hao Wang,Mathematics," associate professor (mathematics of finance, probability, statistics) "
+Micah Warren,Mathematics, assistant professor (geometric analysis) 
+Yuan Xu,Mathematics, professor (numerical analysis) 
+Benjamin Young,Mathematics, assistant professor (combinatorics) 
+Sergey Yuzvinsky,Mathematics," professor (representation theory, combinatorics, multiplication of forms) "
+Robert M. Solovay,Mathematics," courtesy professor (quantum computation, logic) "
+Frank W. Anderson,Mathematics, professor emeritus 
+Fred C. Andrews,Mathematics, professor emeritus 
+Bruce A. Barnes,Mathematics, professor emeritus 
+Richard B. Barrar,Mathematics, professor emeritus 
+Glenn T. Beelman,Mathematics, senior instructor emeritus 
+Charles W. Curtis,Mathematics, professor emeritus 
+Micheal N. Dyer,Mathematics, professor emeritus 
+Robert S. Freeman,Mathematics, associate professor emeritus 
+William M. Kantor,Mathematics, professor emeritus 
+Richard M. Koch,Mathematics, professor emeritus 
+John V. Leahy,Mathematics, professor emeritus 
+Shlomo Libeskind,Mathematics, professor emeritus 
+Theodore W. Palmer,Mathematics, professor emeritus 
+Kenneth A. Ross,Mathematics, professor emeritus 
+Gary M. Seitz,Mathematics, professor emeritus 
+Allan J. Sieradski,Mathematics, professor emeritus 
+Stuart Thomas,Mathematics, senior instructor emeritus 
+Donald R. Truax,Mathematics, professor emeritus 
+Marie A. Vitulli,Mathematics, professor emerita 
+Marion I. Walter,Mathematics, professor emerita 
+Lewis E. Ward Jr.,Mathematics, professor emeritus 
+Jerry M. Wolfe,Mathematics, associate professor emeritus 
+Charles R. B. Wright,Mathematics, professor emeritus 
+Edward Awh,Neuroscience, psychology 
+Paul Dassonville,Neuroscience, psychology 
+Clifford Kentros,Neuroscience, psychology 
+Cristopher Neill,Neuroscience, biology 
+Edward Vogel,Neuroscience, psychology 
+Michael Wehr,Neuroscience, psychology 
+Dietrich Belitz,Physics, professor (condensed matter theory) 
+James E. Brau,Physics, Philip H 
+Spencer Chang,Physics, assistant professor (theoretical high-energy physics) 
+Eric Corwin,Physics," assistant professor (biophysics, soft condensed matter) "
+Paul L. Csonka,Physics, professor (elementary particle theory) 
+Nilendra G. Deshpande,Physics, professor (elementary particle theory) 
+Miriam Deutsch,Physics, professor (optical physics) 
+Russell J. Donnelly,Physics," professor (physics of fluids, superfluidity, astrophysics) "
+R. Scott Fisher,Physics, lecturer (astronomy) 
+Raymond E. Frey,Physics, professor (experimental elementary particle physics) 
+Stephen Gregory,Physics, associate professor (solid state physics) 
+Roger Haydock,Physics, professor (solid state theory) 
+Stephen D. H. Hsu,Physics, professor (elementary particle theory) 
+James N. Imamura,Physics," professor (astrophysics); director, Institute of Theoretical Science "
+Timothy Jenkins,Physics, senior instructor (physics education) 
+Stephen D. Kevan,Physics, professor (solid state physics) 
+Graham Kribs,Physics, associate professor (elementary particle theory) 
+Dean W. Livelybrooks,Physics, senior instructor (geophysics) 
+Stephanie Majewski,Physics, assistant professor (experimental elementary particle physics) 
+Brian W. Matthews,Physics, professor (protein crystallography) 
+Benjamin McMorran,Physics," assistant professor (experimental condensed matter, optical physics) "
+Stanley J. Micklavzina,Physics, senior instructor (physics education) 
+Jens Nockel,Physics, associate professor (optical physics) 
+Raghuveer Parthasarathy,Physics," associate professor (condensed matter physics, biophysics) "
+Michael G. Raymer,Physics, Philip H 
+Stephen J. Remington,Physics, professor (protein crystallography) 
+James M. Schombert,Physics, professor (astronomy) 
+Davison E. Soper,Physics, professor (elementary particle theory) 
+Daniel Steck,Physics, associate professor (atom optics and nonlinear dynamics) 
+David M. Strom,Physics, professor (experimental elementary particle physics) 
+Richard P. Taylor,Physics, professor (solid state physics) 
+John J. Toner,Physics, professor (condensed matter theory) 
+Eric Torrence,Physics, professor (experimental elementary particle physics) 
+Steven J. van Enk,Physics, professor (theoretical optical physics) 
+Hailin Wang,Physics, professor (quantum optics) 
+Robert Schofield,Physics, senior research associate (nuclear biophysics) 
+Nikolai Sinev,Physics, senior research associate (experimental high energy physics) 
+Frank Vignola,Physics, senior research associate (solar energy) 
+Bernd Crasemann,Physics, professor emeritus 
+Marvin D. Girardeau,Physics, professor emeritus 
+Rudolph C. Hwa,Physics, professor emeritus 
+Harlan Lefevre,Physics, professor emeritus 
+Joel W. McClure Jr.,Physics, professor emeritus 
+David K. McDaniels,Physics, professor emeritus 
+John T. Moseley,Physics, professor emeritus 
+Jack C. Overley,Physics, professor emeritus 
+Kwangjai Park,Physics, professor emeritus 
+George W. Rayfield,Physics, professor emeritus 
+David R. Sokoloff,Physics, professor emeritus 
+Robert L. Zimmerman,Physics, professor emeritus 
+Jennifer Ablow,Psychology," associate professor (developmental psychopathology, attachment, interpersonal emotional arousal and regulation) "
+Nicholas Allen,Psychology," Ann Swindells Professor of Clinical Psychology (adolescent development and mental health, mood disorders, developmental social and affective neuroscience) "
+Holly Arrow,Psychology," professor (group dynamics, psychology of war) "
+Dare A. Baldwin,Psychology," professor (language acquisition, semantic development, cognitive development) "
+Elliot Berkman,Psychology," assistant professor (affective neuroscience, self-regulation, quantitative methods for neuroimaging) "
+Kimberly Andrews Espy,Psychology," professor (developmental cognitive neuroscience); vice president for research and innovation; dean, Graduate School "
+Philip A. Fisher,Psychology," professor (prevention research, stress neurobiology, foster care) "
+Jennifer J. Freyd,Psychology, professor (trauma psychology) 
+Gordon C. Nagayama Hall,Psychology," professor (sociocultural context of psychopathology, sexual aggression) "
+Sara D. Hodges,Psychology," professor (social cognition, construction of social judgments) "
+Heidemarie K. Laurent,Psychology," courtesy research associate (biology of stress regulation, interpersonal relationships, mindfulness) "
+Robert Mauro,Psychology," associate professor (social, emotions, psychology and law) "
+Ulrich Mayr,Psychology," Robert and Beverly Lewis Professor in Neuroscience (cognitive, cognitive aging, neurocognitive analysis) "
+Jeffrey Measelle,Psychology," associate professor (developmental psychology, emotional development, family) "
+Pranjal Mehta,Psychology," assistant professor (social neuroscience, status hierarchies, social decision-making) "
+Louis J. Moses,Psychology, professor (social and cognitive development) 
+Helen Neville,Psychology, Robert and Beverly Lewis Chair in Neuroscience; professor (cognitive neuroscience) 
+Jennifer Pfeifer,Psychology," associate professor (developmental and social cognitive neuroscience, adolescent self-perception and emotion processing) "
+Gerard Saucier,Psychology," professor (personality beliefs and values, psychometrics) "
+Margaret E. Sereno,Psychology," associate professor (visual cognition, neural network modeling, brain imaging) "
+Azim Shariff,Psychology," assistant professor (religion, morality, cultural and evolutionary psychology) "
+Sanjay Srivastava,Psychology," associate professor (interpersonal perception and self-perception, social functions of emotions, personality dynamics and development) "
+Marjorie Taylor,Psychology, professor (development of imagination and creativity) 
+Nash Unsworth,Psychology," associate professor (working memory, memory and attention differences, memory search and retrieval) "
+Lewis R. Goldberg,Psychology, professor emeritus 
+Barbara Gordon-Lickey,Psychology, professor emerita 
+Marvin Gordon-Lickey,Psychology, professor emeritus 
+Douglas L. Hintzman,Psychology, professor emeritus 
+Ray Hyman,Psychology, professor emeritus 
+Carolin Keutzer,Psychology, associate professor emerita 
+Daniel P. Kimble,Psychology, professor emeritus 
+Peter M. Lewinsohn,Psychology, professor emeritus 
+Edward Lichtenstein,Psychology, professor emeritus 
+Richard A. Littman,Psychology, professor emeritus 
+Richard Marrocco,Psychology, professor emeritus 
+Michael I. Posner,Psychology, professor emeritus 
+Mary K. Rothbart,Psychology, professor emerita 
+Myron Rothbart,Psychology, professor emeritus 
+Norman D. Sundberg,Psychology, professor emeritus 
+Robert L. Weiss,Psychology, professor emeritus 
