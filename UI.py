@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 root = tk.Tk()
 root.title("Grade Analysis")
 
-root.geometry("400x300")
+root.geometry("700x700")
 variable = tk.StringVar(root)
 def show_graph():
     dev_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
@@ -17,6 +17,12 @@ def show_graph():
     plt.ylabel('Median Salary (USD)')
     plt.title('Median Salary (USD) by Age')
     plt.show()
+
+def admin():
+    adminRoot = tk.Tk()
+    adminRoot.geometry("700x700")
+    adminRoot.title("Admin")
+
 
 depart = tk.Text(root, height=2, width=30)
 depart.pack()
@@ -42,4 +48,8 @@ w.pack()
 
 enterButton = tk.Button(root, text="Enter", command=show_graph)
 enterButton.pack()
+
+
+adminButton = tk.Button(root, text="Admin", command=admin)
+adminButton.pack()
 tk.mainloop()
