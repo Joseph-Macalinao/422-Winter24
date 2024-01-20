@@ -25,7 +25,7 @@ class Query:
     """
     def __init__(self, req, md, instr, easyA):
         self.main_request = req
-        self.meta_data = md   # might need to be a list of 1+ elements
+        self.meta_data = md   # list of 1+ elements
         self.all_instructors = instr
         self.easy_a = easyA
 
@@ -39,10 +39,10 @@ class Query:
         """
         
         if self.main_request == 0:
-            class_search(self.meta_data, self.all_instructors, self.easy_a) 
+            class_search(self.meta_data[0], self.all_instructors, self.easy_a) 
 
         elif self.main_request == 1:
-            department_search(self.meta_data, self.all_instructors, self.easy_a) 
+            department_search(self.meta_data[0], self.all_instructors, self.easy_a) 
 
         elif self.main_request == 2:
             level_department_search(self.meta_data, self.all_instructors, self.easy_a) 
