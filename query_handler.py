@@ -37,10 +37,11 @@ class Query:
         
         --> is this bad coding??? feels kinda weird idk
         """
-        
-        if self.main_request == 0:
-            class_search(self.meta_data[0], self.all_instructors, self.easy_a) 
 
+        if self.main_request == 0:
+            class_search(self.meta_data, self.all_instructors, self.easy_a) 
+
+        # since this query only requires one bit of information (department), we can explicitly pass [0]
         elif self.main_request == 1:
             department_search(self.meta_data[0], self.all_instructors, self.easy_a) 
 

@@ -5,9 +5,9 @@ Primarily used by the Query Handler.
 
 # define functions required to search the database, including the following:
 
-def class_search(crn:int, all_instructors, easy_a):
+def class_search(data:list, all_instructors, easy_a):
     """
-    Given a crn, search for all professors who have taught that class.
+    Given a department and a class number (packed into data[]), search for all professors who have taught that class.
     """
     pass
 
