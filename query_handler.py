@@ -15,7 +15,8 @@ class Query:
                                             (2) professors teaching at given level in department, 
                                             and (3) all classes of a given level                                  
         
-        meta_data (list[mixed]): Data to satisfy actual query, such as CRN or class level
+        class_input (int): Data specifying class level/ class number
+        dept (str): Data specifying department 
         
         all_instructors (bool): Boolean identifying "all instructors" vs "regular faculty"
         easy_a (bool): Boolean identifying % of A's vs % of D/F's
@@ -23,10 +24,11 @@ class Query:
     Returns:
         something 
     """
-    def __init__(self, req, md, instr, easyA):
+    def __init__(self, req, class_level=0, dept="", instructor, easyA):
         self.main_request = req
-        self.meta_data = md   # list of 1+ elements
-        self.all_instructors = instr
+        self.class_input = class_level
+        self.dept = dept
+        self.all_instructors = instructor
         self.easy_a = easyA
 
 
@@ -39,17 +41,16 @@ class Query:
         """
 
         if self.main_request == 0:
-            class_search(self.meta_data, self.all_instructors, self.easy_a) 
+            class_search(self.class_input, self.dept ,self.all_instructors, self.easy_a) 
 
-        # since this query only requires one bit of information (department), we can explicitly pass [0]
         elif self.main_request == 1:
-            department_search(self.meta_data[0], self.all_instructors, self.easy_a) 
+            department_search(self.dept, self.all_instructors, self.easy_a) 
 
         elif self.main_request == 2:
-            level_department_search(self.meta_data, self.all_instructors, self.easy_a) 
+            level_department_search(self.class_input, self.dept, self.all_instructors, self.easy_a) 
 
         elif self.main_request == 3:
-            class_level_search(self.meta_data, self.all_instructors, self.easy_a) 
+            class_level_search(self.class_input, self.dept, self.all_instructors, self.easy_a) 
 
         else:
             # error handling lol
