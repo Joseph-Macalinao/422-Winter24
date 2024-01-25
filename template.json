@@ -1,0 +1,16 @@
+
+// for each Department
+
+/*
+{ "Department Abbreviation":
+
+    Classes:[
+    {Class 1}
+    {Class 2}
+    ...
+    {class n}
+    ]
+    "Regular_Faculty":
+    {}
+
+*/
