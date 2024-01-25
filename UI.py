@@ -95,6 +95,21 @@ w.pack(side=LEFT)
 spacer4 = tk.Text(root, height=0.5, width=0)
 spacer4.pack()
 
+levelframe = Frame(root)
+levelframe.pack()
+
+variable3 = tk.StringVar(root)
+variable3.set("None")
+level = tk.Text(levelframe, height=0, width=35, font=('Times', 15))
+level.pack(side=LEFT)
+level.insert(tk.END, "Level")
+z = tk.OptionMenu(levelframe, variable3, "None", "100", "200", "300", "400")
+#w.place(x=380, y=280)
+z.pack(side=LEFT)
+
+spacer5 = tk.Text(root, height=0.5, width=0)
+spacer5.pack()
+
 enterButton = tk.Button(root, text="Enter", font=('Times', 20), command=show_graph)
 enterButton.pack(pady=28)
 
