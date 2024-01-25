@@ -3,8 +3,15 @@ from tkinter import * # possibly change this because this is a big import!
 import tkinter.font as tkFont
 import matplotlib.pyplot as plt
 
+#from PIL import ImageTk, Image
+#import os
+
+
 root = tk.Tk()
 root.title("Grade Analysis")
+
+#img = Image.open("fedor-PtW4RywQV4s-unsplash.jpg")
+#img = img.resize((34, 26))
 
 root.geometry("700x700")
 variable1 = tk.StringVar(root)
