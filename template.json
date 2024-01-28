@@ -1,0 +1,18 @@
+
+// for each Department
+
+/*
+{ 
+    "departments": [
+        "Department 1 (abbreviation)": 
+            Classes:[
+            {Class 1},
+            {Class 2},
+            ...
+            {class n}
+            ],
+            "Regular_Faculty":
+            ["person 1", "person 2", ..., "person n"]
+    ]
+}
+*/
