@@ -15,6 +15,7 @@ root.title("Grade Analysis")
 #img = img.resize((34, 26))
 
 root.geometry("700x700")
+root.configure(bg="gray")
 variable1 = tk.StringVar(root)
 
 def show_graph():

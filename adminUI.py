@@ -10,12 +10,14 @@ import matplotlib.pyplot as plt
 
 #from PIL import ImageTk, Image
 #import os
-root = tk.Tk()
 
-def closeAdmin():
-    root.destroy()
+#def closeAdmin():
+#root.withdraw()
 
 def adminView():
+    root=tk.Tk()
+    def closeAdmin():
+        root.withdraw()
     root.title("Admin")
     root.geometry("700x700")
     adminButton = tk.Button(root, text="Student Mode", font=('Times', 15), command=closeAdmin)
