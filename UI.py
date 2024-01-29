@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import * # possibly change this because this is a big import!
 import tkinter.font as tkFont
 import matplotlib.pyplot as plt
+from adminUI import adminView
 
 #from PIL import ImageTk, Image
 #import os
@@ -29,6 +30,7 @@ def show_graph():
     plt.show()
 
 def admin():
+    '''
     adminRoot = tk.Tk()
     adminRoot.geometry("700x700")
     adminRoot.title("Admin")
@@ -40,13 +42,15 @@ def admin():
     spase1.pack()
     comparedata = tk.Button(adminRoot, text="Compare Scraped Data", font=('Times bold', 24), command=0)
     comparedata.pack()
+    '''
+    adminView()
 
-spacer2 = tk.Text(root, height=4, width=0)
-spacer2.pack()
+#spacer2 = tk.Text(root, height=4, width=0)
+#spacer2.pack()
 
 # beginning space @_@
-spacer1 = tk.Text(root, height=1, width=0)
-spacer1.pack()
+#spacer1 = tk.Text(root, height=1, width=0)
+#spacer1.pack()
 
 # 'menu' buttons
 #userButton = tk.Button(root, text="User", font=('Times', 15))
@@ -54,8 +58,8 @@ spacer1.pack()
 adminButton = tk.Button(root, text="Admin Mode", font=('Times', 15), command=admin)
 adminButton.place(x=20, y=20)
 
-spacer2 = tk.Text(root, height=3.5, width=0)
-spacer2.pack()
+#spacer2 = tk.Text(root, height=3.5, width=0)
+#spacer2.pack()
 
 # title label 
 title = tk.Text(root, height=2, width=15, font=('Times bold', 24))
@@ -84,8 +88,8 @@ crn_enter = tk.Entry(root)
 crn_enter.pack()
 #crn_enter.get()
 
-spacer3 = tk.Text(root, height=0.5, width=0)
-spacer3.pack()
+#spacer3 = tk.Text(root, height=0.5, width=0)
+##spacer3.pack()
 
 distframe = Frame(root)
 distframe.pack()
@@ -99,8 +103,8 @@ w = tk.OptionMenu(distframe, variable2, "A distribution", "Pass distribution")
 #w.place(x=380, y=280)
 w.pack(side=LEFT)
 
-spacer4 = tk.Text(root, height=0.5, width=0)
-spacer4.pack()
+#spacer4 = tk.Text(root, height=0.5, width=0)
+#spacer4.pack()
 
 levelframe = Frame(root)
 levelframe.pack()
@@ -114,8 +118,8 @@ z = tk.OptionMenu(levelframe, variable3, "None", "100", "200", "300", "400")
 #w.place(x=380, y=280)
 z.pack(side=LEFT)
 
-spacer5 = tk.Text(root, height=0.5, width=0)
-spacer5.pack()
+#spacer5 = tk.Text(root, height=0.5, width=0)
+#spacer5.pack()
 
 enterButton = tk.Button(root, text="Enter", font=('Times', 20), command=show_graph)
 enterButton.pack(pady=28)
