@@ -11,7 +11,7 @@ data_bank = "modified_gradedata.js"
 end_marker = "};\n"
 web_data = "export_data.csv"
 primary_dict1 = {}
-secondary_dict2 = {"departments": []}
+department_database = {}
 comparison_list = []
 
 def file_open(file):
@@ -64,41 +64,28 @@ department_key = ''
 for coursecode, course_data in primary_dict1.items():
 
     department = coursecode.split()[0]
-    #print(course_data)
-    #print(course_data[0]["instructor"])
     department_code = ''
     for char in department:
         if char.isdigit():
             break
         department_code += char
 
-        department_entry = next(
-            (dept for dept in secondary_dict2["departments"] if dept.get(department_code)),
-            None
-        )
-
-    if department_entry is None:
-        department_key = department_code
-        department_entry = {
-            department_key: {
+        if department_code not in department_database:
+            department_database[department_code] = {
                 "classes": [],
                 "Regular_Faculty": []
             }
-        }
-        secondary_dict2["departments"].append(department_entry)
 
-    # Append class details to the classes list
-    department_entry[department_key]["classes"].append({coursecode: course_data})
+        department_database[department_code]["classes"].append({coursecode:course_data})
 
-    #secondary_dict2[department_code].append({coursecode: course_data})
-    for courses in course_data:
-        JS_name = courses["instructor"]
-        new_name = rearrange_name(JS_name)
-        if new_name in regular_faculty and new_name not in department_entry[department_key]["Regular_Faculty"]:
-            department_entry[department_key]["Regular_Faculty"].append(new_name)
+        for courses in course_data:
+            JS_name = courses["instructor"]
+            new_name = rearrange_name(JS_name)
+            if new_name in regular_faculty and new_name not in department_database[department_code]["Regular_Faculty"]:
+                department_database[department_code]["Regular_Faculty"].append(new_name)
 
 with open('result.json', 'w') as fp:
-    json.dump(secondary_dict2, fp, indent= 1)
+    json.dump(department_database, fp, indent= 1)
     
 
 
