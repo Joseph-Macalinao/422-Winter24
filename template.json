@@ -1,5 +1,26 @@
 
-// for each Department
+/*
+
+I think this template was a very bad idea (my fault)
+--> it should probably be a singular json object that contains each department as a property
+    rather than a singular property that contains all departments in a list
+
+    i.e. 
+    department_database = 
+        {
+        "AA": {
+            "classes":[]
+            "Regular_Faculty":[]
+            }
+        "AAA": {
+            (...)
+            }
+        }
+Do you think changing it to this new format is reasonably easy?
+
+Best,
+-Nathan Koga, nkoga@uoregon.edu
+*/
 
 /*
 { 

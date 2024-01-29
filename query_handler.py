@@ -24,7 +24,7 @@ class Query:
     Returns:
         something 
     """
-    def __init__(self, req, class_level=0, dept="", instructor, easyA):
+    def __init__(self, req, instructor, easyA, class_level=0, dept=""):
         self.main_request = req
         self.class_input = class_level
         self.dept = dept
@@ -35,26 +35,28 @@ class Query:
     def database_search(self):
         """
         High level function: 
-        Calls specific database searches (as defined in database.py)
+            Calls specific database searches (as defined in database.py)
         
-        --> is this bad coding??? feels kinda weird idk
         """
 
         if self.main_request == 0:
-            class_search(self.class_input, self.dept ,self.all_instructors, self.easy_a) 
+            result = class_search(self.class_input, self.dept ,self.all_instructors, self.easy_a) 
 
         elif self.main_request == 1:
-            department_search(self.dept, self.all_instructors, self.easy_a) 
+            result = department_search(self.dept, self.all_instructors, self.easy_a) 
 
         elif self.main_request == 2:
-            level_department_search(self.class_input, self.dept, self.all_instructors, self.easy_a) 
+            result = level_department_search(self.class_input, self.dept, self.all_instructors, self.easy_a) 
 
         elif self.main_request == 3:
-            class_level_search(self.class_input, self.dept, self.all_instructors, self.easy_a) 
+            result = class_level_search(self.class_input, self.dept, self.all_instructors, self.easy_a) 
 
         else:
             # error handling lol
             pass
+
+        # TODO: define result in a meaningful way to be used for graphing.
+ 
 
 
     """

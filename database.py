@@ -15,7 +15,6 @@ def class_search(class_num, dept, easy_a):
     Given a class number and a department, search for all professors who have taught that class.
     """
     matching_professors = []
-
     for department_entry in easy_a["departments"]:
         for department_code, department_data in department_entry.items():
             if department_code == dept: 
@@ -87,3 +86,12 @@ def class_level_search(class_level, dept, easy_a):
                             matching_classes.append(class_data)
 
     return matching_classes
+
+
+
+if __name__ == "__main__":
+    # query testing (probably remove for final product)
+    res = class_search(122, "CIS", data_bank)
+    
+    # goal --> get res to print relevant data to send back to the query handler
+    print(res)
