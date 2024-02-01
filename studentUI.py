@@ -79,9 +79,11 @@ def main():
     # title label 
     title = tk.Text(root, height=2, width=15, font=('Times bold', 24))
     title.pack()
-    title.config(state="normal")
-    title.insert(tk.END, "Grade Analysis")
-    title.config(state="disabled")
+    title.config(state="normal", highlightthickness = 0, borderwidth=0)
+    title.tag_configure("center", justify='center')
+    title.insert(tk.END, "EasyA")
+    title.tag_add("center", "1.0", "end")
+    title.config(state="disabled", bg="gray")
 
     # dept type input
     deptframe = Frame(root) 
