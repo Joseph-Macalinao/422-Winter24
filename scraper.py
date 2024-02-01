@@ -92,6 +92,6 @@ def data_scraper():
     f.close()
     for url in urls:
         scrape_export_data(url, unique_names_set)
-        time.sleep(9)
+        time.sleep(3)
 
 data_scraper()
