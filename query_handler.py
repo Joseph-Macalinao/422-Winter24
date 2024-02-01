@@ -24,11 +24,11 @@ class Query:
     Returns:
         something 
     """
-    def __init__(self, req, instructor, easyA, class_level=0, dept=""):
+    def __init__(self, req, all_instructors, easyA, class_level=0, dept=""):
         self.main_request = req
         self.class_input = class_level
         self.dept = dept
-        self.all_instructors = instructor
+        self.all_instructors = all_instructors
         self.easy_a = easyA
 
 
@@ -52,10 +52,21 @@ class Query:
             result = class_level_search(self.class_input, self.dept, self.all_instructors, self.easy_a) 
 
         else:
-            # error handling lol
+            # error handling if needed
             pass
 
+        # temorary return
+        return result
+
         # TODO: define result in a meaningful way to be used for graphing.
+
+        # returned result is a dict that takes the following format:
+        #   Each key corresponds to a professor name (for queries 0~2) or class name (for query 3)
+        #   Each value corresponds to a list of 2 elements with the following format: 
+        #       [A% / D&F% Average (float), number of entries (int)]
+        #   
+        #   number of entries is relevant for Part (e) of functional requirements
+        #       --> An option to show class count (number of classes represented by each bar in graph)
  
 
 
@@ -67,3 +78,23 @@ class Query:
         --> GraphInformation object returned to UI when a query is satified by handler
         --> then UI.py can take graph information and display 
     """
+
+
+if __name__ == "__main__":
+    
+    # Running example queries of each type
+    # class search for "CIS 122" professors, with easyA and all_instructors enabled
+    # input_query = Query(0, True, True, class_level=122, dept="CIS")
+    
+    # CIS department search for professors, with easyA and all_instructors enabled
+    # input_query = Query(1, True, True, dept="CIS")
+
+    # CIS department search for all professors of 400 level, with easyA and all_instructors enabled
+    # input_query = Query(2, True, True, class_level=400, dept="CIS")
+
+    # CIS department search for all 600 level classes, with easyA and all_instructors enabled
+    input_query = Query(3, True, True, class_level=600, dept="CIS")
+    
+    res = input_query.database_search()
+    print(res)
+
