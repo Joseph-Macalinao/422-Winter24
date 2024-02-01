@@ -1,24 +1,19 @@
+"""
+File is holding all the UI elements of the student view.
+Created to keep student/user UI and Admin UI separate
+"""
+
 import tkinter as tk
-from tkinter import * # possibly change this because this is a big import!
+from tkinter import * 
 import tkinter.font as tkFont
 import matplotlib.pyplot as plt
 from adminUI import adminView
 
-#from PIL import ImageTk, Image
-#import os
 
-
-root = tk.Tk()
-root.title("Grade Analysis")
-
-#img = Image.open("fedor-PtW4RywQV4s-unsplash.jpg")
-#img = img.resize((34, 26))
-
-root.geometry("700x700")
-root.configure(bg="gray")
-variable1 = tk.StringVar(root)
-
-def show_graph():
+def show_graph(some_list):
+    ''' plot graph from inputted data from student page. 
+    input: a list of [subject, crn, A/pass, level]
+    '''
     dev_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
 
     dev_y = [38496, 42000, 46752, 49320, 53200,
@@ -31,20 +26,117 @@ def show_graph():
     plt.show()
 
 def admin():
-    '''
-    adminRoot = tk.Tk()
-    adminRoot.geometry("700x700")
-    adminRoot.title("Admin")
-    spase = tk.Text(adminRoot, height=14, width=0)
-    spase.pack()
-    editdata = tk.Button(adminRoot, text="Edit Data", font=('Times bold', 24), command=0)
-    editdata.pack()
-    spase1 = tk.Text(adminRoot, height=5, width=0)
-    spase1.pack()
-    comparedata = tk.Button(adminRoot, text="Compare Scraped Data", font=('Times bold', 24), command=0)
-    comparedata.pack()
-    '''
+    ''' show admin pop out page '''
     adminView()
+
+def name_dropdown_input(curr_root, frame_name, var_name, input_text, option_menu):
+    ''' average formatting for a *name* *dropdown menu* on one line type frame.
+    input:
+        curr_root, tk.TK() - the tk root.  
+        frame_name, Frame(root) - the frame that the dropdown input will be on.
+        var_name, tk.StringVar(root) - the variable that will store the output of the choice on screen.
+        input_text, str - the text in the frame (*name* above). 
+        option_menu, list - the tuple of menu options that the dropdown menu will have. 
+    output:
+        var_output, str - the variable choice from the menu.
+    '''
+    new_item = curr_root.Text(frame_name, height=0, width=35, font=('Times', 15)) 
+    new_item.pack(side=LEFT)
+    new_item.config(state="normal")
+    new_item.insert(curr_root.END, input_text)
+    new_item.config(state="disabled")
+    input_enter = curr_root.OptionMenu(frame_name, var_name, *option_menu)
+    input_enter.pack(side=LEFT) 
+    var_output = var_name
+
+    return var_output
+
+
+def main():
+    # initial page set up
+    root = tk.Tk()
+    root.title("Grade Analysis")
+    root.geometry("700x700")
+    root.configure(bg="gray")
+
+    variable1 = tk.StringVar(root)
+    variable1.set("None")
+    variable2 = tk.StringVar(root)
+    variable2.set("None")
+    variable3 = tk.StringVar(root)
+    variable3.set("None")
+      
+    # 'menu' buttons
+    adminButton = tk.Button(root, text="Admin Mode", font=('Times', 15), command=admin)
+    adminButton.place(x=20, y=20)
+
+    # beginning space  
+    spacer1 = tk.Text(root, height=11, width=0)
+    spacer1.pack()
+
+    # title label 
+    title = tk.Text(root, height=2, width=15, font=('Times bold', 24))
+    title.pack()
+    title.config(state="normal")
+    title.insert(tk.END, "Grade Analysis")
+    title.config(state="disabled")
+
+    # dept type input
+    deptframe = Frame(root) 
+    deptframe.pack()
+    tmp = name_dropdown_input(tk, deptframe, variable1, "Please Enter Department", ["Physics", "Biology", "Chemistry", "Earth Science", "Human Physiology"])
+    variable1 = tmp
+
+    # crn type input
+    crn = tk.Text(root, height=2, width=43, pady=15, font=('Times', 15))
+    crn.pack()
+    crn.insert(tk.END, "Please Enter CRN")
+    crn_enter = tk.Entry(root)
+    crn_enter.pack()
+
+    # type of grading input
+    distframe = Frame(root) 
+    distframe.pack()
+    tmp = name_dropdown_input(tk, distframe, variable2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
+    variable2 = tmp
+
+    # level input
+    levelframe = Frame(root)
+    levelframe.pack()
+    tmp = name_dropdown_input(tk, levelframe, variable3, "Level", ["None", "100", "200", "300", "400"])
+    variable3 = tmp
+
+    # output of clicking button
+    def output():
+        output_list = []
+        output_list.append(variable1.get())
+        output_list.append((crn_enter.get()).replace(' ', ''))
+        output_list.append(variable2.get())
+        output_list.append(variable3.get())
+        print(output_list) # has four variables
+        show_graph(output_list)
+
+    enterButton = tk.Button(root, text="Enter", font=('Times', 20), command=output)
+    enterButton.pack(pady=28)
+
+    tk.mainloop()
+    
+    return 0
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+# old code without formatting -- for reference
+'''
+root = tk.Tk()
+root.title("Grade Analysis")
+
+root.geometry("700x700")
+root.configure(bg="gray")
+variable1 = tk.StringVar(root)
 
 #spacer2 = tk.Text(root, height=4, width=0)
 #spacer2.pack()
@@ -54,8 +146,6 @@ def admin():
 #spacer1.pack()
 
 # 'menu' buttons
-#userButton = tk.Button(root, text="User", font=('Times', 15))
-#userButton.place(x=15, y=10)
 adminButton = tk.Button(root, text="Admin Mode", font=('Times', 15), command=admin)
 adminButton.place(x=20, y=20)
 
@@ -135,3 +225,4 @@ enterButton = tk.Button(root, text="Enter", font=('Times', 20), command=show_gra
 enterButton.pack(pady=28)
 
 tk.mainloop()
+'''
