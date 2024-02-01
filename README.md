@@ -8,6 +8,5 @@ being the percentage of D's and F's in the previous terms of the class.
 
 How to run
 ----------
-python3 easyA.py
-or 
-python easyA.py
+- python3 easyA.py
+- python easyA.py
