@@ -1,8 +1,11 @@
 # for processing the js file (and csv?)
 import json
 import csv
+import scraper as scrapermodule
 
 # function to call scraper
+
+scrapermodule.data_scraper()
 
 # function to create a json file from the .csv and .js files
 
