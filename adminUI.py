@@ -6,6 +6,7 @@ Created to keep student/user UI and Admin UI separate
 import tkinter as tk
 from tkinter import * # possibly change this because this is a big import!
 import tkinter.font as tkFont
+from tkinter import filedialog
 import matplotlib.pyplot as plt
 
 #from PIL import ImageTk, Image
@@ -13,6 +14,10 @@ import matplotlib.pyplot as plt
 
 #def closeAdmin():
 #root.withdraw()
+
+#function to allow admin to choose file to update grades
+def openNewFile():
+    file_path = filedialog.askopenfilename()
 
 def adminView():
     root=tk.Tk()
@@ -28,7 +33,7 @@ def adminView():
     #canvas1.create_image( 0, 0, image = bg,  anchor = "nw") 
     spase = tk.Text(root, height=14, width=0)
     spase.pack()
-    editdata = tk.Button(root, text="Edit Data", font=('Times bold', 24), command=0)
+    editdata = tk.Button(root, text="Edit Data", font=('Times bold', 24), command=openNewFile)
     editdata.pack()
     spase1 = tk.Text(root, height=5, width=0)
     spase1.pack()

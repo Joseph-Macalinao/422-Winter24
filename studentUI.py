@@ -55,8 +55,8 @@ def name_dropdown_input(curr_root, frame_name, var_name, input_text, option_menu
 def main():
     # initial page set up
     root = tk.Tk()
-    root.title("Grade Analysis")
-    root.geometry("700x700")
+    root.title("EasyA")
+    root.geometry("900x700")
     root.configure(bg="gray")
 
     variable1 = tk.StringVar(root)
@@ -72,6 +72,8 @@ def main():
 
     # beginning space  
     spacer1 = tk.Text(root, height=11, width=0)
+    #set bg to the same as root and change highlightthickness = 0, borderwidth=0 if dont want to visually see the spacer
+    spacer1.config(state="disabled", bg='gray', highlightthickness = 0, borderwidth=0)
     spacer1.pack()
 
     # title label 
@@ -88,10 +90,13 @@ def main():
     variable1 = tmp
 
     # crn type input
-    crn = tk.Text(root, height=2, width=43, pady=15, font=('Times', 15))
-    crn.pack()
-    crn.insert(tk.END, "Please Enter CRN")
-    crn_enter = tk.Entry(root)
+    #crn = tk.Text(root, height=2, width=43, pady=15, font=('Times', 15))
+    #crn.pack()
+    #crn.insert(tk.END, "Please Enter Class Number")
+    crn_enter = tk.Entry(root,width=42,font=('Times', 15))
+    #lambda func to just get rid of text in class number when entering
+    crn_enter.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
+    crn_enter.insert(0, "Please Enter Class Number")
     crn_enter.pack()
 
     # type of grading input
@@ -116,8 +121,19 @@ def main():
         print(output_list) # has four variables
         show_graph(output_list)
 
+
+
     enterButton = tk.Button(root, text="Enter", font=('Times', 20), command=output)
     enterButton.pack(pady=28)
+
+    #non tech requirement of us telling the user about the data
+    acknowledgements = Label(root, text="All data coped directly from m https://emeraldmediagroup.github.io/grade-data/ in Janruary 2024.\
+                                        \nIf you do not see your class in the listings, your \"class has been redacted\".\
+                                        \nPlease refer to the UO class listing above for any discrepancies, from which we copied in Janruary 2024, so data may change.\
+                                        \nThe years included in this system are from : 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.\
+                                        \nThank you", font=('Times, 10'))
+    acknowledgements.config(bg='gray')
+    acknowledgements.place(x=10,y=600)
 
     tk.mainloop()
     
