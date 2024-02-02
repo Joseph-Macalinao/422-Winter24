@@ -57,7 +57,7 @@ def main():
     root = tk.Tk()
     root.title("EasyA")
     root.geometry("900x700")
-    root.configure(bg="gray")
+    root.configure(bg="gray40")
 
     variable1 = tk.StringVar(root)
     variable1.set("None")
@@ -73,22 +73,22 @@ def main():
     # beginning space  
     spacer1 = tk.Text(root, height=11, width=0)
     #set bg to the same as root and change highlightthickness = 0, borderwidth=0 if dont want to visually see the spacer
-    spacer1.config(state="disabled", bg='gray', highlightthickness = 0, borderwidth=0)
+    spacer1.config(state="disabled", bg='gray40', highlightthickness = 0, borderwidth=0)
     spacer1.pack()
 
     # title label 
-    title = tk.Text(root, height=2, width=15, font=('Times bold', 24))
+    title = tk.Text(root, height=2, width=15, font=('Courier 16 bold', 30))
     title.pack()
     title.config(state="normal", highlightthickness = 0, borderwidth=0)
     title.tag_configure("center", justify='center')
     title.insert(tk.END, "EasyA")
     title.tag_add("center", "1.0", "end")
-    title.config(state="disabled", bg="gray")
+    title.config(state="disabled", bg="gray40")
 
     # dept type input
     deptframe = Frame(root) 
     deptframe.pack()
-    tmp = name_dropdown_input(tk, deptframe, variable1, "Please Enter Department", ["Physics", "Biology", "Chemistry", "Earth Science", "Human Physiology"])
+    tmp = name_dropdown_input(tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
     variable1 = tmp
 
     # crn type input

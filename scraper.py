@@ -94,4 +94,5 @@ def data_scraper():
         scrape_export_data(url, unique_names_set)
         time.sleep(3)
 
-data_scraper()
+if __name__ == "__main__":
+    data_scraper()
