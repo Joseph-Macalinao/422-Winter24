@@ -1,31 +1,16 @@
 # Anna Finlay, matplotlib part
 import csv
 import matplotlib.pyplot as plt
-from query_handler import * #take this line out later
-#for now, we will be importing the file so that we can get the
-#different lists of data
 
-
-
-Query1 = Query(2, True, True, class_level = 400, dept="CIS")
-"""
-REMINDER: (from Nathan's query_handler.py:
-Parameters:
-    main_request (int): 0) specific class,
-                        1) specific department, 
-                        2) professors teaching at given level in department, 
-                        3) all classes of a given level
-    all_instructors
-    percent As
-    class_level [optional]
-    dept
-"""
-
-Dict1 = Query1.database_search()
-print(Dict1)
 
 
 def teacher_fixup(instructor_name: str) -> str:
+    """
+    This auxillary function will help to format teacher names for use cases 0, 1, and 2. (All except class based x axis graphs.)
+    This means that we will put a newline character and remove commas. This will prevent the X axis title from being pushed off of the page.
+
+    teacher_fixup('Childs, Henry Roberts') returns -> 'Childs\nHenry Roberts'
+    """
     return_string = ""
     for i in range(len(instructor_name)):
         if (instructor_name[i] != ","):
@@ -37,13 +22,39 @@ def teacher_fixup(instructor_name: str) -> str:
     
 
 # Please Note: for simplicity's sake, we will be using identical parameters
-# to those developed in query_handler.py. The difference
+# to those developed in query_handler.py.
+#                                                    *********
+#the only difference being that you must include the data dict retrieved from query_handler
+#                                                    *********
+
+
+"""
+REMINDER: (from Nathan's query_handler.py:
+    main_request (int): 0) specific class,
+                        1) specific department, 
+                        2) professors teaching at given level in department, 
+                        3) all classes of a given level
+    all_instructors
+    percent As
+    class_level [optional]
+    dept
+"""
 
 def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot: dict, class_level=0, dept=""):
+    """
+    This will return a matplotlib plot of the requested graph. Here is a use case (using the query_handler file)
+    
+    Query1 = Query(0, True, True, class_level = 422, dept="CIS")
+    Dict1 = Query1.database_search()
+
+                            VVV
+    plotter(0, True, True, Dict1, 400, "CIS")
+                            ^^^
+    """
     if(easyA):
         percent_condition = "got A's"
     else:
-        percent_condition = "just passed"
+        percent_condition = "got D's / F's"
     title = "Grade graph"
     x_axis = "Regular Faculty"
     if (all_instructors):
@@ -66,24 +77,29 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
                 x_list[i] = a_class[len(dept):] # this part just removes stuff like "CIS" if it's attatched
 
     else:
+        rem_list = [] #teachers with 0s
+        for key in data_to_plot:
+            if data_to_plot[key][0] == 0:
+                rem_list.append(key)
+        for rem in rem_list:
+            del data_to_plot[rem]
         x_list = list(data_to_plot.keys())
         for i in range(len(x_list)):
             x_list[i] = teacher_fixup(x_list[i])
-        font = {'size': 6}
+        font = {'size': 6, 'weight': 'bold', 'family': 'serif'}
         plt.rc('font', **font)
 
     y_axis = [stuff[0] for stuff in data_to_plot.values()]
         
-    fig = plt.figure(figsize = (9, 7))
+    fig = plt.figure(figsize = (9, 6))
     plt.bar(x_list, y_axis, color ='green', width = 0.4,)
+    #################################
     plt.xticks(rotation=90)
+    fig.subplots_adjust(bottom=0.24)
+    #################################
     plt.xlabel(x_axis, fontsize=18)
     plt.ylabel(f"Percent of students who {percent_condition}", fontsize=15)
-    plt.title(title, fontsize=10)
+    plt.title(title, fontsize=20, weight='bold')
+    plt.ylim(0, 100)
     plt.show()
-    print(x_list)
-            
-        
-#                       VVV
-plotter(2, True, True, Dict1, 400, "CIS")
-#                       ^^^
+
