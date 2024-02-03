@@ -8,6 +8,8 @@ from tkinter import *
 import tkinter.font as tkFont
 import matplotlib.pyplot as plt
 from adminUI import adminView
+from query_handler import *
+from plot import *
 
 
 def show_graph(some_list):
@@ -121,7 +123,26 @@ def main():
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         print(output_list) # has four variables
-        show_graph(output_list)
+        #show_graph(output_list)
+        a_vs_justpass = (output_list[2] == 'A distribution')
+        if (output_list[2] == ""):
+            a_vs_justpass = True
+        if (output_list[1] == ""):
+            output_list[1] = 0
+        else:
+            while(True):
+                try:
+                    output_list[1] = int(output_list[1])
+                    output_list[3] = int(output_list[3])
+                    break
+                except:
+                    pass
+        
+        my_query = Query(2, a_vs_justpass, True, class_level = output_list[1], dept=output_list[0])
+        Dict1 = my_query.database_search()
+        print(Dict1)
+        plotter(2, a_vs_justpass, True, Dict1, output_list[1], output_list[0])
+        print(output_list)
 
 
 
