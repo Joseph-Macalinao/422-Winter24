@@ -153,7 +153,7 @@ def main():
 
 
 
-    enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
+    enterButton = tk.Button(root, bg='light blue', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
     enterButton.place(x=586, y=470)
 
