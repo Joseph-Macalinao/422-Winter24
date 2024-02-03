@@ -34,7 +34,7 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
     new_item.config(state="disabled")
     menu_width = len(max(option_menu, key=len))
     input_enter = curr_root.OptionMenu(frame_name, var_name, *option_menu)
-    input_enter.config(font=("Bold", 17), width=menu_width, bg="gray92", highlightthickness = 0, borderwidth=0)
+    input_enter.config(font=("Bold", 17), width=menu_width)#, bg="gray92")
     input_enter.pack(side=LEFT) 
     var_output = var_name
 
@@ -54,12 +54,14 @@ def main():
     variable2.set("None")
     variable3 = tk.StringVar(root)
     variable3.set("None")
+    variable4 = tk.StringVar(root)
+    variable4.set("None")
 
     # background :3
     root.backGroundImage=PhotoImage(file="background.png")
     root.backGroundImageLabel=Label(root, image=root.backGroundImage)
     root.backGroundImageLabel.place(x=0, y=0)
-    root.canvas=Canvas(root, width=650, height=450)
+    root.canvas=Canvas(root, width=750, height=450) # was width=650, height=450
     root.canvas.configure(bg="gray92")
     root.canvas.place(x=275, y=120)
 
@@ -84,15 +86,15 @@ def main():
     crnframe = Frame(root)
     crnframe.place(x=360, y=288)
     crnframe.configure(bg="gray92")
-    new_item = tk.Text(crnframe, height=0, width=31, font=('Bold', 17)) 
+    new_item = tk.Text(crnframe, height=0, width=34, font=('Bold', 17)) 
     new_item.pack(side=LEFT)
     new_item.config(state="normal")
-    new_item.insert(tk.END, "Class Number (CRN)")
+    new_item.insert(tk.END, "Class Number")
     new_item.config(state="disabled", bg="gray92", highlightthickness = 0, borderwidth=0)
-    crn_enter = tk.Entry(crnframe,width=15,font=("Helvetica 17 italic"), fg='grey60')
+    crn_enter = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
     #lambda func to just get rid of text in class number when entering
     crn_enter.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
-    crn_enter.insert(0, "Please Enter CRN")
+    crn_enter.insert(0, "Class Number")
     #crn_enter.configure(bg="gray92", highlightthickness = 1, borderwidth=0)
     crn_enter.pack(side=RIGHT)
 
@@ -112,6 +114,14 @@ def main():
     tmp = name_dropdown_input(tmp_item, tk, levelframe, variable3, "Level", ["None", "100", "200", "300", "400"])
     variable3 = tmp
 
+    # level input
+    allframe = Frame(root)
+    allframe.place(x=360, y=410)
+    allframe.configure(bg="gray92")
+    tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp = name_dropdown_input(tmp_item, tk, allframe, variable4, "All Instructors/Regular Faculty", ["All Instructors", "Regular Faculty"])
+    variable4 = tmp
+
     # output of clicking button
     def output():
         output_list = []
@@ -119,6 +129,7 @@ def main():
         output_list.append((crn_enter.get()).replace(' ', ''))
         output_list.append(variable2.get())
         output_list.append(variable3.get())
+        output_list.append(variable4.get())
         print(output_list) # has four variables
         a_vs_justpass = (output_list[2] == 'A distribution')
         if (output_list[2] == ""):
@@ -142,7 +153,7 @@ def main():
 
 
 
-    enterButton = tk.Button(root, highlightbackground='light blue', text="Enter", font=('Bold 24'), command=output)
+    enterButton = tk.Button(root, bg='light blue', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
     enterButton.place(x=586, y=470)
 
