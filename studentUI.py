@@ -12,28 +12,14 @@ from query_handler import *
 from plot import *
 
 
-def show_graph(some_list):
-    ''' plot graph from inputted data from student page. 
-    input: a list of [subject, crn, A/pass, level]
-    '''
-    dev_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
-
-    dev_y = [38496, 42000, 46752, 49320, 53200,
-         56000, 62316, 64928, 67317, 68748, 73752]
-
-    ax = plt.plot(dev_x, dev_y)
-    plt.xlabel('Ages')
-    plt.ylabel('Median Salary (USD)')
-    plt.title('Median Salary (USD) by Age')
-    plt.show()
-
 def admin():
     ''' show admin pop out page '''
     adminView()
 
-def name_dropdown_input(curr_root, frame_name, var_name, input_text, option_menu):
+def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, option_menu):
     ''' average formatting for a *name* *dropdown menu* on one line type frame.
     input:
+        text_item, tk.Text() - a Text item with the appropriate width for the option menu.
         curr_root, tk.TK() - the tk root.  
         frame_name, Frame(root) - the frame that the dropdown input will be on.
         var_name, tk.StringVar(root) - the variable that will store the output of the choice on screen.
@@ -41,13 +27,14 @@ def name_dropdown_input(curr_root, frame_name, var_name, input_text, option_menu
         option_menu, list - the tuple of menu options that the dropdown menu will have. 
     output:
         var_output, str - the variable choice from the menu.
-    '''
-    new_item = curr_root.Text(frame_name, height=0, width=35, font=('Times', 15)) 
+    ''' 
     new_item.pack(side=LEFT)
     new_item.config(state="normal")
     new_item.insert(curr_root.END, input_text)
     new_item.config(state="disabled")
+    menu_width = len(max(option_menu, key=len))
     input_enter = curr_root.OptionMenu(frame_name, var_name, *option_menu)
+    input_enter.config(font=("Bold", 17), width=menu_width, bg="gray92", highlightthickness = 0, borderwidth=0)
     input_enter.pack(side=LEFT) 
     var_output = var_name
 
@@ -57,9 +44,9 @@ def name_dropdown_input(curr_root, frame_name, var_name, input_text, option_menu
 def main():
     # initial page set up
     root = tk.Tk()
-    root.title("EasyA")
-    root.geometry("900x700")
-    root.configure(bg="gray40")
+    root.title("easyA")
+    root.geometry("1200x750")
+    root.resizable(False,False)
 
     variable1 = tk.StringVar(root)
     variable1.set("None")
@@ -67,52 +54,62 @@ def main():
     variable2.set("None")
     variable3 = tk.StringVar(root)
     variable3.set("None")
-      
-    # 'menu' buttons
-    adminButton = tk.Button(root, text="Admin Mode", font=('Times', 15), command=admin)
-    adminButton.place(x=20, y=20)
 
-    # beginning space  
-    spacer1 = tk.Text(root, height=11, width=0)
-    #set bg to the same as root and change highlightthickness = 0, borderwidth=0 if dont want to visually see the spacer
-    spacer1.config(state="disabled", bg='gray40', highlightthickness = 0, borderwidth=0)
-    spacer1.pack()
+    # background :3
+    root.backGroundImage=PhotoImage(file="background.png")
+    root.backGroundImageLabel=Label(root, image=root.backGroundImage)
+    root.backGroundImageLabel.place(x=0, y=0)
+    root.canvas=Canvas(root, width=650, height=450)
+    root.canvas.configure(bg="gray92")
+    root.canvas.place(x=275, y=120)
+
+    # 'menu' buttons
+    adminButton = tk.Button(root, text="Admin Mode", font=('Bold 30', 20), command=admin)
+    adminButton.place(x=40, y=40)
 
     # title label 
-    title = tk.Text(root, height=2, width=15, font=('Courier 16 bold', 30))
-    title.pack()
-    title.config(state="normal", highlightthickness = 0, borderwidth=0)
-    title.tag_configure("center", justify='center')
-    title.insert(tk.END, "EasyA")
-    title.tag_add("center", "1.0", "end")
-    title.config(state="disabled", bg="gray40")
+    title = tk.Label(root, text="easyA", font=("Bold 40"), bg="gray92")
+    title.place(x=550, y=160)
 
     # dept type input
     deptframe = Frame(root) 
-    deptframe.pack()
-    tmp = name_dropdown_input(tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
+    deptframe.place(x=360, y=250)
+    deptframe.configure(bg="gray92")
+    tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
+    tmp_item.configure(bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp = name_dropdown_input(tmp_item, tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
     variable1 = tmp
 
     # crn type input
-    #crn = tk.Text(root, height=2, width=43, pady=15, font=('Times', 15))
-    #crn.pack()
-    #crn.insert(tk.END, "Please Enter Class Number")
-    crn_enter = tk.Entry(root,width=42,font=('Times', 15))
+    crnframe = Frame(root)
+    crnframe.place(x=360, y=288)
+    crnframe.configure(bg="gray92")
+    new_item = tk.Text(crnframe, height=0, width=31, font=('Bold', 17)) 
+    new_item.pack(side=LEFT)
+    new_item.config(state="normal")
+    new_item.insert(tk.END, "Class Number (CRN)")
+    new_item.config(state="disabled", bg="gray92", highlightthickness = 0, borderwidth=0)
+    crn_enter = tk.Entry(crnframe,width=15,font=("Helvetica 17 italic"), fg='grey60')
     #lambda func to just get rid of text in class number when entering
     crn_enter.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
-    crn_enter.insert(0, "Please Enter Class Number")
-    crn_enter.pack()
+    crn_enter.insert(0, "Please Enter CRN")
+    #crn_enter.configure(bg="gray92", highlightthickness = 1, borderwidth=0)
+    crn_enter.pack(side=RIGHT)
 
     # type of grading input
     distframe = Frame(root) 
-    distframe.pack()
-    tmp = name_dropdown_input(tk, distframe, variable2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
+    distframe.place(x=360, y=328)
+    distframe.config(bg="gray92")
+    tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp = name_dropdown_input(tmp_item, tk, distframe, variable2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
     variable2 = tmp
 
     # level input
     levelframe = Frame(root)
-    levelframe.pack()
-    tmp = name_dropdown_input(tk, levelframe, variable3, "Level", ["None", "100", "200", "300", "400"])
+    levelframe.place(x=360, y=366)
+    levelframe.configure(bg="gray92")
+    tmp_item = tk.Text(levelframe, height=0, width=39, font=('Bold', 17), bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp = name_dropdown_input(tmp_item, tk, levelframe, variable3, "Level", ["None", "100", "200", "300", "400"])
     variable3 = tmp
 
     # output of clicking button
@@ -123,7 +120,6 @@ def main():
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         print(output_list) # has four variables
-        #show_graph(output_list)
         a_vs_justpass = (output_list[2] == 'A distribution')
         if (output_list[2] == ""):
             a_vs_justpass = True
@@ -146,17 +142,16 @@ def main():
 
 
 
-    enterButton = tk.Button(root, text="Enter", font=('Times', 20), command=output)
-    enterButton.pack(pady=28)
+    enterButton = tk.Button(root, highlightbackground='light blue', text="Enter", font=('Bold 24'), command=output)
+    #enterButton.configure(bg="blue")
+    enterButton.place(x=586, y=470)
 
     #non tech requirement of us telling the user about the data
-    acknowledgements = Label(root, text="All data coped directly from m https://emeraldmediagroup.github.io/grade-data/ in Janruary 2024.\
-                                        \nIf you do not see your class in the listings, your \"class has been redacted\".\
-                                        \nPlease refer to the UO class listing above for any discrepancies, from which we copied in Janruary 2024, so data may change.\
-                                        \nThe years included in this system are from : 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.\
+    acknowledgements = Label(root, text="All data coped directly from m https://emeraldmediagroup.github.io/grade-data/ in Janruary 2024. If you do not see your class in the listings, your \"class has been redacted\". Please refer to the UO class\
+                                        \n listing above for any discrepancies, from which we copied in Janruary 2024, so data may change.The years included in this system are from : 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.\
                                         \nThank you", font=('Times, 10'))
-    acknowledgements.config(bg='gray')
-    acknowledgements.place(x=10,y=600)
+    acknowledgements.config(bg='gray40')
+    acknowledgements.place(x=55,y=650)
 
     tk.mainloop()
     
@@ -166,102 +161,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-
-# old code without formatting -- for reference
-'''
-root = tk.Tk()
-root.title("Grade Analysis")
-
-root.geometry("700x700")
-root.configure(bg="gray")
-variable1 = tk.StringVar(root)
-
-#spacer2 = tk.Text(root, height=4, width=0)
-#spacer2.pack()
-
-# beginning space @_@
-#spacer1 = tk.Text(root, height=1, width=0)
-#spacer1.pack()
-
-# 'menu' buttons
-adminButton = tk.Button(root, text="Admin Mode", font=('Times', 15), command=admin)
-adminButton.place(x=20, y=20)
-
-#spacer2 = tk.Text(root, height=3.5, width=0)
-#spacer2.pack()
-
-# title label 
-title = tk.Text(root, height=2, width=15, font=('Times bold', 24))
-title.pack()
-title.config(state="normal")
-title.insert(tk.END, "Grade Analysis")
-title.config(state="disabled")
-
-deptframe = Frame(root)
-deptframe.pack()
-
-# form text
-depart = tk.Text(deptframe, height=0, width=35, font=('Times', 15)) 
-depart.pack(side=LEFT)
-depart.config(state="normal")
-depart.insert(tk.END, "Please Enter Department")
-depart.config(state="disabled")
-variable1.set("None")
-#var_1 = StringVar()
-depart_enter = tk.OptionMenu(deptframe, variable1, "Physics", "Biology", "Chemistry", "Earth Science", "Human Physiology")
-#depart_enter = tk.OptionMenu(root, var_1, "Physics", "Biology", "Chemistry", "Earth Science", "Human Physiology")
-#depart_enter.place(x=380, y=144)
-depart_enter.pack(side=LEFT)
-#d = depart_enter.get()
-
-crn = tk.Text(root, height=2, width=43, pady=15, font=('Times', 15))
-crn.pack()
-
-crn.insert(tk.END, "Please Enter CRN")
-crn_enter = tk.Entry(root)
-crn_enter.pack()
-#crn_enter.get()
-
-#spacer3 = tk.Text(root, height=0.5, width=0)
-##spacer3.pack()
-
-distframe = Frame(root)
-distframe.pack()
-
-variable2 = tk.StringVar(root)
-variable2.set("None")
-choice = tk.Text(distframe, height=0, width=35, font=('Times', 15))
-choice.pack(side=LEFT)
-choice.config(state="normal")
-choice.insert(tk.END, "A or Passing Distribution")
-choice.config(state="disabled")
-w = tk.OptionMenu(distframe, variable2, "A distribution", "Pass distribution")
-#w.place(x=380, y=280)
-w.pack(side=LEFT)
-
-#spacer4 = tk.Text(root, height=0.5, width=0)
-#spacer4.pack()
-
-levelframe = Frame(root)
-levelframe.pack()
-
-variable3 = tk.StringVar(root)
-variable3.set("None")
-level = tk.Text(levelframe, height=0, width=35, font=('Times', 15))
-level.pack(side=LEFT)
-level.config(state="normal")
-level.insert(tk.END, "Level")
-level.config(state="disabled")
-z = tk.OptionMenu(levelframe, variable3, "None", "100", "200", "300", "400")
-#w.place(x=380, y=280)
-z.pack(side=LEFT)
-
-#spacer5 = tk.Text(root, height=0.5, width=0)
-#spacer5.pack()
-
-enterButton = tk.Button(root, text="Enter", font=('Times', 20), command=show_graph)
-enterButton.pack(pady=28)
-
-tk.mainloop()
-'''
