@@ -8,7 +8,6 @@ from tkinter import * # possibly change this because this is a big import!
 import tkinter.font as tkFont
 from tkinter import filedialog
 import matplotlib.pyplot as plt
-from tkinter import messagebox
 
 import os as os
 
@@ -21,6 +20,7 @@ import admin as AdminMod
 #root.withdraw()
 
 alreadyin = False
+error_msg = False
 held_data = "./gradedata2.js"
 
 # if there is not already a .js file
@@ -44,19 +44,9 @@ def openNewFile():
 
     # if there is one already
     else:
-        messagebox.showerror('easyA Error', 'There is already a .js file!')
-        # what should we do here? be able to replace or what
+        error_msg = True
+        # what should we do here? be able to replace or what  
 
-def editData():
-    # file to edit data with
-    if is_file == True:
-        # make a form so you can see what is there? (sounds like alot of work .. lol)
-        pass
-    # no file to edit data with
-    else:
-        pass
-
-    
 def adminView():
     root=tk.Tk()
     def closeAdmin():
@@ -71,17 +61,24 @@ def adminView():
     spase = tk.Text(root, height=12, width=0)
     spase.configure(bg='gray40', highlightthickness = 0, borderwidth=0)
     spase.pack()
-    addnew = tk.Button(root, text="Add new .js file", font=("Bold 20"), command=openNewFile)
+    addnew = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=openNewFile)
     addnew.pack()
-    spase3 = tk.Text(root, bg='gray40', height=5, width=0, highlightthickness = 0, borderwidth=0)
-    spase3.pack()
-    editdata = tk.Button(root, text="Edit Data", font=('Bold 20'), command=editData)
-    editdata.pack()
+    def deleteme():
+        result = tk.messagebox.askquestion("Delete", "Are You Sure?", icon='warning')
+        if result == 'yes':
+            print("Deleted")
+        else:
+            print("I'm Not Deleted Yet")
+    if error_msg == True:
+        B1 = tk.Button(root, text = "Delete", command = deleteme)
+        B1.pack()
+
     spase2 = tk.Text(root, bg='gray40', height=5, width=0, highlightthickness = 0, borderwidth=0)
     spase2.pack()
     preparedata = tk.Button(root, text="Run Scraper", font=('Bold 20'), command=scraperRun)
     preparedata.pack()
-    spase1 = tk.Text(root, bg='gray40', height=5, width=0, highlightthickness = 0, borderwidth=0)
-    spase1.pack()
-    comparedata = tk.Button(root, text="Compare Scraped Data", font=('Bold 20'), command=0)
-    comparedata.pack()
+    tk.mainloop()
+    #spase1 = tk.Text(root, bg='gray40', height=5, width=0, highlightthickness = 0, borderwidth=0)
+    #spase1.pack()
+    #comparedata = tk.Button(root, text="Compare Scraped Data", font=('Bold 20'), command=0)
+    #comparedata.pack()

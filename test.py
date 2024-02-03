@@ -23,7 +23,6 @@ question_menu.pack()
   
 # Function to print the submitted option-- testing purpose 
   
-  
 def print_answers(): 
     print("Selected Option: {}".format(value_inside.get())) 
     return None

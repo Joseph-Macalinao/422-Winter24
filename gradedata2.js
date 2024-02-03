@@ -1,98 +1,80 @@
-# for processing the js file (and csv?)
-import json
-import csv
-import scraper as scrapermodule
+"""
+File is holding all the UI elements of the admin view.
+Created to keep student/user UI and Admin UI separate
+"""
 
-# function to call scraper
-def scraper():
-    scrapermodule.data_scraper()
+import tkinter as tk
+from tkinter import * # possibly change this because this is a big import!
+import tkinter.font as tkFont
+from tkinter import filedialog
+import matplotlib.pyplot as plt
 
-# function to create a json file from the .csv and .js files
+import os as os
 
-initial_data_bank = "gradedata.js"
-data_bank = "modified_gradedata.js"
-end_marker = "};\n"
-web_data = "export_data.csv"
-primary_dict1 = {}
-department_database = {}
-comparison_list = []
+import admin as AdminMod
 
-def file_open(file):
-    primary_dict = {}
-    for line in file:
-        primary_dict = json.load(file)
-    return primary_dict
+#from PIL import ImageTk, Image
+#import os
 
-def rearrange_name(name):
-    # Split the name into last name and first name
-    name_parts = name.split(", ")
+#def closeAdmin():
+#root.withdraw()
 
-    if len(name_parts) == 2:
-        last_name, first_name = name_parts
+alreadyin = False
+error_msg = False
+held_data = "./gradedata2.js"
+
+# if there is not already a .js file
+if not os.path.exists(held_data):
+    is_file = False
+# if there is a .js file already
+else:
+    is_file = True
+
+#function to allow admin to choose file to update grades
+def openNewFile():
+    global alreadyin
+    # if there is no .js file yet
+    if is_file == False and alreadyin != True:
+        file_path = filedialog.askopenfilename()
+        # copy contents to gradedata.js
+        with open(file_path,'r') as firstfile, open(held_data,'w') as secondfile: 
+            for line in firstfile: 
+                    secondfile.write(line)
+        alreadyin = True
+
+    # if there is one already
     else:
-        # If there is no comma or more than one comma, handle it accordingly
-        last_name = name_parts[-1]  # Last part is the last name
-        first_name_parts = name_parts[:-1]  # The rest are the first name parts
-        first_name = " ".join(first_name_parts)
-    if len(first_name) > 1:
-        first_name = first_name.split()[0]
+        error_msg = True
+        # what should we do here? be able to replace or what
 
-    # Rearrange and concatenate to get "first name last name"
-    name = f"{first_name} {last_name}"
-
-    return name
     
-with open (initial_data_bank, "r") as input_file: #modify the .js file to remove functions and c code
-    content_line = []
-    for line in input_file:
-        if line == end_marker:
-            content_line.append("}") #remove end semi-colon
-            break
-        content_line.append(line)
-
-with open(data_bank, "w") as modified_file:
-    modified_file.writelines(content_line) #add lines to new file (new .js file)
-
-with open(data_bank) as fh:
-    primary_dict1 = file_open(fh)
-
-filename = open(web_data)
-file = csv.DictReader(filename) #read dict of filename
-regular_faculty = []
-for col in file:
-    regular_faculty.append(col["Faculty Member"]) #add faculty members to regular list 
-
-department_key = ''
-for coursecode, course_data in primary_dict1.items():
-
-    department = coursecode.split()[0]
-
-    department_code = ''
-    for char in department:
-        if char.isdigit():
-            break
-        department_code += char
+def adminView():
+    root=tk.Tk()
+    def closeAdmin():
+        root.withdraw()
+    def scraperRun():
+        AdminMod.scraper()
+    root.title("Admin")
+    root.geometry("350x600")
+    root.configure(bg='gray40')
+    adminButton = tk.Button(root, text="Student Mode", font=('Bold 20'), command=closeAdmin)
+    adminButton.place(x=20, y=20)
+    spase = tk.Text(root, height=12, width=0)
+    spase.configure(bg='gray40', highlightthickness = 0, borderwidth=0)
+    spase.pack()
+    addnew = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=openNewFile)
+    addnew.pack()
+    if error_msg == True:
+        errorroot = tk.Tk()
+        errorroot.title("Error")
+        errorroot.geometry("150x200")
+        errorroot.configure(bg="gray40")
         
-        print(department_code)
-    if department_code not in department_database:
-        department_database[department_code] = {
-            "classes": [],
-            "Regular_Faculty": []
-        }
-
-    department_database[department_code]["classes"].append({coursecode:course_data})
-
-    for courses in course_data:
-        JS_name = courses["instructor"]
-        new_name = rearrange_name(JS_name)
-        if new_name in regular_faculty and new_name not in department_database[department_code]["Regular_Faculty"]:
-            department_database[department_code]["Regular_Faculty"].append(new_name)
-
-with open('result.json', 'w') as fp:
-    json.dump(department_database, fp, indent= 1)
-    
-
-
-
-
-
+    spase2 = tk.Text(root, bg='gray40', height=5, width=0, highlightthickness = 0, borderwidth=0)
+    spase2.pack()
+    preparedata = tk.Button(root, text="Run Scraper", font=('Bold 20'), command=scraperRun)
+    preparedata.pack()
+    #spase1 = tk.Text(root, bg='gray40', height=5, width=0, highlightthickness = 0, borderwidth=0)
+    #spase1.pack()
+    #comparedata = tk.Button(root, text="Compare Scraped Data", font=('Bold 20'), command=0)
+    #comparedata.pack()
