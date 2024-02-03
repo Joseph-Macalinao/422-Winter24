@@ -88,7 +88,7 @@ def main():
     # dept type input
     deptframe = Frame(root) 
     deptframe.pack()
-    tmp = name_dropdown_input(tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
+    tmp = name_dropdown_input(tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
     variable1 = tmp
 
     # crn type input
