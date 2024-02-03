@@ -3,19 +3,13 @@ import json
 import csv
 import scraper as scrapermodule
 
+initial_data = "gradedata.js"
+
 # function to call scraper
 def scraper():
     scrapermodule.data_scraper()
 
 # function to create a json file from the .csv and .js files
-
-initial_data_bank = "gradedata.js"
-data_bank = "modified_gradedata.js"
-end_marker = "};\n"
-web_data = "export_data.csv"
-primary_dict1 = {}
-department_database = {}
-comparison_list = []
 
 def file_open(file):
     primary_dict = {}
@@ -42,54 +36,77 @@ def rearrange_name(name):
 
     return name
     
-with open (initial_data_bank, "r") as input_file: #modify the .js file to remove functions and c code
-    content_line = []
-    for line in input_file:
-        if line == end_marker:
-            content_line.append("}") #remove end semi-colon
-            break
-        content_line.append(line)
 
-with open(data_bank, "w") as modified_file:
-    modified_file.writelines(content_line) #add lines to new file (new .js file)
+def modify_js_file(initial_data_bank):
 
-with open(data_bank) as fh:
-    primary_dict1 = file_open(fh)
+    end_marker = "};\n"
+    data_bank = "modified_gradedata.js"
 
-filename = open(web_data)
-file = csv.DictReader(filename) #read dict of filename
-regular_faculty = []
-for col in file:
-    regular_faculty.append(col["Faculty Member"]) #add faculty members to regular list 
+    with open (initial_data_bank, "r") as input_file: #modify the .js file to remove functions and c code
+        content_line = []
+        for line in input_file:
+            if line == end_marker:
+                content_line.append("}") #remove end semi-colon
+                break
+            content_line.append(line)
 
-department_key = ''
-for coursecode, course_data in primary_dict1.items():
+    with open(data_bank, "w") as modified_file:
+        modified_file.writelines(content_line) #add lines to new file (new .js file)
 
-    department = coursecode.split()[0]
+    return modified_file
 
-    department_code = ''
-    for char in department:
-        if char.isdigit():
-            break
-        department_code += char
+def create_json_data(initial_data_bank):
+
+    web_data = "export_data.csv"
+    data_bank = "modified_gradedata.js"
+    primary_dict1 = {}
+    department_database = {}
+
+    scraper()
+    
+    modify_js_file(initial_data_bank)
+
+    with open(data_bank) as fh:
+        primary_dict1 = file_open(fh)
+
+    filename = open(web_data)
+    file = csv.DictReader(filename) #read dict of filename
+    regular_faculty = []
+    for col in file:
+        regular_faculty.append(col["Faculty Member"]) #add faculty members to regular list 
+
+    for coursecode, course_data in primary_dict1.items():
+
+        department = coursecode.split()[0]
+
+        department_code = ''
+        for char in department:
+            if char.isdigit():
+                break
+            department_code += char
         
-        print(department_code)
-    if department_code not in department_database:
-        department_database[department_code] = {
-            "classes": [],
-            "Regular_Faculty": []
-        }
+        if department_code not in department_database:
+            department_database[department_code] = {
+                "classes": [],
+                "Regular_Faculty": []
+            }
 
-    department_database[department_code]["classes"].append({coursecode:course_data})
+        department_database[department_code]["classes"].append({coursecode:course_data})
 
-    for courses in course_data:
-        JS_name = courses["instructor"]
-        new_name = rearrange_name(JS_name)
-        if new_name in regular_faculty and new_name not in department_database[department_code]["Regular_Faculty"]:
-            department_database[department_code]["Regular_Faculty"].append(new_name)
+        for courses in course_data:
+            JS_name = courses["instructor"]
+            new_name = rearrange_name(JS_name)
+            if new_name in regular_faculty and new_name not in department_database[department_code]["Regular_Faculty"]:
+                department_database[department_code]["Regular_Faculty"].append(new_name)
 
-with open('result.json', 'w') as fp:
-    json.dump(department_database, fp, indent= 1)
+
+    with open('result.json', 'w') as fp:
+        json.dump(department_database, fp, indent= 1)
+
+    return
+
+if __name__ == "__main__":
+    create_json_data(initial_data)
     
 
 
