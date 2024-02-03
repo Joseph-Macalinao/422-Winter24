@@ -34,7 +34,7 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
     new_item.config(state="disabled")
     menu_width = len(max(option_menu, key=len))
     input_enter = curr_root.OptionMenu(frame_name, var_name, *option_menu)
-    input_enter.config(font=("Bold", 17), width=menu_width)#, bg="gray92")
+    input_enter.config(font=("Bold", 17), fg='black', width=menu_width)#, bg="gray92")
     input_enter.pack(side=LEFT) 
     var_output = var_name
 
@@ -66,11 +66,11 @@ def main():
     root.canvas.place(x=275, y=120)
 
     # 'menu' buttons
-    adminButton = tk.Button(root, text="Admin Mode", font=('Bold 30', 20), command=admin)
+    adminButton = tk.Button(root, text="Admin Mode", font=('Bold 30', 20), fg='black', command=admin)
     adminButton.place(x=40, y=40)
 
     # title label 
-    title = tk.Label(root, text="easyA", font=("Bold 40"), bg="gray92")
+    title = tk.Label(root, text="easyA", font=("Bold 40"), bg="gray92", fg='black')
     title.place(x=550, y=160)
 
     # dept type input
@@ -78,7 +78,7 @@ def main():
     deptframe.place(x=360, y=250)
     deptframe.configure(bg="gray92")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
-    tmp_item.configure(bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp_item.configure(bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
     tmp = name_dropdown_input(tmp_item, tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
     variable1 = tmp
 
@@ -90,7 +90,7 @@ def main():
     new_item.pack(side=LEFT)
     new_item.config(state="normal")
     new_item.insert(tk.END, "Class Number")
-    new_item.config(state="disabled", bg="gray92", highlightthickness = 0, borderwidth=0)
+    new_item.config(state="disabled", bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
     crn_enter = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
     #lambda func to just get rid of text in class number when entering
     crn_enter.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
@@ -102,7 +102,7 @@ def main():
     distframe = Frame(root) 
     distframe.place(x=360, y=328)
     distframe.config(bg="gray92")
-    tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
     tmp = name_dropdown_input(tmp_item, tk, distframe, variable2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
     variable2 = tmp
 
@@ -110,7 +110,7 @@ def main():
     levelframe = Frame(root)
     levelframe.place(x=360, y=366)
     levelframe.configure(bg="gray92")
-    tmp_item = tk.Text(levelframe, height=0, width=39, font=('Bold', 17), bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp_item = tk.Text(levelframe, height=0, width=39, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
     tmp = name_dropdown_input(tmp_item, tk, levelframe, variable3, "Level", ["None", "100", "200", "300", "400"])
     variable3 = tmp
 
@@ -118,7 +118,7 @@ def main():
     allframe = Frame(root)
     allframe.place(x=360, y=410)
     allframe.configure(bg="gray92")
-    tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="gray92", highlightthickness = 0, borderwidth=0)
+    tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
     tmp = name_dropdown_input(tmp_item, tk, allframe, variable4, "All Instructors/Regular Faculty", ["All Instructors", "Regular Faculty"])
     variable4 = tmp
 
@@ -153,7 +153,7 @@ def main():
 
 
 
-    enterButton = tk.Button(root, bg='light blue', text="Enter", font=('Bold 24'), command=output)
+    enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
     enterButton.place(x=586, y=470)
 
