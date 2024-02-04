@@ -12,6 +12,21 @@ from query_handler import *
 from plot import *
 
 root = tk.Tk()
+global variable1
+variable1 = tk.StringVar(root)
+variable1.set("None")
+global variable2 
+variable2 = tk.StringVar(root)
+variable2.set("None")
+global variable3 
+variable3 = tk.StringVar(root)
+variable3.set("None")
+global variable4 
+variable4 = tk.StringVar(root)
+variable4.set("None")
+global crnEnter
+crnEnter = tk.StringVar(root)
+crnEnter.set("None")
 def admin():
     ''' show admin pop out page '''
     adminView()
@@ -40,25 +55,24 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
 
     return var_output
 
-def query_selected_option(query):
-    print(query)
+def query_selected_option(query, v1, v2, v3, v4):
 
-    variable1 = tk.StringVar(root)
-    variable1.set("None")
-    variable2 = tk.StringVar(root)
-    variable2.set("None")
-    variable3 = tk.StringVar(root)
-    variable3.set("None")
-    variable4 = tk.StringVar(root)
-    variable4.set("None")
+    # variable1 = tk.StringVar(root)
+    # variable1.set("None")
+    # variable2 = tk.StringVar(root)
+    # variable2.set("None")
+    # variable3 = tk.StringVar(root)
+    # variable3.set("None")
+    # variable4 = tk.StringVar(root)
+    # variable4.set("None")
     
     deptframe = Frame(root) 
     deptframe.place(x=360, y=250)
     deptframe.configure(bg="gray92")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
     tmp_item.configure(bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp = name_dropdown_input(tmp_item, tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
-    variable1 = tmp
+    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
+    #v1.set(tmp)
 
     # crn type input
     crnframe = Frame(root)
@@ -69,27 +83,28 @@ def query_selected_option(query):
     new_item.config(state="normal")
     new_item.insert(tk.END, "Class Number")
     new_item.config(state="disabled", bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
-    crn_enter = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
+    crn_entry = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
     #lambda func to just get rid of text in class number when entering
     crn_check = ["Department", "Department Level by Teacher", "Department Level by Class"]
 
     if query in crn_check:
-        crn_enter.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
-        crn_enter.insert(0, "Class Number")
-        crn_enter.configure(state="disabled")
+        crn_entry.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
+        crn_entry.insert(0, "Class Number")
+        crn_entry.configure(state="disabled")
     elif query not in crn_check:
-        crn_enter.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
-        crn_enter.insert(0, "Class Number")
+        crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
+        crn_entry.insert(0, "Class Number")
+        #crnEnter.set(crn_entry)
     #crn_enter.configure(bg="gray92", highlightthickness = 1, borderwidth=0)
-    crn_enter.pack(side=RIGHT)
+    crn_entry.pack(side=RIGHT)
 
     # type of grading input
     distframe = Frame(root) 
     distframe.place(x=360, y=328)
     distframe.config(bg="gray92")
     tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp = name_dropdown_input(tmp_item, tk, distframe, variable2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
-    variable2 = tmp
+    tmp2 = name_dropdown_input(tmp_item, tk, distframe, v2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
+    #v2.set(tmp)
 
     # level input
     
@@ -98,22 +113,35 @@ def query_selected_option(query):
     levelframe.configure(bg="gray92")
     tmp_item = tk.Text(levelframe, height=0, width=39, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
     if query == "Specific Class" or query == "Department":
-        tmp = name_dropdown_input(tmp_item, tk, levelframe, variable3, "Level", ["None"])
+        tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["None"])
         tmp_item.configure(state="disabled")
     
     elif query != "Specific Class" or query == "Department":
-        tmp = name_dropdown_input(tmp_item, tk, levelframe, variable3, "Level", ["100", "200", "300", "400"])
-    variable3 = tmp
+        tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["100", "200", "300", "400"])
+    #v3.set(tmp)
 
     # level input
     allframe = Frame(root)
     allframe.place(x=360, y=410)
     allframe.configure(bg="gray92")
     tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
-    tmp = name_dropdown_input(tmp_item, tk, allframe, variable4, "All Instructors/Regular Faculty", ["All Instructors", "Regular Faculty"])
-    variable4 = tmp
+    tmp4 = name_dropdown_input(tmp_item, tk, allframe, v4, "All Instructors/Regular Faculty", ["All Instructors", "Regular Faculty"])
+    #v4.set(tmp)
 
-
+    #return_filters = [variable1, variable2, variable3, variable4]
+    #graph_info_collec.set(filters)
+    #variable1.set()
+    def selectQuery():
+        crnEnter.set(crn_entry)
+        variable1.set(tmp1)
+        variable2.set(tmp2)
+        variable3.set(tmp3)
+        variable4.set(tmp4)
+    selection = Frame(root)
+    selection.place(x=360, y=450)
+    selection.configure(bg="gray92")
+    final = tk.Button(root, text="Use Filters", font=('Bold 30', 20), fg='black', command=selectQuery)
+    final.place(x=360, y=450)
 
 
 def main():
@@ -128,7 +156,16 @@ def main():
     variable5.set("None")
 
     # lists of optionmenus
-    level_list = ["None", "100", "200", "300", "400"]
+    variable1 = tk.StringVar(root)
+    variable1.set("None")
+    variable2 = tk.StringVar(root)
+    variable2.set("None")
+    variable3 = tk.StringVar(root)
+    variable3.set("None")
+    variable4 = tk.StringVar(root)
+    variable4.set("None")
+    crnEnter = tk.StringVar(root)
+    crnEnter.set("None")
     
 
     # background :3
@@ -157,69 +194,20 @@ def main():
     selected = name_dropdown_input(now_item, tk, query_selection, variable5, "Enter Query Type", ["Specific Class", "Department", "Department Level by Teacher", "Department Level by Class"])
     def selection():
         x = variable5.get()
-        query_selected_option(x)
+        query_selected_option(x, variable1, variable2, variable3, variable4)
         
     #query_decide = tk.Button(command=lambda: query_selected_option(variable5))
+    
     query_decide = tk.Button(command=selection)
     query_decide.place(x=900, y=220)
 
-    # dept type input
-    """ deptframe = Frame(root) 
-    deptframe.place(x=360, y=250)
-    deptframe.configure(bg="gray92")
-    tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
-    tmp_item.configure(bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp = name_dropdown_input(tmp_item, tk, deptframe, variable1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
-    variable1 = tmp
-
-    # crn type input
-    crnframe = Frame(root)
-    crnframe.place(x=360, y=288)
-    crnframe.configure(bg="gray92")
-    new_item = tk.Text(crnframe, height=0, width=34, font=('Bold', 17)) 
-    new_item.pack(side=LEFT)
-    new_item.config(state="normal")
-    new_item.insert(tk.END, "Class Number")
-    new_item.config(state="disabled", bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
-    crn_enter = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
-    #lambda func to just get rid of text in class number when entering
-    crn_enter.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
-    crn_enter.insert(0, "Class Number")
-    #crn_enter.configure(bg="gray92", highlightthickness = 1, borderwidth=0)
-    crn_enter.pack(side=RIGHT)
-
-    # type of grading input
-    distframe = Frame(root) 
-    distframe.place(x=360, y=328)
-    distframe.config(bg="gray92")
-    tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp = name_dropdown_input(tmp_item, tk, distframe, variable2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
-    variable2 = tmp
-
-    # level input
-    levelframe = Frame(root)
-    levelframe.place(x=360, y=366)
-    levelframe.configure(bg="gray92")
-    tmp_item = tk.Text(levelframe, height=0, width=39, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
-    tmp = name_dropdown_input(tmp_item, tk, levelframe, variable3, "Level", level_list)
-    #if variable5 == "Specific Class":
-    #    tmp_item.configure(state="disabled")
-    variable3 = tmp
-
-    # level input
-    allframe = Frame(root)
-    allframe.place(x=360, y=410)
-    allframe.configure(bg="gray92")
-    tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
-    tmp = name_dropdown_input(tmp_item, tk, allframe, variable4, "All Instructors/Regular Faculty", ["All Instructors", "Regular Faculty"])
-    variable4 = tmp """
-    
 
     # output of clicking button
     def output():
         output_list = []
         output_list.append(variable1.get())
-        output_list.append((crn_enter.get()).replace(' ', ''))
+        output_list.append((crnEnter.get()).replace(' ', ''))
+        #output_list.appen(crn_enter)
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         output_list.append(variable4.get())
