@@ -76,13 +76,16 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
             if (a_class[:len(dept)] == dept):
                 x_list[i] = a_class[len(dept):] # this part just removes stuff like "CIS" if it's attatched
 
-    else:
+    else:#please go ahead and remove the below section in the case that
+        # you indeed want to remove the teachers with 0s
+        '''
         rem_list = [] #teachers with 0s
         for key in data_to_plot:
             if data_to_plot[key][0] == 0:
                 rem_list.append(key)
         for rem in rem_list:
             del data_to_plot[rem]
+        '''
         x_list = list(data_to_plot.keys())
         for i in range(len(x_list)):
             x_list[i] = teacher_fixup(x_list[i])
