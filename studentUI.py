@@ -137,11 +137,46 @@ def query_selected_option(query, v1, v2, v3, v4):
         variable2.set(tmp2)
         variable3.set(tmp3)
         variable4.set(tmp4)
-    selection = Frame(root)
-    selection.place(x=360, y=450)
-    selection.configure(bg="gray92")
-    final = tk.Button(root, text="Use Filters", font=('Bold 30', 20), fg='black', command=selectQuery)
-    final.place(x=360, y=450)
+    #selection = Frame(root)
+    #selection.place(x=360, y=450)
+    #selection.configure(bg="gray92")
+    #final = tk.Button(root, text="Use Filters", font=('Bold 30', 20), fg='black', command=selectQuery)
+    #final.place(x=360, y=450)
+        # output of clicking button
+    def output():
+        selectQuery()
+        output_list = []
+        output_list.append(variable1.get())
+        output_list.append((crnEnter.get()).replace(' ', ''))
+        #output_list.appen(crn_enter)
+        output_list.append(variable2.get())
+        output_list.append(variable3.get())
+        output_list.append(variable4.get())
+        print(output_list) # has four variables
+        a_vs_justpass = (output_list[2] == 'A distribution')
+        if (output_list[2] == ""):
+            a_vs_justpass = True
+        if (output_list[1] == ""):
+            output_list[1] = 0
+        else:
+            while(True):
+                try:
+                    output_list[1] = int(output_list[1])
+                    output_list[3] = int(output_list[3])
+                    break
+                except:
+                    pass
+        
+        my_query = Query(2, a_vs_justpass, True, class_level = output_list[1], dept=output_list[0])
+        Dict1 = my_query.database_search()
+        print(Dict1)
+        plotter(2, a_vs_justpass, True, Dict1, output_list[1], output_list[0])
+        print(output_list)
+
+    enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
+    #enterButton.configure(bg="blue")
+    enterButton.place(x=586, y=470)
+    
 
 
 def main():
@@ -201,9 +236,10 @@ def main():
     query_decide = tk.Button(command=selection)
     query_decide.place(x=900, y=220)
 
-
+    '''
     # output of clicking button
     def output():
+        selectQuery()
         output_list = []
         output_list.append(variable1.get())
         output_list.append((crnEnter.get()).replace(' ', ''))
@@ -235,7 +271,7 @@ def main():
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
     enterButton.place(x=586, y=470)
-
+    '''
     #non tech requirement of us telling the user about the data
     acknowledgements = Label(root, text="All data coped directly from m https://emeraldmediagroup.github.io/grade-data/ in January 2024. If you do not see your class in the listings, your \"class has been redacted\". Please refer to the UO class\
                                         \n listing above for any discrepancies, from which we copied in January 2024, so data may change. The years included in this system are from : 2013, 2014, 2015, 2016. The scraped data is from 2014\
