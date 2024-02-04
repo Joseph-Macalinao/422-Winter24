@@ -61,8 +61,6 @@ def create_json_data(initial_data_bank):
     data_bank = "modified_gradedata.js"
     primary_dict1 = {}
     department_database = {}
-
-    scraper()
     
     modify_js_file(initial_data_bank)
 
@@ -106,6 +104,7 @@ def create_json_data(initial_data_bank):
     return
 
 if __name__ == "__main__":
+    scraper()
     create_json_data(initial_data)
     
 
