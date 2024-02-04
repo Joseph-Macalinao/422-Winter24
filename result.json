@@ -35442,6 +35442,10 @@
    "Michael Koscho",
    "John Hardwick"
   ]
+  "Regular_Faculty": [
+   "Michael Koscho",
+   "John Hardwick"
+  ]
  },
  "CHN": {
   "classes": [
@@ -39663,6 +39667,17 @@
    "Jun Li",
    "Dejing Dou"
   ]
+  "Regular_Faculty": [
+   "Michael Hennessy",
+   "Kathleen Freeman Hennessy",
+   "Michal Young",
+   "Andrzej Proskurowski",
+   "Daniel Lowd",
+   "Reza Rejaie",
+   "Stuart Faulk",
+   "Jun Li",
+   "Dejing Dou"
+  ]
  },
  "CIT": {
   "classes": [
@@ -39833,6 +39848,9 @@
     ]
    }
   ],
+  "Regular_Faculty": [
+   "Michael Hennessy"
+  ]
   "Regular_Faculty": [
    "Michael Hennessy"
   ]
@@ -118860,6 +118878,9 @@
     ]
    }
   ],
+  "Regular_Faculty": [
+   "Jeffrey Stolet"
+  ]
   "Regular_Faculty": [
    "Jeffrey Stolet"
   ]
