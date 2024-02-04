@@ -31352,7 +31352,19 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Kryn Stankunas",
+   "Debbie Schlenoff",
+   "Alan Dickman",
+   "Victoria Herman",
+   "Terry Takahashi",
+   "Monte Westerfield",
+   "Alice Barkan",
+   "Eric Selker",
+   "Janet Hodder",
+   "Svetlana Maslakova",
+   "Alan Shanks"
+  ]
  },
  "CAS": {
   "classes": [
@@ -35410,7 +35422,10 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Michael Koscho",
+   "John Hardwick"
+  ]
  },
  "CHN": {
   "classes": [
@@ -39621,7 +39636,17 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Michael Hennessy",
+   "Kathleen Freeman Hennessy",
+   "Michal Young",
+   "Andrzej Proskurowski",
+   "Daniel Lowd",
+   "Reza Rejaie",
+   "Stuart Faulk",
+   "Jun Li",
+   "Dejing Dou"
+  ]
  },
  "CIT": {
   "classes": [
@@ -39792,7 +39817,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Michael Hennessy"
+  ]
  },
  "CLAS": {
   "classes": [
@@ -59473,7 +59500,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Alan Dickman"
+  ]
  },
  "ES": {
   "classes": [
@@ -118736,7 +118765,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Jeffrey Stolet"
+  ]
  },
  "OBA": {
   "classes": [
