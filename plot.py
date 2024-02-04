@@ -61,9 +61,9 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
     else:
         percent_condition = "got D's / F's"
     title = "Grade graph"
-    x_axis = "Regular Faculty"
+    x_axis = "Regular Faculty, number of classes represented"
     if (all_instructors):
-        x_axis = "Instructors"
+        x_axis = "Instructors, number of classes represented"
     if (main_request == 0):
         title = class_level
     elif (main_request == 1):
@@ -94,23 +94,25 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
         x_list = list(data_to_plot.keys())
         counter = 0
         for i in range(len(x_list)):
+            classes_represented_int = data_to_plot[x_list[i]][1]
             (x_list[i], booll) = teacher_fixup(x_list[i])
+            x_list[i] += f' ({classes_represented_int})'
             if (booll):
                 counter += 1
-        print("In this specific graph, we caught", str(counter), "discrepancies")
-        font = {'size': 6, 'weight': 'bold', 'family': 'serif'}
+        print("In this specific graph, we caught", str(counter), "discrepancies between teacher names!")
+        font = {'size': 7, 'weight': 'bold', 'family': 'serif'}
         plt.rc('font', **font)
 
     y_axis = [stuff[0] for stuff in data_to_plot.values()]
         
-    fig = plt.figure(figsize = (9, 6))
+    fig = plt.figure(figsize = (10, 6))
     plt.bar(x_list, y_axis, color ='green', width = 0.4,)
     #################################
     plt.xticks(rotation=90)
     fig.subplots_adjust(bottom=0.24)
     #################################
     plt.xlabel(x_axis, fontsize=18)
-    plt.ylabel(f"Percent of students who {percent_condition}", fontsize=15)
+    plt.ylabel(f"Percent of students who {percent_condition}", fontsize=13)
     plt.title(title, fontsize=20, weight='bold')
     plt.ylim(0, 100)
     plt.show()
