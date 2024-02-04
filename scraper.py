@@ -1,8 +1,48 @@
 from bs4 import BeautifulSoup
 import requests, csv, time
+import random
 
 # all natural science urls
-urls =['https://web.archive.org/web/20141107201402/http://catalog.uoregon.edu/arts_sciences/biology/',
+urls =[ 'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/africanstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/anthropology/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/asianstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/canadianstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/cinemastudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/classics/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/comparativeliterature/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/creativewriting/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/eastasianlanguagesandlit/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/economics/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/english/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/ethnicstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/europeanstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/folklore/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/generalscience/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/generalsocialscience/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/germanandscandinavian/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/germanstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/history/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/humanities/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/humanphysiology/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/internationalstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/judaicstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/latinamericanstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/linguistics/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/medievalstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/nativeamerican/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/pacificislandstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/peacestudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/philosophy/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/politicalscience/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/religiousstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/romancelanguages/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/russianandeasteuropeanstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/scandinavianstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/sociology/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/southeastasianstudies/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/theaterarts/',
+        'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/womensandgenderstudies/',
+        'https://web.archive.org/web/20141107201402/http://catalog.uoregon.edu/arts_sciences/biology/',
         'https://web.archive.org/web/20141107201414/http://catalog.uoregon.edu/arts_sciences/chemistry/',
         'https://web.archive.org/web/20141107201434/http://catalog.uoregon.edu/arts_sciences/computerandinfoscience/',
         'https://web.archive.org/web/20141107201454/http://catalog.uoregon.edu/arts_sciences/environmentalstudies/',
@@ -16,7 +56,7 @@ urls =['https://web.archive.org/web/20141107201402/http://catalog.uoregon.edu/ar
         'https://web.archive.org/web/20141101200122/http://catalog.uoregon.edu/arts_sciences/psychology/',
         'https://web.archive.org/web/20141107202247/http://catalog.uoregon.edu/arts_sciences/statistics/']
 
-def scrape_export_data(url, names_set):
+def scrape_export_data(url, names_set, count):
     """ scrape_export_data(url): input is string (url)
     returns void but creates a .csv file called "export_data.csv"
     """
@@ -32,7 +72,7 @@ def scrape_export_data(url, names_set):
     if box: # if section found, access the data
         faculty_info = [] # create empty list for faculty info
         major = soup.find('div', attrs={'id': 'breadcrumb'}).find('span', {'class': 'active'}).get_text(strip=True) #find the specific major being listed
-        print(major) # list majors
+        print("{}. {}".format(count, major)) # list majors
         person = box.find('p') # check for <p> class 
 
         if person: # catch a specific case of HTML faculty not listed in facultylist:
@@ -81,7 +121,8 @@ def scrape_export_data(url, names_set):
 
                 return
         else:
-            print("No data") #if there is no faculty to append, print "no data"
+            major = soup.find('div', attrs={'id': 'breadcrumb'}).find('span', {'class': 'active'}).get_text(strip=True) #find the specific major being listed
+            print("{}. {}: No data".format(count, major))  #if there is no faculty to append, print "no data"
             return
 
 def data_scraper():
@@ -90,9 +131,11 @@ def data_scraper():
     filename = 'export_data.csv'
     f = open(filename, "w+")
     f.close()
+    count = 0
     for url in urls:
-        scrape_export_data(url, unique_names_set)
-        time.sleep(3)
+        count = count + 1
+        scrape_export_data(url, unique_names_set, count)
+        time.sleep(random.randint(3,8))
 
 if __name__ == "__main__":
     data_scraper()

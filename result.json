@@ -14304,7 +14304,12 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Lamia Karim",
+   "Nelson Ting",
+   "Aletta Biersack",
+   "Gyoung-Ah Lee"
+  ]
  },
  "ARB": {
   "classes": [
@@ -16324,7 +16329,10 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Erin Moore",
+   "Brook Muller"
+  ]
  },
  "ARH": {
   "classes": [
@@ -20806,7 +20814,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Colin Ives"
+  ]
  },
  "ARTF": {
   "classes": [
@@ -23387,7 +23397,10 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Roger Haydock",
+   "Spencer Chang"
+  ]
  },
  "BA": {
   "classes": [
@@ -31352,7 +31365,20 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Kryn Stankunas",
+   "Debbie Schlenoff",
+   "Alan Dickman",
+   "Victoria Herman",
+   "Terry Takahashi",
+   "Monte Westerfield",
+   "Alice Barkan",
+   "Kelly Sutherland",
+   "Eric Selker",
+   "Janet Hodder",
+   "Svetlana Maslakova",
+   "Alan Shanks"
+  ]
  },
  "CAS": {
   "classes": [
@@ -31461,7 +31487,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "William Rossi"
+  ]
  },
  "CDS": {
   "classes": [
@@ -35410,7 +35438,10 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Michael Koscho",
+   "John Hardwick"
+  ]
  },
  "CHN": {
   "classes": [
@@ -39621,7 +39652,17 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Michael Hennessy",
+   "Kathleen Freeman Hennessy",
+   "Michal Young",
+   "Andrzej Proskurowski",
+   "Daniel Lowd",
+   "Reza Rejaie",
+   "Stuart Faulk",
+   "Jun Li",
+   "Dejing Dou"
+  ]
  },
  "CIT": {
   "classes": [
@@ -39792,7 +39833,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Michael Hennessy"
+  ]
  },
  "CLAS": {
   "classes": [
@@ -51096,7 +51139,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Ralph Mastromonaco"
+  ]
  },
  "EDLD": {
   "classes": [
@@ -53214,7 +53259,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Jeffrey Edmundson"
+  ]
  },
  "EDUC": {
   "classes": [
@@ -58406,7 +58453,11 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "William Rossi",
+   "Suzanne Clark",
+   "Louise Westling"
+  ]
  },
  "ENVS": {
   "classes": [
@@ -59473,7 +59524,12 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Alan Dickman",
+   "David Sutherland",
+   "Matthew Dennis",
+   "Kari Norgaard"
+  ]
  },
  "ES": {
   "classes": [
@@ -68283,7 +68339,15 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Daniel Gavin",
+   "Mark Fonstad",
+   "Katharine Meehan",
+   "Christopher Bone",
+   "Xiaobo Su",
+   "Derrick Hindery",
+   "Kenneth Kato"
+  ]
  },
  "GEOL": {
   "classes": [
@@ -70306,7 +70370,12 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Emilie Hooft Toomey",
+   "David Sutherland",
+   "Qusheng Jin",
+   "Samantha Hopkins"
+  ]
  },
  "GER": {
   "classes": [
@@ -74368,7 +74437,16 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Kelly Sutherland",
+   "Samantha Hopkins",
+   "Mark Carey",
+   "Azim Shariff",
+   "Bart Johnson",
+   "Edward Awh",
+   "Shlomo Libeskind",
+   "Suzanne Clark"
+  ]
  },
  "HIST": {
   "classes": [
@@ -77671,7 +77749,11 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Jeffrey Ostler",
+   "Marsha Weisiger",
+   "Matthew Dennis"
+  ]
  },
  "HPHY": {
   "classes": [
@@ -79364,7 +79446,23 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Vern Katz",
+   "Sierra Dawson",
+   "Andrew Karduna",
+   "Jon Runyeon",
+   "Anita Christie",
+   "Brian Nichols",
+   "Grace Golden",
+   "John Halliwill",
+   "Michael Hahn",
+   "Andrew Lovering",
+   "Hans Dreyer",
+   "Jeffrey Gilbert",
+   "Marjorie Woollacott",
+   "Aaron Harding",
+   "Li-Shan Chou"
+  ]
  },
  "HUM": {
   "classes": [
@@ -79721,7 +79819,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Matthew Dennis"
+  ]
  },
  "IARC": {
   "classes": [
@@ -81153,7 +81253,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Derrick Hindery"
+  ]
  },
  "ITAL": {
   "classes": [
@@ -93995,7 +94097,11 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Roxi Thoren",
+   "David Hulse",
+   "Bart Johnson"
+  ]
  },
  "LAS": {
   "classes": [
@@ -110664,7 +110770,25 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Craig Tingey",
+   "Fred Hervert",
+   "Hayden Harker",
+   "Benjamin Young",
+   "Boris Botvinnik",
+   "Arkady Vaintrob",
+   "Sergey Yuzvinsky",
+   "Alexander Polishchuk",
+   "Marcin Bownik",
+   "Peng Lu",
+   "Hao Wang",
+   "Micah Warren",
+   "Huaxin Lin",
+   "Weiyong He",
+   "Shlomo Libeskind",
+   "Shabnam Akhtari",
+   "Yuan Xu"
+  ]
  },
  "MDVL": {
   "classes": [
@@ -118736,7 +118860,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Jeffrey Stolet"
+  ]
  },
  "OBA": {
   "classes": [
@@ -124972,7 +125098,11 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Mark Johnson",
+   "Bonnie Mann",
+   "Peter Warnek"
+  ]
  },
  "PHYS": {
   "classes": [
@@ -128183,7 +128313,22 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Eric Corwin",
+   "Daniel Steck",
+   "Timothy Jenkins",
+   "Roger Haydock",
+   "Raghuveer Parthasarathy",
+   "Miriam Deutsch",
+   "Benjamin McMorran",
+   "Eric Torrence",
+   "Stephanie Majewski",
+   "Spencer Chang",
+   "Stephen Gregory",
+   "Dietrich Belitz",
+   "Graham Kribs",
+   "Hailin Wang"
+  ]
  },
  "PORT": {
   "classes": [
@@ -130597,7 +130742,11 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Marc Schlossberg",
+   "Grant Jacobsen",
+   "Yizhao Yang"
+  ]
  },
  "PS": {
   "classes": [
@@ -133658,7 +133807,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Craig Kauffman"
+  ]
  },
  "PSY": {
   "classes": [
@@ -137073,7 +137224,26 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Jeffrey Measelle",
+   "Paul Dassonville",
+   "Azim Shariff",
+   "Pranjal Mehta",
+   "Michael Wehr",
+   "Jennifer Ablow",
+   "Jennifer Pfeifer",
+   "Marjorie Taylor",
+   "Gerard Saucier",
+   "Holly Arrow",
+   "Helen Neville",
+   "Robert Mauro",
+   "Edward Awh",
+   "Edward Vogel",
+   "Elliot Berkman",
+   "Sanjay Srivastava",
+   "Nicholas Allen",
+   "Ulrich Mayr"
+  ]
  },
  "REL": {
   "classes": [
@@ -143250,7 +143420,11 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Gregory McLauchlan",
+   "Richard York",
+   "Kari Norgaard"
+  ]
  },
  "SPAN": {
   "classes": [
@@ -153451,7 +153625,9 @@
     ]
    }
   ],
-  "Regular_Faculty": []
+  "Regular_Faculty": [
+   "Theresa May"
+  ]
  },
  "TLC": {
   "classes": [
