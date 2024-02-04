@@ -4,12 +4,13 @@ import matplotlib.pyplot as plt
 
 
 
-def teacher_fixup(instructor_name: str) -> str:
+def teacher_fixup(instructor_name: str) -> tuple: #the first is the fixed up name, the second is a bool, true if a discrepancy was caught / corrected
     """
     This auxillary function will help to format teacher names for use cases 0, 1, and 2. (All except class based x axis graphs.)
     This means that we will put a newline character and remove commas. This will prevent the X axis title from being pushed off of the page.
+    It will also fix any discrepancies between teacher names, and return (in the 2nd tuple val,) wether a discrepancy was caught or not.
 
-    teacher_fixup('Childs, Henry Roberts') returns -> 'Childs\nHenry Roberts'
+    teacher_fixup('Childs, Henry Roberts') returns -> ('Childs\nHenry', true)
     """
     return_string = ""
     for i in range(len(instructor_name)):
@@ -18,7 +19,11 @@ def teacher_fixup(instructor_name: str) -> str:
         else:
             return_string += '\n'
             i += 1
-    return return_string
+    booll = False
+    if(len(return_string.split(" ")) != 2):
+        booll = True
+        return_string = str(return_string.split(" ")[0] + return_string.split(" ")[1])
+    return (return_string, booll)
     
 
 # Please Note: for simplicity's sake, we will be using identical parameters
@@ -87,8 +92,12 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
             del data_to_plot[rem]
         '''
         x_list = list(data_to_plot.keys())
+        counter = 0
         for i in range(len(x_list)):
-            x_list[i] = teacher_fixup(x_list[i])
+            (x_list[i], booll) = teacher_fixup(x_list[i])
+            if (booll):
+                counter += 1
+        print("In this specific graph, we caught", str(counter), "discrepancies")
         font = {'size': 6, 'weight': 'bold', 'family': 'serif'}
         plt.rc('font', **font)
 
