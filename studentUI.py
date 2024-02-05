@@ -33,9 +33,6 @@ selected = tk.StringVar(root)
 selected.set("None")
 
 
-
-
-
 def admin():
     ''' show admin pop out page '''
 #    make_new()
@@ -67,31 +64,7 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
 
 def class_input(var_name, new):
     var_name.set(new)
-'''
-def name_entry_input(new_item, curr_root, frame_name, var_name, input_text):
-    average formatting for a *name* *dropdown menu* on one line type frame.
-    input:
-        text_item, tk.Text() - a Text item with the appropriate width for the option menu.
-        curr_root, tk.TK() - the tk root.  
-        frame_name, Frame(root) - the frame that the dropdown input will be on.
-        var_name, tk.StringVar(root) - the variable that will store the output of the choice on screen.
-        input_text, str - the text in the frame (*name* above). 
-        option_menu, list - the tuple of menu options that the dropdown menu will have. 
-    output:
-        var_output, str - the variable choice from the menu.
-    
-    new_item.pack(side=LEFT)
-    new_item.config(state="normal")
-    new_item.insert(curr_root.END, input_text)
-    new_item.config(state="disabled")
-    menu_width = 0
-    input_enter = curr_root.Button(frame_name, var_name)
-    input_enter.config(font=("Bold", 17), fg='black', width=menu_width)#, bg="gray92")
-    input_enter.pack(side=LEFT) 
-    var_output = var_name
 
-    return var_output
-'''
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
@@ -239,12 +212,7 @@ def main():
     root.geometry("1200x750")
     root.resizable(False,False)
 
-    #query type selection
-    variable5 = tk.StringVar(root)
-    variable5.set("None")
 
-    # lists of optionmenus
-    
     variable1 = tk.StringVar(root)
     variable1.set("None")
     variable2 = tk.StringVar(root)
@@ -255,6 +223,14 @@ def main():
     variable4.set("None")
     crnEnter = tk.StringVar(root)
     crnEnter.set("None")
+
+
+    #query type selection
+    variable5 = tk.StringVar(root)
+    variable5.set("None")
+
+    # lists of optionmenus
+    level_list = ["None", "100", "200", "300", "400"]
     
 
     # background :3
@@ -304,8 +280,26 @@ def main():
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         output_list.append(variable4.get())
-        output_list.append(selected.get())
-        graph_my_output_list(output_list)
+        print(output_list) # has four variables
+        a_vs_justpass = (output_list[2] == 'A distribution')
+        if (output_list[2] == ""):
+            a_vs_justpass = True
+        if (output_list[1] == ""):
+            output_list[1] = 0
+        else:
+            while(True):
+                try:
+                    output_list[1] = int(output_list[1])
+                    output_list[3] = int(output_list[3])
+                    break
+                except:
+                    pass
+        
+        my_query = Query(2, a_vs_justpass, True, class_level = output_list[1], dept=output_list[0])
+        Dict1 = my_query.database_search()
+        print(Dict1)
+        plotter(2, a_vs_justpass, True, Dict1, output_list[1], output_list[0])
+        print(output_list)
 
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
@@ -324,4 +318,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
