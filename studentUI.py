@@ -27,7 +27,9 @@ variable4.set("None")
 global crnEnter
 crnEnter = tk.StringVar(root)
 crnEnter.set("None")
-global selected_query
+global selected
+selected = tk.StringVar(root)
+selected.set("None")
 
 
 
@@ -64,7 +66,23 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
-    print(output_list) # has 5 variables
+    print("-->", output_list) # has 5 variables
+    my_int = ["Specific Class", "Department", "Department Level by Teacher", "Department Level by Class"].index(output_list[5])
+    a_vs_justpass = (output_list[2] == 'A distribution')
+    all_inst_vs_reg_fac = (output_list[4] == 'All Instructors')
+
+    if(my_int != 0):
+        my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[3]), dept=output_list[0])
+        print("my query's dept = ", my_query.dept)
+        Dict1 = my_query.database_search()
+        plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[3]), output_list[0])
+    else:
+        my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[3]), dept=output_list[0])
+        Dict1 = my_query.database_search()
+        plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[3]), output_list[0])
+            
+    
+    '''
     a_vs_justpass = (output_list[2] == 'A distribution')
     if (output_list[2] == ""):
         a_vs_justpass = True
@@ -84,6 +102,7 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
     print(Dict1)
     plotter(2, a_vs_justpass, True, Dict1, output_list[1], output_list[0])
     print(output_list)
+    '''
 
 
 
@@ -122,7 +141,7 @@ def query_selected_option(query, v1, v2, v3, v4):
     crn_check = ["Department", "Department Level by Teacher", "Department Level by Class"]
 
     if query in crn_check:
-        crn_entry.bind("<Button-1>",lambda e: crn_enter.delete(0,tk.END))
+        crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
         crn_entry.insert(0, "Class Number")
         crn_entry.configure(state="disabled")
     elif query not in crn_check:
@@ -171,12 +190,13 @@ def query_selected_option(query, v1, v2, v3, v4):
         variable2.set(tmp2)
         variable3.set(tmp3)
         variable4.set(tmp4)
-    #selection = Frame(root)
-    #selection.place(x=360, y=450)
-    #selection.configure(bg="gray92")
-    #final = tk.Button(root, text="Use Filters", font=('Bold 30', 20), fg='black', command=selectQuery)
-    #final.place(x=360, y=450)
+    selection = Frame(root)
+    selection.place(x=360, y=450)
+    selection.configure(bg="gray92")
+    final = tk.Button(root, text="Use Filters", font=('Bold 30', 20), fg='black', command=selectQuery)
+    final.place(x=360, y=450)
         # output of clicking button
+    '''
     def output():
         selectQuery()
         output_list = []
@@ -186,14 +206,14 @@ def query_selected_option(query, v1, v2, v3, v4):
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         output_list.append(variable4.get())
-        output_list.append(selected_query )
-    
-        graph_output_list(output_list) #********* here we are graphing what we have *************#
+        output_list.append(selected.get() )
+        print(output_list)
+        graph_my_output_list(output_list) #********* here we are graphing what we have *************#
 
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
     enterButton.place(x=586, y=470)
-    
+    '''
 
 
 def main():
@@ -254,10 +274,10 @@ def main():
     query_decide = tk.Button(command=selection)
     query_decide.place(x=900, y=220)
 
-    '''
+    
     # output of clicking button
     def output():
-        selectQuery()
+        #selectQuery()
         output_list = []
         output_list.append(variable1.get())
         output_list.append((crnEnter.get()).replace(' ', ''))
@@ -265,6 +285,9 @@ def main():
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         output_list.append(variable4.get())
+        output_list.append(selected.get())
+        graph_my_output_list(output_list)
+        '''
         print(output_list) # has four variables
         a_vs_justpass = (output_list[2] == 'A distribution')
         if (output_list[2] == ""):
@@ -285,11 +308,12 @@ def main():
         print(Dict1)
         plotter(2, a_vs_justpass, True, Dict1, output_list[1], output_list[0])
         print(output_list)
+        '''
 
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
     enterButton.place(x=586, y=470)
-    '''
+    
     #non tech requirement of us telling the user about the data
     acknowledgements = Label(root, text="All data coped directly from m https://emeraldmediagroup.github.io/grade-data/ in January 2024. If you do not see your class in the listings, your \"class has been redacted\". Please refer to the UO class\
                                         \n listing above for any discrepancies, from which we copied in January 2024, so data may change. The years included in this system are from : 2013, 2014, 2015, 2016. The scraped data is from 2014\
