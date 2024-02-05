@@ -8,46 +8,80 @@ from tkinter import * # possibly change this because this is a big import!
 import tkinter.font as tkFont
 from tkinter import filedialog
 import matplotlib.pyplot as plt
+from tkinter.messagebox import showinfo
 
-import os as os
+import os 
 
 import admin as AdminMod
 
 #from PIL import ImageTk, Image
 #import os
 
-#def closeAdmin():
-#root.withdraw()
+##root = None
+#held_data = "./gradedata2.js"
 
+def make_new():
+    root = tk.Tk()
+#root = tk.Tk()
+#global alreadyin
+#alreadyin = tk.StringVar(root)
+#alreadyin.set("False")
+#global is_file
+#is_file = tk.StringVar(root)
+#if os.path.exists(held_data):
+#    is_file.set("True")
+#else:
+#    is_file.set("False")
+is_file = False
 alreadyin = False
-error_msg = False
-held_data = "./gradedata2.js"
 
 # if there is not already a .js file
-if not os.path.exists(held_data):
-    is_file = False
-# if there is a .js file already
-else:
-    is_file = True
+#if os.path.exists(held_data):
+#    is_file = True
 
-#function to allow admin to choose file to update grades
 def openNewFile():
-    global alreadyin
-    # if there is no .js file yet
-    if is_file == False and alreadyin != True:
-        file_path = filedialog.askopenfilename()
+    #global alreadyin
+    file_path = filedialog.askopenfilename()
+    if file_path != '':
+        print(file_path, held_data)
         # copy contents to gradedata.js
         with open(file_path,'r') as firstfile, open(held_data,'w') as secondfile: 
             for line in firstfile: 
-                    secondfile.write(line)
-        alreadyin = True
+                secondfile.write(line)
+        alreadyin = ("True")   
 
-    # if there is one already
+def new_js():
+    win = tk.Toplevel()
+    win.geometry("310x100")
+    win.configure(bg="gray92")
+    win.wm_title("Add/Replace Data")
+    l = tk.Label(win, text="There is already a .js file. Do you wish\
+    \n to replace it?", font=("Bold 16"))
+    l.place(x=10, y=10)
+    yes_b = tk.Button(win, text="Yes", command=openNewFile, font=("Bold 16"))
+    yes_b.place(x=70, y=65)
+    no_b = tk.Button(win, text="No", command=win.destroy, font=("Bold 16"))
+    no_b.place(x=180, y=65)
+
+def add_button():
+    #global is_file
+    #global alreadyin
+    # if there is already a .js file
+    if is_file == False and alreadyin != True:
+        new_js()
+        #addnew = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=new_js)
+        #addnew.pack()
+
     else:
-        error_msg = True
-        # what should we do here? be able to replace or what  
+    # if there isn't a file already:
+        #addnew = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=openNewFile)
+        #addnew.pack()
+        openNewFile()
+
 
 def adminView():
+    global is_file
+    global alreadyin
     root=tk.Tk()
     def closeAdmin():
         root.withdraw()
@@ -55,25 +89,58 @@ def adminView():
         AdminMod.scraper()
     root.title("Admin")
     root.geometry("350x600")
-    root.configure(bg='gray40')
+    root.configure(bg='gray90')
     adminButton = tk.Button(root, text="Student Mode", font=('Bold 20'), command=closeAdmin)
     adminButton.place(x=20, y=20)
     spase = tk.Text(root, height=12, width=0)
-    spase.configure(bg='gray40', highlightthickness = 0, borderwidth=0)
+    spase.configure(bg='gray90', highlightthickness = 0, borderwidth=0)
     spase.pack()
-    addnew = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=openNewFile)
-    addnew.pack()
-    def deleteme():
-        result = tk.messagebox.askquestion("Delete", "Are You Sure?", icon='warning')
-        if result == 'yes':
-            print("Deleted")
-        else:
-            print("I'm Not Deleted Yet")
-    if error_msg == True:
-        B1 = tk.Button(root, text = "Delete", command = deleteme)
-        B1.pack()
+    #function to allow admin to choose file to update grades
+    '''
+    def openNewFile():
+        global alreadyin
+        file_path = filedialog.askopenfilename()
+        if file_path != '':
+            print(file_path, held_data)
+            # copy contents to gradedata.js
+            with open(file_path,'r') as firstfile, open(held_data,'w') as secondfile: 
+                for line in firstfile: 
+                    secondfile.write(line)
+            alreadyin = True    
+    
+    def new_js():
+        win = tk.Toplevel()
+        win.geometry("310x100")
+        win.configure(bg="gray92")
+        win.wm_title("Add/Replace Data")
+        l = tk.Label(win, text="There is already a .js file. Do you wish\
+        \n to replace it?", font=("Bold 16"))
+        l.place(x=10, y=10)
+        yes_b = tk.Button(win, text="Yes", command=openNewFile, font=("Bold 16"))
+        yes_b.place(x=70, y=65)
+        no_b = tk.Button(win, text="No", command=win.destroy, font=("Bold 16"))
+        no_b.place(x=180, y=65)
 
-    spase2 = tk.Text(root, bg='gray40', height=5, width=0, highlightthickness = 0, borderwidth=0)
+    def add_button():
+        # if there is already a .js file
+        if is_file == False and alreadyin != True:
+            print("hi")
+            new_js()
+            #addnew = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=new_js)
+            #addnew.pack()
+
+        else:
+        # if there isn't a file already:
+            #addnew = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=openNewFile)
+            #addnew.pack()
+            openNewFile()
+    '''
+    #print(is_file.get(), alreadyin.get())
+    if is_file == False and alreadyin != True:
+        print("hi")
+    some_button = tk.Button(root, text="Add/Replace.js file", font=("Bold 20"), command=new_js)#add_button)
+    some_button.pack()
+    spase2 = tk.Text(root, bg='gray90', height=5, width=0, highlightthickness = 0, borderwidth=0)
     spase2.pack()
     preparedata = tk.Button(root, text="Run Scraper", font=('Bold 20'), command=scraperRun)
     preparedata.pack()
