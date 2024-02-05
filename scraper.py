@@ -145,9 +145,11 @@ def data_scraper():
     '''
     unique_names_set = set() #Initialize an empty list of names to catch reptitions
     count = 0
+    filename = 'export_data.csv'
+    f = open(filename, "w+")
     print("Starting the web scraper. The output will show which department's data has been collected and will print 'No data' if there was no information available.\n")
     time.sleep(3)
-    print("The web scraper may take around 13 minutes to run in order to prevent the scraper from being flagged as a malicious attack on the website.\n")
+    print("The web scraper may take over 10 minutes to run in order to prevent the scraper from being flagged as a malicious attack on the website.\n")
     time.sleep(3)
     print("If the web scraper stops before 'Scraper has finished running.', please wait a few minutes and try again.\n")
     time.sleep(4)
@@ -157,7 +159,7 @@ def data_scraper():
         count = count + 1
         scrape_export_data(url, unique_names_set, count)
         time.sleep(9)
-    
+    f.close()
     print("Scraper has finished running.")
 
 if __name__ == "__main__":
