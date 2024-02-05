@@ -63,6 +63,33 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
 
     return var_output
 
+def class_input(var_name, new):
+    var_name.set(new)
+'''
+def name_entry_input(new_item, curr_root, frame_name, var_name, input_text):
+    average formatting for a *name* *dropdown menu* on one line type frame.
+    input:
+        text_item, tk.Text() - a Text item with the appropriate width for the option menu.
+        curr_root, tk.TK() - the tk root.  
+        frame_name, Frame(root) - the frame that the dropdown input will be on.
+        var_name, tk.StringVar(root) - the variable that will store the output of the choice on screen.
+        input_text, str - the text in the frame (*name* above). 
+        option_menu, list - the tuple of menu options that the dropdown menu will have. 
+    output:
+        var_output, str - the variable choice from the menu.
+    
+    new_item.pack(side=LEFT)
+    new_item.config(state="normal")
+    new_item.insert(curr_root.END, input_text)
+    new_item.config(state="disabled")
+    menu_width = 0
+    input_enter = curr_root.Button(frame_name, var_name)
+    input_enter.config(font=("Bold", 17), fg='black', width=menu_width)#, bg="gray92")
+    input_enter.pack(side=LEFT) 
+    var_output = var_name
+
+    return var_output
+'''
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
@@ -108,7 +135,7 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
 
 
 
-def query_selected_option(query, v1, v2, v3, v4):
+def query_selected_option(query, v1, v2, v3, v4, entry):
     # canvas
     root.canvas=Canvas(root, width=580, height=210) # was width=650, height=450
     root.canvas.configure(bg="white")
@@ -131,20 +158,23 @@ def query_selected_option(query, v1, v2, v3, v4):
     new_item.config(state="normal")
     new_item.insert(tk.END, "Class Number")
     new_item.config(state="disabled", bg="white", fg='black', highlightthickness = 0, borderwidth=0)
-    crn_entry = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
+    #crn_entry = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
+    #crn_entry.place(x=360, y=314)
+    tmp_item2 = tk.Text(crnframe, height=0, width=26, font=('Bold', 17), bg="white", fg='black',highlightthickness = 0, borderwidth=0)
+    #crn_entry = name_entry_input(tmp_item2, tk, crnframe, entry, "Enter Class Number")
     #lambda func to just get rid of text in class number when entering
+    crn_entry = tk.Entry(root, width=12,font=("Helvetica 17 italic"), fg='grey60')
+    crn_entry.place(x=700, y=314)
     crn_check = ["Department", "Department Level by Teacher", "Department Level by Class"]
 
     if query in crn_check:
-        crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
-        crn_entry.insert(0, "Class Number")
+        #crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
         crn_entry.configure(state="disabled")
-    elif query not in crn_check:
-        crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
-        crn_entry.insert(0, "Class Number")
+    #elif query not in crn_check:
+        #crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
         #crnEnter.set(crn_entry)
     #crn_enter.configure(bg="gray92", highlightthickness = 1, borderwidth=0)
-    crn_entry.pack(side=RIGHT)
+    
 
     # type of grading input
     distframe = Frame(root) 
@@ -180,7 +210,15 @@ def query_selected_option(query, v1, v2, v3, v4):
     #graph_info_collec.set(filters)
     #variable1.set()
     def selectQuery():
-        crnEnter.set(crn_entry)
+        #enter = crn_entry.get()
+        #print(enter)
+        #int_enter = int(enter)
+        #print(int(enter))
+        #change_back = str(int_enter)
+        #print(change_back)
+        #crnEnter.set(change_back)
+        class_input(entry, crn_entry.get())
+        print(crnEnter)
         variable1.set(tmp1)
         variable2.set(tmp2)
         variable3.set(tmp3)
@@ -204,6 +242,7 @@ def main():
     variable5.set("None")
 
     # lists of optionmenus
+    
     variable1 = tk.StringVar(root)
     variable1.set("None")
     variable2 = tk.StringVar(root)
@@ -243,7 +282,7 @@ def main():
     def selection():
         selected_query = selected.get()
         x = variable5.get()
-        query_selected_option(x, variable1, variable2, variable3, variable4)
+        query_selected_option(x, variable1, variable2, variable3, variable4, crnEnter)
         
     #query_decide = tk.Button(command=lambda: query_selected_option(variable5))
     
@@ -256,7 +295,9 @@ def main():
         #selectQuery()
         output_list = []
         output_list.append(variable1.get())
-        output_list.append((crnEnter.get()).replace(' ', ''))
+        #print(ter.get())
+        #print(str(crnEnter.get()))
+        output_list.append(crnEnter.get())#.replace(' ', ''))
         #output_list.appen(crn_enter)
         output_list.append(variable2.get())
         output_list.append(variable3.get())
