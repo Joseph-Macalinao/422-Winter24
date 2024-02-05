@@ -67,6 +67,9 @@ def class_input(var_name, new):
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
     print("-->", output_list) # has 5 variables
+
+    #NOTE - have most of the classes but need to check environmental science and the rest of them. also find how to do "MACS"
+    class_conversion = {"Biology": "BI", "Chemistry": "CH", "Computer Tech": "CIT", "Computer Science": "CIS", "Data Science": "DSCI", "Environment Studies": "ENVS", "Human Physiology":"HPHY", "Mathematics": "MATH", "Neuroscience": "NEUR"}
     my_int = ["Specific Class", "Department", "Department Level by Teacher", "Department Level by Class"].index(output_list[5])
     a_vs_justpass = (output_list[2] == 'A distribution')
     all_inst_vs_reg_fac = (output_list[4] == 'All Instructors')
@@ -79,7 +82,8 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
     else:
         my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[1]), dept=output_list[0])
         Dict1 = my_query.database_search()
-        plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
+        if Dict1 != {}:
+            plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
 
 
 def query_selected_option(query, v1, v2, v3, v4, entry):
@@ -93,7 +97,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     deptframe.configure(bg="white")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
     tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
+    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "Computer Tech", "Computer Science", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
 
     # crn type input
     crnframe = Frame(root)
@@ -130,7 +134,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
         tmp_item.configure(state="disabled")
     
     elif query != "Specific Class" or query == "Department":
-        tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["100", "200", "300", "400"])
+        tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["100", "200", "300", "400", "500", "600"])
 
 
     # level input
@@ -227,6 +231,7 @@ def main():
         output_list.append(variable4.get())
         output_list.append(selected.get())
         #print(output_list) # has four variables
+
         graph_my_output_list(output_list)
         
 

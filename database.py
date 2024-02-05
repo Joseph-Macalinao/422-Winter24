@@ -11,16 +11,19 @@ with open('result.json') as data:
 # define functions required to search the database, including the following:
 
 def class_search(class_num, dept, all_instructors, easy_a):
+    department_info_dict = {}
     """
     Given a class number and a department, search for (a % or d/f %) of all professors who have taught that class.
     """
     # classes (a list w/ dicts for each class), Regular_Faculty (a list of faculty members)
     returning_data = {}  # key = professor, val = [percentage, num_entries]  (since tuples are immutable)
     class_to_find = dept + str(class_num)  # e.g., "CIS110"
-    department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
+
+    if dept in data_bank:    
+        department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
 
     if department_info_dict:  # department exists
-        class_list = department_info_dict["classes"]  # list of classes (ofc)
+        class_list = department_info_dict["classes"]  # list of classes 
         for class_obj in class_list:
             
             # search for class_obj that contains class_title as a key 
@@ -71,11 +74,13 @@ def department_search(dept, all_instructors, easy_a):
     Given a department, search for information regarding all professors
     of that specific department.
     """
+    department_info_dict = {}
     returning_data = {}  # key = professor, val = [percentage, num_entries]  (since tuples are immutable)
-    department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
+    if dept in data_bank:    
+        department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
 
     if department_info_dict:  # department exists
-        class_list = department_info_dict["classes"]  # list of classes (ofc)
+        class_list = department_info_dict["classes"]  # list of classes 
         for class_obj in class_list: 
             for class_data in class_obj.values():
                 for class_instance in class_data:
@@ -123,14 +128,16 @@ def level_department_search(class_level, dept, all_instructors, easy_a):
     """
     Given a class level and department, search for all professors teaching at that class level.
     """
+    department_info_dict = {}
     returning_data = {}  # key = professor, val = [percentage, num_entries]  (since tuples are immutable)
-    department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
+    if dept in data_bank:    
+        department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
 
     class_max = dept + str(class_level + 100)
     class_level = dept + str(class_level)
 
     if department_info_dict:  # department exists
-        class_list = department_info_dict["classes"]  # list of classes (ofc)
+        class_list = department_info_dict["classes"]  # list of classes
         for class_obj in class_list: 
 
             for class_code, class_data in class_obj.items():
@@ -186,14 +193,16 @@ def class_level_search(class_level, dept, all_instructors, easy_a):
     particular level in that department.
     """
 
+    department_info_dict = {}
     returning_data = {}  # key = class name, val = [percentage, num_entries]  (since tuples are immutable)
-    department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
+    if dept in data_bank:    
+        department_info_dict = data_bank[dept]  # attempt to load database entry for given dept
 
     class_max = dept + str(class_level + 100)
     class_level = dept + str(class_level)
 
     if department_info_dict:  # department exists
-        class_list = department_info_dict["classes"]  # list of classes (ofc)
+        class_list = department_info_dict["classes"]  # list of classes 
         for class_obj in class_list: 
 
             for class_code, class_data in class_obj.items():
@@ -255,7 +264,7 @@ if __name__ == "__main__":
     # easy_a_res = level_department_search(600, "CIS", True, True)
     # pass_res = level_department_search(600, "CIS", True, False)
     
-    easy_a_res = class_level_search(600, "CIS", True, True)
+    easy_a_res = class_level_search(600, "COMPUT", True, True)  # Should return empty dict on faulty search
     pass_res = class_level_search(600, "CIS", True, False)
     # goal --> get res to print relevant data to send back to the query handler
     print(easy_a_res)

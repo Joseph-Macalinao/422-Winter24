@@ -22,7 +22,7 @@ class Query:
         easy_a (bool): Boolean identifying % of A's vs % of D/F's
 
     Returns:
-        something 
+        Relevant graphing information packed into a dictionary
     """
     def __init__(self, req, all_instructors, easyA, class_level=0, dept=""):
         self.main_request = req
@@ -55,29 +55,8 @@ class Query:
             # error handling if needed
             pass
 
-        # temorary return
+        # result return
         return result
-
-        # TODO: define result in a meaningful way to be used for graphing.
-
-        # returned result is a dict that takes the following format:
-        #   Each key corresponds to a professor name (for queries 0~2) or class name (for query 3)
-        #   Each value corresponds to a list of 2 elements with the following format: 
-        #       [A% / D&F% Average (float), number of entries (int)]
-        #   
-        #   number of entries is relevant for Part (e) of functional requirements
-        #       --> An option to show class count (number of classes represented by each bar in graph)
- 
-
-
-    """
-    TODO: need to figure out what the UI needs returned in order to make a graph
-    idea:
-        class GraphInformation:
-        --> class object to be made in the UI.py file (and imported into this file)
-        --> GraphInformation object returned to UI when a query is satified by handler
-        --> then UI.py can take graph information and display 
-    """
 
 
 if __name__ == "__main__":
