@@ -8,7 +8,6 @@ from tkinter import *
 import tkinter.font as tkFont
 import matplotlib.pyplot as plt
 from adminUI import adminView
-from adminUI import make_new
 from query_handler import *
 from plot import *
 
@@ -35,7 +34,6 @@ selected.set("None")
 
 def admin():
     ''' show admin pop out page '''
-#    make_new()
     adminView()
 
 def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, option_menu):
