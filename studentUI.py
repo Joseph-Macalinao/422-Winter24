@@ -130,7 +130,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
         tmp_item.configure(state="disabled")
     
     elif query != "Specific Class" or query == "Department":
-        tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["100", "200", "300", "400"])
+        tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["100", "200", "300", "400", "500", "600"])
 
 
     # level input
