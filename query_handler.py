@@ -83,17 +83,19 @@ class Query:
 if __name__ == "__main__":
     
     # Running example queries of each type
-    # class search for "CIS 122" professors, with easyA and all_instructors enabled
-    # input_query = Query(0, True, True, class_level=122, dept="CIS")
+    # class search for "CIS 122" professors, with all_instructors and easyA enabled
+    # input_query = Query(0, False, True, class_level=122, dept="CIS")
     
-    # CIS department search for professors, with easyA and all_instructors enabled
-    # input_query = Query(1, True, True, dept="CIS")
+    # CIS department search for professors, with all_instructors and easyA disabled 
+    # input_query = Query(1, False, True, dept="CIS")
+    input_query = Query(1, True, True, dept="CIS")
 
-    # CIS department search for all professors of 400 level, with easyA and all_instructors enabled
-    # input_query = Query(2, True, True, class_level=400, dept="CIS")
+    # CIS department search for all professors of 400 level, with all_instructors and easyA enabled
+    # input_query = Query(2, False, True, class_level=400, dept="CIS")
 
-    # CIS department search for all 600 level classes, with easyA and all_instructors enabled
-    input_query = Query(3, True, True, class_level=600, dept="CIS")
+    # CIS department search for all 600 level classes, with all_instructors and easyA enabled
+    # input_query = Query(3, False, True, class_level=600, dept="CIS")
+    # input_query = Query(3, True, True, class_level=600, dept="CIS")
     
     res = input_query.database_search()
     print(res)
