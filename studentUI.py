@@ -77,9 +77,9 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
         Dict1 = my_query.database_search()
         plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[3]), output_list[0])
     else:
-        my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[3]), dept=output_list[0])
+        my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[1]), dept=output_list[0])
         Dict1 = my_query.database_search()
-        plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[3]), output_list[0])
+        plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
 
 
 def query_selected_option(query, v1, v2, v3, v4, entry):
@@ -252,26 +252,11 @@ def main():
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         output_list.append(variable4.get())
-        print(output_list) # has four variables
-        a_vs_justpass = (output_list[2] == 'A distribution')
-        if (output_list[2] == ""):
-            a_vs_justpass = True
-        if (output_list[1] == ""):
-            output_list[1] = 0
-        else:
-            while(True):
-                try:
-                    output_list[1] = int(output_list[1])
-                    output_list[3] = int(output_list[3])
-                    break
-                except:
-                    pass
+        output_list.append(selected.get())
+        #print(output_list) # has four variables
+        graph_my_output_list(output_list)
         
-        my_query = Query(2, a_vs_justpass, True, class_level = output_list[1], dept=output_list[0])
-        Dict1 = my_query.database_search()
-        print(Dict1)
-        plotter(2, a_vs_justpass, True, Dict1, output_list[1], output_list[0])
-        print(output_list)
+
 
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
