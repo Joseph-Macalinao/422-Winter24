@@ -109,33 +109,28 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
 
 
 def query_selected_option(query, v1, v2, v3, v4):
-
-    # variable1 = tk.StringVar(root)
-    # variable1.set("None")
-    # variable2 = tk.StringVar(root)
-    # variable2.set("None")
-    # variable3 = tk.StringVar(root)
-    # variable3.set("None")
-    # variable4 = tk.StringVar(root)
-    # variable4.set("None")
-    
+    # canvas
+    root.canvas=Canvas(root, width=580, height=210) # was width=650, height=450
+    root.canvas.configure(bg="white")
+    root.canvas.place(x=340, y=270)
+    # dept frame input
     deptframe = Frame(root) 
-    deptframe.place(x=360, y=250)
-    deptframe.configure(bg="gray92")
+    deptframe.place(x=360, y=288)
+    deptframe.configure(bg="white")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
-    tmp_item.configure(bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
+    tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
     tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
     #v1.set(tmp)
 
     # crn type input
     crnframe = Frame(root)
-    crnframe.place(x=360, y=288)
-    crnframe.configure(bg="gray92")
+    crnframe.place(x=360, y=328)
+    crnframe.configure(bg="white")
     new_item = tk.Text(crnframe, height=0, width=34, font=('Bold', 17)) 
     new_item.pack(side=LEFT)
     new_item.config(state="normal")
     new_item.insert(tk.END, "Class Number")
-    new_item.config(state="disabled", bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
+    new_item.config(state="disabled", bg="white", fg='black', highlightthickness = 0, borderwidth=0)
     crn_entry = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
     #lambda func to just get rid of text in class number when entering
     crn_check = ["Department", "Department Level by Teacher", "Department Level by Class"]
@@ -153,18 +148,18 @@ def query_selected_option(query, v1, v2, v3, v4):
 
     # type of grading input
     distframe = Frame(root) 
-    distframe.place(x=360, y=328)
-    distframe.config(bg="gray92")
-    tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="gray92", fg='black',highlightthickness = 0, borderwidth=0)
+    distframe.place(x=360, y=366)
+    distframe.config(bg="white")
+    tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="white", fg='black',highlightthickness = 0, borderwidth=0)
     tmp2 = name_dropdown_input(tmp_item, tk, distframe, v2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
     #v2.set(tmp)
 
     # level input
     
     levelframe = Frame(root)
-    levelframe.place(x=360, y=366)
-    levelframe.configure(bg="gray92")
-    tmp_item = tk.Text(levelframe, height=0, width=39, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
+    levelframe.place(x=360, y=400)
+    levelframe.configure(bg="white")
+    tmp_item = tk.Text(levelframe, height=0, width=39, font=('Bold', 17), bg="white", fg='black', highlightthickness = 0, borderwidth=0)
     if query == "Specific Class" or query == "Department":
         tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["None"])
         tmp_item.configure(state="disabled")
@@ -175,9 +170,9 @@ def query_selected_option(query, v1, v2, v3, v4):
 
     # level input
     allframe = Frame(root)
-    allframe.place(x=360, y=410)
-    allframe.configure(bg="gray92")
-    tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="gray92", fg='black', highlightthickness = 0, borderwidth=0)
+    allframe.place(x=360, y=435)
+    allframe.configure(bg="white")
+    tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="white", fg='black', highlightthickness = 0, borderwidth=0)
     tmp4 = name_dropdown_input(tmp_item, tk, allframe, v4, "All Instructors/Regular Faculty", ["All Instructors", "Regular Faculty"])
     #v4.set(tmp)
 
@@ -192,28 +187,9 @@ def query_selected_option(query, v1, v2, v3, v4):
         variable4.set(tmp4)
     selection = Frame(root)
     selection.place(x=360, y=450)
-    selection.configure(bg="gray92")
+    selection.configure(bg="white")
     final = tk.Button(root, text="Use Filters", font=('Bold 30', 20), fg='black', command=selectQuery)
-    final.place(x=360, y=450)
-        # output of clicking button
-    '''
-    def output():
-        selectQuery()
-        output_list = []
-        output_list.append(variable1.get())
-        output_list.append((crnEnter.get()).replace(' ', ''))
-        #output_list.appen(crn_enter)
-        output_list.append(variable2.get())
-        output_list.append(variable3.get())
-        output_list.append(variable4.get())
-        output_list.append(selected.get() )
-        print(output_list)
-        graph_my_output_list(output_list) #********* here we are graphing what we have *************#
-
-    enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
-    #enterButton.configure(bg="blue")
-    enterButton.place(x=586, y=470)
-    '''
+    final.place(x=470, y=500)
 
 
 def main():
@@ -259,7 +235,7 @@ def main():
 
     #query selection
     query_selection = Frame(root)
-    query_selection.place(x=360,y=220)
+    query_selection.place(x=360,y=232)
     query_selection.configure(bg="gray92")
     now_item = tk.Text(query_selection, height=0, width=21, font=('Bold', 17))
     now_item.configure(bg="gray92", fg="black", highlightthickness=0, borderwidth=0)
@@ -271,8 +247,8 @@ def main():
         
     #query_decide = tk.Button(command=lambda: query_selected_option(variable5))
     
-    query_decide = tk.Button(command=selection)
-    query_decide.place(x=900, y=220)
+    query_decide = tk.Button(root, bg='green', text="✅", command=selection)
+    query_decide.place(x=889, y=234)
 
     
     # output of clicking button
@@ -287,32 +263,10 @@ def main():
         output_list.append(variable4.get())
         output_list.append(selected.get())
         graph_my_output_list(output_list)
-        '''
-        print(output_list) # has four variables
-        a_vs_justpass = (output_list[2] == 'A distribution')
-        if (output_list[2] == ""):
-            a_vs_justpass = True
-        if (output_list[1] == ""):
-            output_list[1] = 0
-        else:
-            while(True):
-                try:
-                    output_list[1] = int(output_list[1])
-                    output_list[3] = int(output_list[3])
-                    break
-                except:
-                    pass
-        
-        my_query = Query(2, a_vs_justpass, True, class_level = output_list[1], dept=output_list[0])
-        Dict1 = my_query.database_search()
-        print(Dict1)
-        plotter(2, a_vs_justpass, True, Dict1, output_list[1], output_list[0])
-        print(output_list)
-        '''
 
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     #enterButton.configure(bg="blue")
-    enterButton.place(x=586, y=470)
+    enterButton.place(x=586, y=500)
     
     #non tech requirement of us telling the user about the data
     acknowledgements = Label(root, text="All data coped directly from m https://emeraldmediagroup.github.io/grade-data/ in January 2024. If you do not see your class in the listings, your \"class has been redacted\". Please refer to the UO class\
