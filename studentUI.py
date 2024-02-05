@@ -64,7 +64,12 @@ def class_input(var_name, new):
     var_name.set(new)
 
 def error_msg(msg):
-    pass
+    error = tk.Tk()
+    error.title("error msg")
+    error.geometry("300x200")
+    error.resizable(False,False)
+    err_msg = tk.Label(error, text=msg)
+    err_msg.pack()
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
@@ -93,7 +98,8 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
         Dict1 = my_query.database_search()
         if Dict1 != {}:
             plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
-
+        elif Dict1 == {}:
+            error_msg("Class Data Not in Database. \nCheck query filters and try again")
 
 def query_selected_option(query, v1, v2, v3, v4, entry):
     # canvas
