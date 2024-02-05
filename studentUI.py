@@ -54,7 +54,7 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
     new_item.config(state="disabled")
     menu_width = len(max(option_menu, key=len))
     input_enter = curr_root.OptionMenu(frame_name, var_name, *option_menu)
-    input_enter.config(font=("Bold", 17), fg='black', width=menu_width)#, bg="gray92")
+    input_enter.config(font=("Bold", 17), fg='black', width=menu_width)
     input_enter.pack(side=LEFT) 
     var_output = var_name
 
@@ -94,7 +94,6 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
     tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
     tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
-    #v1.set(tmp)
 
     # crn type input
     crnframe = Frame(root)
@@ -105,23 +104,13 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     new_item.config(state="normal")
     new_item.insert(tk.END, "Class Number")
     new_item.config(state="disabled", bg="white", fg='black', highlightthickness = 0, borderwidth=0)
-    #crn_entry = tk.Entry(crnframe,width=12,font=("Helvetica 17 italic"), fg='grey60')
-    #crn_entry.place(x=360, y=314)
     tmp_item2 = tk.Text(crnframe, height=0, width=26, font=('Bold', 17), bg="white", fg='black',highlightthickness = 0, borderwidth=0)
-    #crn_entry = name_entry_input(tmp_item2, tk, crnframe, entry, "Enter Class Number")
-    #lambda func to just get rid of text in class number when entering
     crn_entry = tk.Entry(root, width=12,font=("Helvetica 17 italic"), fg='grey60')
     crn_entry.place(x=700, y=314)
     crn_check = ["Department", "Department Level by Teacher", "Department Level by Class"]
 
     if query in crn_check:
-        #crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
         crn_entry.configure(state="disabled")
-    #elif query not in crn_check:
-        #crn_entry.bind("<Button-1>",lambda e: crn_entry.delete(0,tk.END))
-        #crnEnter.set(crn_entry)
-    #crn_enter.configure(bg="gray92", highlightthickness = 1, borderwidth=0)
-    
 
     # type of grading input
     distframe = Frame(root) 
@@ -129,7 +118,6 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     distframe.config(bg="white")
     tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="white", fg='black',highlightthickness = 0, borderwidth=0)
     tmp2 = name_dropdown_input(tmp_item, tk, distframe, v2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
-    #v2.set(tmp)
 
     # level input
     
@@ -143,7 +131,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     
     elif query != "Specific Class" or query == "Department":
         tmp3 = name_dropdown_input(tmp_item, tk, levelframe, v3, "Level", ["100", "200", "300", "400"])
-    #v3.set(tmp)
+
 
     # level input
     allframe = Frame(root)
@@ -151,19 +139,9 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     allframe.configure(bg="white")
     tmp_item = tk.Text(allframe, height=0, width=28, font=('Bold', 17), bg="white", fg='black', highlightthickness = 0, borderwidth=0)
     tmp4 = name_dropdown_input(tmp_item, tk, allframe, v4, "All Instructors/Regular Faculty", ["All Instructors", "Regular Faculty"])
-    #v4.set(tmp)
 
-    #return_filters = [variable1, variable2, variable3, variable4]
-    #graph_info_collec.set(filters)
-    #variable1.set()
+    #setting globals to be able to .get() later on
     def selectQuery():
-        #enter = crn_entry.get()
-        #print(enter)
-        #int_enter = int(enter)
-        #print(int(enter))
-        #change_back = str(int_enter)
-        #print(change_back)
-        #crnEnter.set(change_back)
         class_input(entry, crn_entry.get())
         print(crnEnter)
         variable1.set(tmp1)
@@ -233,22 +211,17 @@ def main():
         selected_query = selected.get()
         x = variable5.get()
         query_selected_option(x, variable1, variable2, variable3, variable4, crnEnter)
-        
-    #query_decide = tk.Button(command=lambda: query_selected_option(variable5))
     
+    #button to "lock in" class filters
     query_decide = tk.Button(root, bg='green', text="✅", command=selection)
     query_decide.place(x=889, y=234)
 
     
-    # output of clicking button
+    # output of clicking button ~ leading to a graphical repr of cladd data
     def output():
-        #selectQuery()
         output_list = []
         output_list.append(variable1.get())
-        #print(ter.get())
-        #print(str(crnEnter.get()))
-        output_list.append(crnEnter.get())#.replace(' ', ''))
-        #output_list.appen(crn_enter)
+        output_list.append(crnEnter.get())
         output_list.append(variable2.get())
         output_list.append(variable3.get())
         output_list.append(variable4.get())
@@ -259,7 +232,6 @@ def main():
 
 
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
-    #enterButton.configure(bg="blue")
     enterButton.place(x=586, y=500)
     
     #non tech requirement of us telling the user about the data
