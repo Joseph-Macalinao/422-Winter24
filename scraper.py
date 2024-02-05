@@ -1,8 +1,7 @@
 from bs4 import BeautifulSoup
 import requests, csv, time
-import random
 
-# all natural science urls
+# all URLs from wayback machine archive of UO course catalog
 urls =[ 'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/africanstudies/',
         'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/anthropology/',
         'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/arts_sciences/asianstudies/',
@@ -57,8 +56,12 @@ urls =[ 'https://web.archive.org/web/20140901091007/http://catalog.uoregon.edu/a
         'https://web.archive.org/web/20141107202247/http://catalog.uoregon.edu/arts_sciences/statistics/']
 
 def scrape_export_data(url, names_set, count):
-    """ scrape_export_data(url): input is string (url)
+    """ 
+    scrape_export_data(url): input is string (url)
     returns void but creates a .csv file called "export_data.csv"
+
+    - checks URL for key HTML tags, reading the faculty names from the tags if found
+    - identifes 
     """
 
     website = url
@@ -70,9 +73,10 @@ def scrape_export_data(url, names_set, count):
     box = soup.find('div', {'id': 'facultytextcontainer'}) #identify {id: facultytextcontainer} sections in the HTML
     
     if box: # if section found, access the data
+
         faculty_info = [] # create empty list for faculty info
         major = soup.find('div', attrs={'id': 'breadcrumb'}).find('span', {'class': 'active'}).get_text(strip=True) #find the specific major being listed
-        print("{}. {}".format(count, major)) # list majors
+               
         person = box.find('p') # check for <p> class 
 
         if person: # catch a specific case of HTML faculty not listed in facultylist:
@@ -103,7 +107,9 @@ def scrape_export_data(url, names_set, count):
                     faculty_info.append((name, major, department)) #add name, major, department to faculty_info list
 
         if faculty_info: #if faculty_info list exists for this page
-                
+
+                print("{}. {}".format(count, major)) # list majors
+
                 with open('export_data.csv', 'a', newline='', encoding = 'utf-8') as file: #open export_data.csv file
 
                     writer = csv.writer(file) #write to file
@@ -121,8 +127,10 @@ def scrape_export_data(url, names_set, count):
 
                 return
         else:
+
             major = soup.find('div', attrs={'id': 'breadcrumb'}).find('span', {'class': 'active'}).get_text(strip=True) #find the specific major being listed
             print("{}. {}: No data".format(count, major))  #if there is no faculty to append, print "no data"
+            
             return
     else:
         major = soup.find('div', attrs={'id': 'breadcrumb'}).find('span', {'class': 'active'}).get_text(strip=True) #find the specific major being listed
@@ -130,16 +138,27 @@ def scrape_export_data(url, names_set, count):
             
 
 def data_scraper():
-    '''Uses built in list of urls. Scrapes each url for that specific major, all necessary faculty names, and their role in the department. Writes that information into an export_data.csv file'''
+    '''
+    Uses built in list of urls. 
+    Scrapes each url for that specific major, all necessary faculty names, and their role in the department. 
+    Writes that information into an export_data.csv file
+    '''
     unique_names_set = set() #Initialize an empty list of names to catch reptitions
-    filename = 'export_data.csv'
-    f = open(filename, "w+")
-    f.close()
     count = 0
+    print("Starting the web scraper. The output will show which department's data has been collected and will print 'No data' if there was no information available.\n")
+    time.sleep(3)
+    print("The web scraper may take around 13 minutes to run in order to prevent the scraper from being flagged as a malicious attack on the website.\n")
+    time.sleep(3)
+    print("If the web scraper stops before 'Scraper has finished running.', please wait a few minutes and try again.\n")
+    time.sleep(4)
+    print("Departments Collected:")
+
     for url in urls:
         count = count + 1
         scrape_export_data(url, unique_names_set, count)
-        time.sleep(10)
+        time.sleep(9)
+    
+    print("Scraper has finished running.")
 
 if __name__ == "__main__":
     data_scraper()
