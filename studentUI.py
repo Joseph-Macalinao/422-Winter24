@@ -79,7 +79,8 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
     else:
         my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[1]), dept=output_list[0])
         Dict1 = my_query.database_search()
-        plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
+        if Dict1 != {}:
+            plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
 
 
 def query_selected_option(query, v1, v2, v3, v4, entry):
@@ -227,6 +228,7 @@ def main():
         output_list.append(variable4.get())
         output_list.append(selected.get())
         #print(output_list) # has four variables
+
         graph_my_output_list(output_list)
         
 
