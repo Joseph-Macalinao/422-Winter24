@@ -124,6 +124,10 @@ def scrape_export_data(url, names_set, count):
             major = soup.find('div', attrs={'id': 'breadcrumb'}).find('span', {'class': 'active'}).get_text(strip=True) #find the specific major being listed
             print("{}. {}: No data".format(count, major))  #if there is no faculty to append, print "no data"
             return
+    else:
+        major = soup.find('div', attrs={'id': 'breadcrumb'}).find('span', {'class': 'active'}).get_text(strip=True) #find the specific major being listed
+        print("{}. {}: No data".format(count, major))  #if there is no faculty to append, print "no data"
+            
 
 def data_scraper():
     '''Uses built in list of urls. Scrapes each url for that specific major, all necessary faculty names, and their role in the department. Writes that information into an export_data.csv file'''
@@ -135,7 +139,7 @@ def data_scraper():
     for url in urls:
         count = count + 1
         scrape_export_data(url, unique_names_set, count)
-        time.sleep(random.randint(3,8))
+        time.sleep(10)
 
 if __name__ == "__main__":
     data_scraper()
