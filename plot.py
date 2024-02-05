@@ -17,12 +17,12 @@ def teacher_fixup(instructor_name: str) -> tuple: #the first is the fixed up nam
         if (instructor_name[i] != ","):
             return_string += instructor_name[i]
         else:
-            return_string += '\n'
-            i += 1
+            pass
     booll = False
     if(len(return_string.split(" ")) != 2):
         booll = True
         return_string = str(return_string.split(" ")[0] + return_string.split(" ")[1])
+    return_string = "  " + return_string
     return (return_string, booll)
     
 
@@ -109,7 +109,7 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
     plt.bar(x_list, y_axis, color ='green', width = 0.4,)
     #################################
     plt.xticks(rotation=90)
-    fig.subplots_adjust(bottom=0.24)
+    fig.subplots_adjust(bottom=0.4)
     #################################
     plt.xlabel(x_axis, fontsize=18)
     plt.ylabel(f"Percent of students who {percent_condition}", fontsize=13)

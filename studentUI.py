@@ -63,6 +63,8 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
 def class_input(var_name, new):
     var_name.set(new)
 
+def error_msg(msg):
+    pass
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
@@ -75,11 +77,18 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
     all_inst_vs_reg_fac = (output_list[4] == 'All Instructors')
 
     if(my_int != 0):
+        if (output_list[3] == 'None'):
+            output_list[3] = 0
         my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[3]), dept=output_list[0])
         print("my query's dept = ", my_query.dept)
         Dict1 = my_query.database_search()
         plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[3]), output_list[0])
     else:
+        try: 
+            output_list[1] = int(output_list[1])
+        except:
+            print("Cannot search for this class, as it is not an integer!")
+            return
         my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[1]), dept=output_list[0])
         Dict1 = my_query.database_search()
         if Dict1 != {}:
@@ -97,7 +106,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     deptframe.configure(bg="white")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
     tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "Computer Tech", "Computer Science", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
+    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
 
     # crn type input
     crnframe = Frame(root)
