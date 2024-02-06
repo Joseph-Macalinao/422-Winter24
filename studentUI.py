@@ -64,12 +64,15 @@ def class_input(var_name, new):
     var_name.set(new)
 
 def error_msg(msg):
-    error = tk.Tk()
-    error.title("error msg")
-    error.geometry("300x200")
-    error.resizable(False,False)
-    err_msg = tk.Label(error, text=msg)
-    err_msg.pack()
+    err = tk.Toplevel()
+    err.geometry("500x250")
+    err.backGroundImage=PhotoImage(file="backgroundcopy.png")
+    err.backGroundImageLabel=Label(err, image=err.backGroundImage)
+    err.backGroundImageLabel.place(x=0, y=0)
+    err.wm_title("Error Msg")
+    l = tk.Label(err, text=msg, font=("Bold 16"), fg="black")
+    l.configure(bg="gray92")
+    l.place(x=100, y=100)
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
@@ -101,6 +104,8 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
         Dict1 = my_query.database_search()
         if Dict1 != {}:
             plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
+        if Dict1 == {}:
+            error_msg("ERROR: Class not found.\n Check class input and try again.")
 
 
 def query_selected_option(query, v1, v2, v3, v4, entry):
