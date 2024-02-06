@@ -151,7 +151,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     deptframe.configure(bg="white")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
     tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Biology", "Chemistry", "Computer Tech", "Computer Science", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
+    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Biology", "Chemistry", "Computer Tech", "Computer Science", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Neuroscience", "Physics", "Psychology"])
 
     # crn type input
     crnframe = Frame(root)
