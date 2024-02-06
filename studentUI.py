@@ -102,7 +102,6 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
                         "Neuroscience": "NEUR"}
 
     output_list[0] = class_conversion[output_list[0]]
-    #print("-->", output_list) # has 5 variables
 
     #NOTE - have most of the classes but need to check environmental science and the rest of them. also find how to do "MACS"
     my_int = ["Specific Class", "Department", "Department Level by Teacher", "Department Level by Class"].index(output_list[5])
@@ -113,9 +112,7 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
         if (output_list[3] == 'None'):
             output_list[3] = 0
             
-        #print("a_vs_justpass =", a_vs_justpass)
         my_query = Query(my_int, all_inst_vs_reg_fac, a_vs_justpass, class_level = int(output_list[3]), dept=output_list[0])
-        #print("my query's dept = ", my_query.dept)
         Dict1 = my_query.database_search()
         plotter(my_int, all_inst_vs_reg_fac, a_vs_justpass, Dict1, int(output_list[3]), output_list[0])
     else:
@@ -145,7 +142,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     graphical representation
     '''
     # canvas
-    root.canvas=Canvas(root, width=580, height=210) # was width=650, height=450
+    root.canvas=Canvas(root, width=580, height=210)
     root.canvas.configure(bg="white")
     root.canvas.place(x=340, y=270)
     # dept frame input
@@ -180,8 +177,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     tmp_item = tk.Text(distframe, height=0, width=26, font=('Bold', 17), bg="white", fg='black',highlightthickness = 0, borderwidth=0)
     tmp2 = name_dropdown_input(tmp_item, tk, distframe, v2, "A or Passing Distribution", ["A distribution", "Pass distribution"])
 
-    # level input
-    
+    # level input  
     levelframe = Frame(root)
     levelframe.place(x=360, y=400)
     levelframe.configure(bg="white")
@@ -227,7 +223,6 @@ def main():
     root.geometry("1200x750")
     root.resizable(False,False)
 
-
     variable1 = tk.StringVar(root)
     variable1.set("None")
     variable2 = tk.StringVar(root)
@@ -239,7 +234,6 @@ def main():
     crnEnter = tk.StringVar(root)
     crnEnter.set("None")
 
-
     #query type selection
     variable5 = tk.StringVar(root)
     variable5.set("None")
@@ -247,7 +241,6 @@ def main():
     # lists of optionmenus
     level_list = ["None", "100", "200", "300", "400"]
     
-
     # background :3
     root.backGroundImage=PhotoImage(file="background.png")
     root.backGroundImageLabel=Label(root, image=root.backGroundImage)
@@ -264,7 +257,6 @@ def main():
     title = tk.Label(root, text="EasyA", font=("Bold 40"), bg="gray92", fg='black')
     title.place(x=550, y=160)
 
-
     #query selection
     query_selection = Frame(root)
     query_selection.place(x=360,y=232)
@@ -280,8 +272,7 @@ def main():
     #button to "lock in" class filters
     query_decide = tk.Button(root, bg='green', text="✅", command=selection)
     query_decide.place(x=895, y=230)
-
-    
+ 
     # output of clicking button ~ leading to a graphical repr of cladd data
     def output():
         output_list = []
@@ -291,12 +282,8 @@ def main():
         output_list.append(variable3.get())
         output_list.append(variable4.get())
         output_list.append(selected.get())
-        #print(output_list) # has four variables
-
         graph_my_output_list(output_list)
         
-
-
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
     enterButton.place(x=650, y=500)
     
