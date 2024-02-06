@@ -73,21 +73,23 @@ def error_msg(msg):
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
     
-    print("-->", output_list) # has 5 variables
+    #print("-->", output_list) # has 5 variables
 
     #NOTE - have most of the classes but need to check environmental science and the rest of them. also find how to do "MACS"
     class_conversion = {"Biology": "BI", "Chemistry": "CH", "Computer Tech": "CIT", "Computer Science": "CIS", "Data Science": "DSCI", "Environment Studies": "ENVS", "Human Physiology":"HPHY", "Mathematics": "MATH", "Neuroscience": "NEUR"}
     my_int = ["Specific Class", "Department", "Department Level by Teacher", "Department Level by Class"].index(output_list[5])
-    a_vs_justpass = (output_list[2] == 'A distribution')
-    all_inst_vs_reg_fac = (output_list[4] == 'All Instructors')
+    a_vs_justpass = bool(output_list[2] == 'A distribution')
+    all_inst_vs_reg_fac = bool(output_list[4] == 'All Instructors')
 
     if(my_int != 0):
         if (output_list[3] == 'None'):
             output_list[3] = 0
-        my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[3]), dept=output_list[0])
-        print("my query's dept = ", my_query.dept)
+            if 
+        #print("a_vs_justpass =", a_vs_justpass)
+        my_query = Query(my_int, all_inst_vs_reg_fac, a_vs_justpass, class_level = int(output_list[3]), dept=output_list[0])
+        #print("my query's dept = ", my_query.dept)
         Dict1 = my_query.database_search()
-        plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[3]), output_list[0])
+        plotter(my_int, all_inst_vs_reg_fac, a_vs_justpass, Dict1, int(output_list[3]), output_list[0])
     else:
         try: 
             output_list[1] = int(output_list[1])
@@ -98,8 +100,7 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
         Dict1 = my_query.database_search()
         if Dict1 != {}:
             plotter(my_int, a_vs_justpass, all_inst_vs_reg_fac, Dict1, int(output_list[1]), output_list[0])
-        elif Dict1 == {}:
-            error_msg("Class Data Not in Database. \nCheck query filters and try again")
+
 
 def query_selected_option(query, v1, v2, v3, v4, entry):
     # canvas
