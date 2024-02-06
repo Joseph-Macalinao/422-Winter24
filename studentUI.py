@@ -231,7 +231,7 @@ def main():
     adminButton.place(x=40, y=40)
 
     # title label 
-    title = tk.Label(root, text="easyA", font=("Bold 40"), bg="gray92", fg='black')
+    title = tk.Label(root, text="EasyA", font=("Bold 40"), bg="gray92", fg='black')
     title.place(x=550, y=160)
 
 
