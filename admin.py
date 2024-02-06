@@ -89,6 +89,7 @@ def create_json_data(initial_data_bank):
 
     return
     """
+    counter = 0 #this counter will be used to keep track of how many name discrepancies (to do with middle names vs. intitials vs. no middle name) are found!
 
     web_data = "export_data.csv" #CSV file
     primary_dict1 = {} #dict that will hold .js data
@@ -131,21 +132,20 @@ def create_json_data(initial_data_bank):
         for courses in course_data: #for each course of this specific class
             JS_name = courses["instructor"]
             new_name = rearrange_name(JS_name) #rearrange the name to match CSV file
+            if (len(new_name.split(" ")) != 2):
+                counter += 1 #if there exists a middle name, there exists a discrepancy! 
             if new_name in regular_faculty and new_name not in department_database[department_code]["Regular_Faculty"]: #check if name matches CSV and isn't already in list 
                 department_database[department_code]["Regular_Faculty"].append(new_name) #add faculty name to regular faculty
 
     print("Adding JSON data to 'result.json' file.")
     with open('result.json', 'w') as fp: #dump the JSON formatted dictionary into a JSON file
         json.dump(department_database, fp, indent= 1)
+    print(f'{counter} discrepancies in name formatting have been found and converted to standard JSON file syntax!') #middle initials are often found in the wayback, with entire middle names in the csv. We remove middle names. 
     print("The 'result.json' file is successfully built.")
+    
     return
 
 if __name__ == "__main__":
     #scraper() #run scraper
     create_json_data(initial_data) #create JSON database
     
-
-
-
-
-
