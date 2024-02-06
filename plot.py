@@ -73,10 +73,15 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
     elif (main_request == 3):
         title = f"{class_level} Level Classes"
         x_axis = "Classes Offered"
+
+
+    sort_my_dict = [(data_to_plot[key], key) for key in  data_to_plot.keys()]
+    sort_my_dict.sort()
+    sort_my_dict.reverse()
     
     if (main_request == 3): #3 is a unique case, where the keys of the dict are CLASSES not TEACHERS
         
-        x_list = list(data_to_plot.keys())
+        x_list = [item[1] for item in sort_my_dict]
         for i, a_class in enumerate(x_list):
             if (a_class[:len(dept)] == dept):
                 x_list[i] = a_class[len(dept):] # this part just removes stuff like "CIS" if it's attatched
@@ -91,7 +96,7 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
         for rem in rem_list:
             del data_to_plot[rem]
         '''
-        x_list = list(data_to_plot.keys())
+        x_list = [item[1] for item in sort_my_dict]
         counter = 0
         for i in range(len(x_list)):
             classes_represented_int = data_to_plot[x_list[i]][1]
@@ -103,14 +108,25 @@ def plotter(main_request: int, all_instructors: bool, easyA: bool, data_to_plot:
         font = {'size': 7, 'weight': 'bold', 'family': 'serif'}
         plt.rc('font', **font)
 
-    y_axis = [stuff[0] for stuff in data_to_plot.values()]
+    y_axis = [stuff[0][0] for stuff in sort_my_dict]
         
     fig = plt.figure(figsize = (10, 6))
-    plt.bar(x_list, y_axis, color ='green', width = 0.4,)
+    if (easyA == False):
+        bars = plt.bar(x_list, y_axis, color ='#FA2A3B', width = 0.4)
+        for j in range(len(x_list)//2):
+            bars[2*j + 1].set_color('#FA2AA3')
+    else:
+        bars = plt.bar(x_list, y_axis, color ='#24C558', width = 0.4)
+        for j in range(len(x_list)//2):
+            bars[2*j + 1].set_color('#41C524')
+
+    if (main_request == 3):
+        fig.subplots_adjust(bottom=0.1)
+    else:############################
+        plt.xticks(rotation=90)
+        fig.subplots_adjust(bottom=0.4)
     #################################
-    plt.xticks(rotation=90)
-    fig.subplots_adjust(bottom=0.4)
-    #################################
+    
     plt.xlabel(x_axis, fontsize=18)
     plt.ylabel(f"Percent of students who {percent_condition}", fontsize=13)
     plt.title(title, fontsize=20, weight='bold')
