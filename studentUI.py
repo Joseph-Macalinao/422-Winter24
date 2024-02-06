@@ -61,9 +61,21 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
     return var_output
 
 def class_input(var_name, new):
+    '''
+    aux function to help set StringVar with the .Entry widget from Tkinter
+    var_name - String Var - holder for "new" text
+    new - str - text for StringVar to be .set() with
+
+    uses Tkinter .set() function to provide text to StringVar provided
+    '''
     var_name.set(new)
 
 def error_msg(msg):
+    '''
+    pop out for bad class request 
+    
+    msg - str - Message for the error window to show
+    '''
     err = tk.Toplevel()
     err.geometry("500x250")
     err.backGroundImage=PhotoImage(file="backgroundcopy.png")
@@ -75,6 +87,10 @@ def error_msg(msg):
     l.place(x=100, y=100)
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
+    '''
+    Graphs data from output_list using Matplotlib
+
+    '''
     class_conversion = {"Biology": "BI",
                         "Chemistry": "CH",
                         "Computer Tech": "CIT",
@@ -118,6 +134,16 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
 
 
 def query_selected_option(query, v1, v2, v3, v4, entry):
+    '''
+    Aux function to enter filtered data for classes
+    lower function chosen to be .set() values for v1-v4
+
+    v1-v4 - StringVar - holders for StringVar from Tkinter library dropdowns
+    entry - StringVar - holder for .Entry widget from Tkinter
+
+    output - after class filter has been entered, informatin is ".set()" for 
+    graphical representation
+    '''
     # canvas
     root.canvas=Canvas(root, width=580, height=210) # was width=650, height=450
     root.canvas.configure(bg="white")
@@ -177,6 +203,10 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
 
     #setting globals to be able to .get() later on
     def selectQuery():
+        '''
+        aux function to .set() variable1-variable4 with dropdown and Entry filters
+        for classes
+        '''
         class_input(entry, crn_entry.get())
         #print(crnEnter)
         variable1.set(tmp1)
