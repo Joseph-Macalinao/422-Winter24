@@ -17,7 +17,7 @@ depts = {
 "AAAP": "Historic Preservation",
 "AAD": "Arts and Administration",
 "ACTG": "Accounting",
-"AEIS": "Academic English for International Students",
+"AEIS": "Academic Eng for Intl Students",
 "AFR": "African Studies",
 "AIM": "Applied Information Management",
 "ANTH": "Anthropology",
