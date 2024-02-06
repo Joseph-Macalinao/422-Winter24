@@ -11,6 +11,123 @@ from adminUI import adminView
 from query_handler import *
 from plot import *
 
+depts = {
+"AA" : "Allied Arts", 
+"AAA": "Architecture and Allied Arts",
+"AAAP": "Historic Preservation",
+"AAD": "Arts and Administration",
+"ACTG": "Accounting",
+"AEIS": "Academic English for International Students",
+"AFR": "African Studies",
+"AIM": "Applied Information Management",
+"ANTH": "Anthropology",
+"ARB": "Arabic",
+"ARCH": "Architecture",
+"ARH": "Art History", 
+"ART": "Art",
+"ARTC": "Ceramics",
+"ARTD":  "Art & Technology",
+"ARTF": "Fibers",
+"ARTM": "Metalsmithing & Jewelry",
+"ARTO": "Photography",
+"ARTP": "Painting",
+"ARTR": "Printmaking", 
+"ARTS": "Sculpture",
+"ASIA": "Asian Studies",
+"ASL": "American Sign Language",
+"ASTR": "Astronomy",
+"BA": "Business Administration",
+"BE": "Business Environment", 
+"BI": "Biology",
+"CAS": "College of Arts & Sciences",
+"CDS": "Communication Disorders & Sci",
+"CFT": "Couples & Family Therapy", 
+"CH": "Chemistry",
+"CHN": "Chinese",
+"CINE": "Cinema Studies",
+"CIS": "Computer & Information Science",
+"CIT": "Computer Information Technology",
+"CLAS":  "Classics",
+"COLT": "Comparative Literature",
+"CPSY": "Counseling Psychology",
+"CRES": "Conflict & Dispute Resolution",
+"CRWR": "Creative Writing",
+"DAN": "Dance Professional",
+"DANC": "Dance Activity",
+"DSC": "Data Science",
+"EALL": "East Asian Lang & Literature",
+"EC": "Economics",
+"EDLD": "Educational Leadership",
+"EDST": "Educational Studies",
+"EDUC": "Education",
+"ENG": "English",
+"ENVS": "Environmental Studies",
+"ES": "Ethnic Studies",
+"FHS": "Family & Human Services",
+"FIN": "Finance",
+"FLR": "Folklore",
+"FR":  "French",
+"GEOG": "Geography",
+"GEOL":  "Geology",
+"GER": "German",
+"GRK": "Greek",
+"HBRW": "Hebrew",
+"HC": "Honors College", 
+"HIST": "History",
+"HPHY": "Human Physiology",
+"HUM": "Humanities",
+"IARC": "Interior Architecture",
+"INTL": "International Studies",
+"ITAL": "Italian",
+"J": "Journalism",
+"JDST": "Judaic Studies", 
+"JPN": "Japanese",
+"KRN": "Korean",
+"LA": "Landscape Architecture",
+"LAS": "Latin American Studies",
+"LAT": "Latin",
+"LAW": "Law",
+"LIB": "Library",
+"LING": "Linguistics",
+"LT": "Language Teaching",
+"MATH": "Mathematics",
+"MDVL": "Medieval Studies",
+"MGMT": "Management",
+"MIL": "Military Science",
+"MKTG": "Marketing",
+"MUE": "Music :Education",
+"MUJ": "Music Jazz Studies",
+"MUP": "Music Performance",
+"MUS": "Music",
+"PD": "Production Design",
+"PEF": "PE Fitness",
+"PEL": "PE Leadership",
+"PEO": "PE Outdoor Pursuits",
+"PHIL": "Philosophy",
+"PHYS": "Physics",
+"PORT": "Portuguese",
+"PPPM": "Planning Public Policy Mgmt",
+"PS": "Political Science",
+"PSY": "Psychology",
+"REL": "Religious Studies",
+"RL": "Romance Languages",
+"RUSS": "Russian",
+"SBUS": "Sports Business",
+"SCAN": "Scandinavian",
+"SOC": "Sociology",
+"SPAN": "Spanish",
+"SPD": "Sports Product Design",
+"SPED": "Special Education",
+"SPSY": "School Psychology",
+"SWAH": "Swahili",
+"SWED": "Swedish",
+"TA": "Theater Arts",
+"WGS": "Women’s & Gender Studies",
+"WR": "Writing"
+}
+
+
+
 root = tk.Tk()
 global variable1
 variable1 = tk.StringVar(root)
@@ -91,16 +208,11 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
     Graphs data from output_list using Matplotlib
 
     '''
-    class_conversion = {"Biology": "BI",
-                        "Chemistry": "CH",
-                        "Computer Tech": "CIT",
-                        "Computer Science": "CIS",
-                        "Data Science": "DSCI",
-                        "Environment Studies": "ENVS",
-                        "Human Physiology":"HPHY",
-                        "Mathematics": "MATH",
-                        "Neuroscience": "NEUR"}
+    class_conversion = {}
 
+    for key in depts.keys():
+        class_conversion[f'{key} : {depts[key]}'] = key
+    class_conversion['None'] = 'None'
     output_list[0] = class_conversion[output_list[0]]
 
     #NOTE - have most of the classes but need to check environmental science and the rest of them. also find how to do "MACS"
@@ -151,7 +263,11 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     deptframe.configure(bg="white")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
     tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Biology", "Chemistry", "Computer Tech", "Computer Science", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Neuroscience", "Physics", "Psychology"])
+
+    a_list = []
+    for key in depts.keys():
+        a_list.append(f'{key} : {depts[key]}')
+    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", a_list)
 
     # crn type input
     crnframe = Frame(root)
