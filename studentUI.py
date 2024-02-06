@@ -94,6 +94,7 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
         try: 
             output_list[1] = int(output_list[1])
         except:
+            error_msg("Can't search for this class,\nas it is not an integer!")
             print("Cannot search for this class, as it is not an integer!")
             return
         my_query = Query(my_int, a_vs_justpass, all_inst_vs_reg_fac, class_level = int(output_list[1]), dept=output_list[0])
