@@ -131,9 +131,9 @@ def create_json_data(initial_data_bank):
 
         for courses in course_data: #for each course of this specific class
             JS_name = courses["instructor"]
-            new_name = rearrange_name(JS_name) #rearrange the name to match CSV file
-            if (len(new_name.split(" ")) != 2):
+            if (len(JS_name.split()) != 2 or '.' in JS_name):
                 counter += 1 #if there exists a middle name, there exists a discrepancy! 
+            new_name = rearrange_name(JS_name) #rearrange the name to match CSV file
             if new_name in regular_faculty and new_name not in department_database[department_code]["Regular_Faculty"]: #check if name matches CSV and isn't already in list 
                 department_database[department_code]["Regular_Faculty"].append(new_name) #add faculty name to regular faculty
 
