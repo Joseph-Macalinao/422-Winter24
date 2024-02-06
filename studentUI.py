@@ -163,7 +163,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     #setting globals to be able to .get() later on
     def selectQuery():
         class_input(entry, crn_entry.get())
-        print(crnEnter)
+        #print(crnEnter)
         variable1.set(tmp1)
         variable2.set(tmp2)
         variable3.set(tmp3)
