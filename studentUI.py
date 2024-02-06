@@ -254,14 +254,14 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     graphical representation
     '''
     # canvas
-    root.canvas=Canvas(root, width=580, height=210)
+    root.canvas=Canvas(root, width=660, height=210)
     root.canvas.configure(bg="white")
     root.canvas.place(x=340, y=270)
     # dept frame input
     deptframe = Frame(root) 
     deptframe.place(x=360, y=288)
     deptframe.configure(bg="white")
-    tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
+    tmp_item = tk.Text(deptframe, height=0, width=19, font=('Bold', 17))
     tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
 
     a_list = []
