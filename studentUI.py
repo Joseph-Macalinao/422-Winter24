@@ -54,7 +54,7 @@ def name_dropdown_input(new_item, curr_root, frame_name, var_name, input_text, o
     new_item.config(state="disabled")
     menu_width = len(max(option_menu, key=len))
     input_enter = curr_root.OptionMenu(frame_name, var_name, *option_menu)
-    input_enter.config(font=("Bold", 17), fg='black', width=menu_width)
+    input_enter.config(font=("Bold", 17), fg='black', bg="white" ,width=menu_width)
     input_enter.pack(side=LEFT) 
     var_output = var_name
 
@@ -178,7 +178,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     selection.place(x=360, y=450)
     selection.configure(bg="white")
     final = tk.Button(root, text="Use Filters", font=('Bold 30', 20), fg='black', command=selectQuery)
-    final.place(x=470, y=500)
+    final.place(x=500, y=500)
 
 
 def main():
@@ -240,7 +240,7 @@ def main():
     
     #button to "lock in" class filters
     query_decide = tk.Button(root, bg='green', text="✅", command=selection)
-    query_decide.place(x=889, y=234)
+    query_decide.place(x=895, y=230)
 
     
     # output of clicking button ~ leading to a graphical repr of cladd data
@@ -259,7 +259,7 @@ def main():
 
 
     enterButton = tk.Button(root, bg='light blue', fg='black', text="Enter", font=('Bold 24'), command=output)
-    enterButton.place(x=586, y=500)
+    enterButton.place(x=650, y=500)
     
     #non tech requirement of us telling the user about the data
     acknowledgements = Label(root, text="All data coped directly from m https://emeraldmediagroup.github.io/grade-data/ in January 2024. If you do not see your class in the listings, your \"class has been redacted\". Please refer to the UO class\
