@@ -75,11 +75,20 @@ def error_msg(msg):
     l.place(x=100, y=100)
 
 def graph_my_output_list(output_list: list)-> None: #graphs the output list
-    
+    class_conversion = {"Biology": "BI",
+                        "Chemistry": "CH",
+                        "Computer Tech": "CIT",
+                        "Computer Science": "CIS",
+                        "Data Science": "DSCI",
+                        "Environment Studies": "ENVS",
+                        "Human Physiology":"HPHY",
+                        "Mathematics": "MATH",
+                        "Neuroscience": "NEUR"}
+
+    output_list[0] = class_conversion[output_list[0]]
     #print("-->", output_list) # has 5 variables
 
     #NOTE - have most of the classes but need to check environmental science and the rest of them. also find how to do "MACS"
-    class_conversion = {"Biology": "BI", "Chemistry": "CH", "Computer Tech": "CIT", "Computer Science": "CIS", "Data Science": "DSCI", "Environment Studies": "ENVS", "Human Physiology":"HPHY", "Mathematics": "MATH", "Neuroscience": "NEUR"}
     my_int = ["Specific Class", "Department", "Department Level by Teacher", "Department Level by Class"].index(output_list[5])
     a_vs_justpass = bool(output_list[2] == 'A distribution')
     all_inst_vs_reg_fac = bool(output_list[4] == 'All Instructors')
@@ -119,7 +128,7 @@ def query_selected_option(query, v1, v2, v3, v4, entry):
     deptframe.configure(bg="white")
     tmp_item = tk.Text(deptframe, height=0, width=21, font=('Bold', 17))
     tmp_item.configure(bg="white", fg='black',highlightthickness = 0, borderwidth=0)
-    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "CIT", "CIS", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
+    tmp1 = name_dropdown_input(tmp_item, tk, deptframe, v1, "Please Enter Department", ["Biochemistry", "Bioengineering", "Biology", "Chemistry", "Computer Tech", "Computer Science", "Data Science", "Environmental Studies", "Human Physiology", "Mathematics", "MACS", "Multidiscinary Science", "Neuroscience", "Physics", "Psychology"])
 
     # crn type input
     crnframe = Frame(root)
