@@ -59,7 +59,9 @@ def openNewFile():
             l = tk.Label(err, text="Inputted '" + os.path.basename(file_path)+"'", font=("Bold 16"))
             l.configure(bg="gray92")
             l.place(x=10, y=10)
+            AdminMod.create_json_data("gradedata2.js")
             alreadyin = True
+            
 def add_button():
     # if there is a .js file already
     if (is_file == True or alreadyin == True) or (is_file == True and alreadyin == True):
