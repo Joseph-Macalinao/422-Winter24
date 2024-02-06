@@ -84,7 +84,7 @@ def graph_my_output_list(output_list: list)-> None: #graphs the output list
     if(my_int != 0):
         if (output_list[3] == 'None'):
             output_list[3] = 0
-            if 
+            
         #print("a_vs_justpass =", a_vs_justpass)
         my_query = Query(my_int, all_inst_vs_reg_fac, a_vs_justpass, class_level = int(output_list[3]), dept=output_list[0])
         #print("my query's dept = ", my_query.dept)
